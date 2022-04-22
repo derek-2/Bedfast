@@ -1,7 +1,5 @@
 class Api::UsersController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
-
   def create
     @user = User.new(user_params)
     # debugger
@@ -9,12 +7,24 @@ class Api::UsersController < ApplicationController
       login(@user)
       render :show
     else
-      render json: @users.errors.full_messages, status: 422
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
+  def destroy
+    debugger
+    # @user = User.find(params[:user][:id])
+    # if @user && @user.destroy
+    #   render json: {message: 'successfully deleted account'}
+    # else
+    #   render json: {message: '5000 level error'}
+    # end
+    # current_user.destroy
+
+  end
+
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:id, :first_name, :last_name, :email, :password)
   end
 
 end
