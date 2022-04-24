@@ -5,7 +5,6 @@ const SessionsReducer = (state={}, action) => {
     
     switch(action.type){
         case RECEIVE_CURRENT_USER:
-            debugger;
             nextState.currentUserId = action.currentUser.id;
             return nextState;
         case LOGOUT_CURRENT_USER:
