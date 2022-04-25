@@ -10,7 +10,8 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   submitForm: (user) => dispatch(login(user)),
   fetchUsers: () => dispatch(fetchUsers()),
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  login: (user) => dispatch(login(user))
 })
 
 export default connect(mapState, mapDispatch)(SessionFormModal);

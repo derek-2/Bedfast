@@ -32,12 +32,12 @@
 
 .session-modal {
   font-family: arial;
-  margin: 25px;
-
+  margin: 25px 30%;
   outline: solid 1px black;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .session-btn {
@@ -53,7 +53,8 @@
 }
 
 .session-label {
-  display: flex;
-  // width: 150px;
+  // display: flex;
+  display: block;
+  block-size: auto;
   // border: black solid 1px;
 }

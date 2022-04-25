@@ -10,8 +10,8 @@ const App = (props) => (
         <div className='modals'>
             <NavBarContainer />
         </div>
-        <Route path='/users/new' component={SignUpModalContainer}/>
-        <Route path='/session/new' component={LoginModalCotainer}/>
+        <Route path='/signup' component={SignUpModalContainer}/>
+        <Route path='/login' component={LoginModalCotainer}/>
 
 
     </div>

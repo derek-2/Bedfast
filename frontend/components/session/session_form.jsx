@@ -11,6 +11,7 @@ export default class SessionFormModal extends React.Component{
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,16 @@ export default class SessionFormModal extends React.Component{
     this.props.submitForm(this.state);
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    this.props.login({
+      email: 'Demo',
+      fname: 'Demo',
+      lname: 'Demo',
+      password: 'password'
+    })
+  }
+
   handleLogout(e){
     e.preventDefault();
     this.props.logout();
@@ -35,7 +46,7 @@ export default class SessionFormModal extends React.Component{
     const login='';
 
     return (
-      <div id='session-modal' className='session-modal'>
+      <div className='session-modal'>
         <form onSubmit={this.handleSubmit}>
         <h1>{this.props.formType}</h1>
           <label className='session-label'>Email:
@@ -55,6 +66,7 @@ export default class SessionFormModal extends React.Component{
           </label>
           <br />
           <input className='session-btn' type="submit" value={this.props.formType} />
+          <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
         </form>
       </div>
     )

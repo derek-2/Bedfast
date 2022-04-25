@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { signUp, fetchUsers, logout } from '../../actions/session_actions';
+import { signUp, fetchUsers, logout, login } from '../../actions/session_actions';
 import SessionFormModal from './session_form';
 
 const mapState = (state) => {
@@ -14,7 +14,8 @@ const mapDispatch = dispatch => {
     return ({
         submitForm: user => dispatch(signUp(user)),
         fetchUsers: () => dispatch(fetchUsers()),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        login: (user) => dispatch(login(user))
 
     })
 }
