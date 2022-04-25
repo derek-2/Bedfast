@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
-  debugger;
   return (
-    <>
+    <div id='main'>
       <div className="topnav">
-        <Link to={'/'}>Home</Link>
+        <Link to={'/'}>AirBnB</Link>
         <div className="topnav-right">
           {props.currentUser ? <button onClick={props.logout}>Logout</button> : <></>}
           <Link to={'/session/new'}>Login</Link> :
@@ -14,7 +13,7 @@ const NavBar = (props) => {
           <a href="/">Search</a>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

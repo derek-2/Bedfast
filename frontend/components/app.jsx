@@ -7,7 +7,9 @@ import { Route, Switch, Redirect } from 'react-router';
 
 const App = (props) => (
     <div>
-        <NavBarContainer />
+        <div className='modals'>
+            <NavBarContainer />
+        </div>
         <Route path='/users/new' component={SignUpModalContainer}/>
         <Route path='/session/new' component={LoginModalCotainer}/>
 

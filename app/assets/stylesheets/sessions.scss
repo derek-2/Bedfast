@@ -29,3 +29,31 @@
 .topnav-right {
   float: right;
 }
+
+.session-modal {
+  font-family: arial;
+  margin: 25px;
+
+  outline: solid 1px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.session-btn {
+  background-color: #DC0F63;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+}
+
+.session-label {
+  display: flex;
+  // width: 150px;
+  // border: black solid 1px;
+}
