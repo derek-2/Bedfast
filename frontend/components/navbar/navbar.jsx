@@ -1,20 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = (props) => {
-  return (
-    <div>
-      <div className="topnav">
-        <Link to={'/'}>Bedfast</Link>
-        <div className="topnav-right">
-          {props.currentUser ? <button onClick={props.logout}>Logout</button> : <></>}
-          <Link to={'/login'}>Login</Link> :
-          <Link to={'/signup'}>Sign Up</Link>
-          <a href="/">Search</a>
+// const NavBar = (props) => {
+//   return (
+//     <div>
+//       <div className="topnav">
+//         <Link to={'/'}>Bedfast</Link>
+//         <div className="topnav-right">
+//           {props.currentUser ? <button onClick={props.logout}>Logout</button> : <></>}
+//           <Link to={'/login'}>Login</Link> :
+//           <Link to={'/signup'}>Sign Up</Link>
+//           <a href="/">Search</a>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+export default class NavBar extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleLogout= this.handleLogout.bind(this);
+  }
+
+  handleLogout(){
+    this.props.logout();
+    debugger;
+    // this.props.history.push('/');
+  }
+
+  render(){
+    return (
+      <div>
+        <div className="topnav">
+          <Link to={'/'}>Bedfast</Link>
+          <div className="topnav-right">
+            {this.props.currentUser ? <button onClick={this.handleLogout}>Logout</button> : <></>}
+            <Link to={'/login'}>Login</Link> :
+            <Link to={'/signup'}>Sign Up</Link>
+            <a href="/">Search</a>
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
+    )}
 
-export default NavBar;
+}

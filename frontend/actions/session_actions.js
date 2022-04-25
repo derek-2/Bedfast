@@ -26,17 +26,17 @@ export const receiveUsers = (users) => ({
 })
 
 export const login = user => dispatch => (
-    SessionApiUtil.login(user).then(user => dispatch(receiveCurrentUser(user)))
+    SessionApiUtil.login(user).then(user => dispatch(receiveCurrentUser(user)), err => dispatch(receiveSessionErrors(err.responseJSON)))
 )
 
 export const logout = () => dispatch => (
-    SessionApiUtil.logout().then(res => dispatch(logoutCurrentUser()))
+    SessionApiUtil.logout().then(res => dispatch(logoutCurrentUser()), err => dispatch(receiveSessionErrors(err.responseJSON)))
 )
 
 export const signUp = user => dispatch => (
-    SessionApiUtil.signUp(user).then(user => dispatch(receiveCurrentUser(user)))
+    SessionApiUtil.signUp(user).then(user => dispatch(receiveCurrentUser(user)), err => dispatch(receiveSessionErrors(err.responseJSON)))
 )
 
 export const fetchUsers = () => dispatch => (
-    SessionApiUtil.fetchUsers().then(users => dispatch(receiveUsers(users)))
+    SessionApiUtil.fetchUsers().then(users => dispatch(receiveUsers(users)), err => dispatch(receiveSessionErrors(err.responseJSON)))
 )
