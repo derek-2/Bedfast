@@ -8,7 +8,6 @@ import {fetchUsers} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', ()=> {
   const root = document.getElementById('root');
-  const store = configureStore();
 
   window.user = {fname: 'derek', lname: 'lee', password:'password', email: 'dereklee@gmail.com'}
   window.user2 = {fname: 'eric', lname: 'eric', password:'password', email: 'ericeric@gmail.com'}
@@ -19,6 +18,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
   window.login = login;
   window.logout = logout;
   window.signUp = signUp;
+
+  let preloadedState;
+  if (window.currentUser) {
+    preloadedState = {
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser },
+        session: { currentUserId: window.currentUser.id }
+      }
+    };
+    // delete window.currentUser;
+  }
+  const store = configureStore(preloadedState);
 
   window.store = store.getState();
   window.dispatch = store.dispatch;
