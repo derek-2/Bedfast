@@ -16,7 +16,6 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
-    # debugger
     # @user = User.find(params[:user][:id])
     # if @user && @user.destroy
     #   render json: {message: 'successfully deleted account'}

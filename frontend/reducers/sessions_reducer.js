@@ -7,7 +7,6 @@ const SessionsReducer = (state={}, action) => {
         case RECEIVE_USERS:
             return Object.assign(nextState, action.users);
         case RECEIVE_CURRENT_USER:
-            debugger;
             nextState.currentUserId = action.currentUser.id;
             return nextState;
         case LOGOUT_CURRENT_USER:
