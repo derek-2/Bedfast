@@ -1,9 +1,12 @@
 import React from 'react';
-import SignUpModal from './session/signup_container';
+import SignUpModalContainer from './session/signup_container';
+import LoginModalCotainer from './session/login_container';
+// import SessionFormModal from './session/session_form';
 
 const App = (props) => (
     <div>
-        <SignUpModal />
+        <SignUpModalContainer />
+        <LoginModalCotainer />
     </div>
 );
 

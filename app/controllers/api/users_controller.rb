@@ -1,8 +1,12 @@
 class Api::UsersController < ApplicationController
 
+  def index
+    @users = User.all
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
-    # debugger
     if @user.save
       login(@user)
       render :show
@@ -12,7 +16,7 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
-    debugger
+    # debugger
     # @user = User.find(params[:user][:id])
     # if @user && @user.destroy
     #   render json: {message: 'successfully deleted account'}

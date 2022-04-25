@@ -1,18 +1,22 @@
-import React from 'react';
 import { connect } from "react-redux";
-import { signUp } from '../../actions/session_actions';
-import SignUpModal from './signup';
+import { signUp, fetchUsers, logout } from '../../actions/session_actions';
+import SessionFormModal from './session_form';
 
 const mapState = (state) => {
     return ({
-        errors: state.errors
+        errors: state.errors,
+        users: state.users,
+        formType: 'Sign Up'
     })
 }
 
 const mapDispatch = dispatch => {
     return ({
-        signUp: user => dispatch(signUp(user))
+        submitForm: user => dispatch(signUp(user)),
+        fetchUsers: () => dispatch(fetchUsers()),
+        logout: () => dispatch(logout())
+
     })
 }
 
-export default connect(mapState, mapDispatch)(SignUpModal);
+export default connect(mapState, mapDispatch)(SessionFormModal);
