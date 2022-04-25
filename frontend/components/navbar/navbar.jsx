@@ -9,7 +9,7 @@ const NavBar = () => {
         <div className="topnav-right">
           <Link to={'/session/new'}>Login</Link>
           <Link to={'/users/new'}>Sign Up</Link>
-          <a href="#search">Search</a>
+          <a href="/">Search</a>
         </div>
       </div>
     </>
