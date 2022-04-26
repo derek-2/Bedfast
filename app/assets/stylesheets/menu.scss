@@ -1,5 +1,5 @@
 .top-right-menu{
-    display: inline-block;
+    display: none;
     position: absolute;
     right: 200px;
     top: 60px;
@@ -7,7 +7,6 @@
     border-radius: 5px;
     border: 1px solid black;
     color: black;
-    // padding: 5px 10px;
     width: 100px;
 }
 
@@ -28,4 +27,9 @@
 
 .logout-btn{
     cursor: pointer;
+    border-top: 1px black solid; 
+}
+
+.show{
+    display: inline-block;
 }

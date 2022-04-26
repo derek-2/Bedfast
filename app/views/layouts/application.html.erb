@@ -22,7 +22,6 @@
   <body>
 
   <% if current_user%>
-    <%=current_user.fname%>
     <script>
       window.currentUser = {
         id: <%= current_user.id%>,

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
 import MenuContainer from '../menu/menu_container';
+import logo from '../../../app/assets/images/airbnblogo.png';
+
 // const NavBar = (props) => {
 //   return (
 //     <div>
@@ -21,7 +23,8 @@ import MenuContainer from '../menu/menu_container';
 export default class NavBar extends React.Component {
   constructor(props){
     super(props);
-    this.handleLogout= this.handleLogout.bind(this);
+    this.handleLogout=this.handleLogout.bind(this);
+    this.toggleMenu=this.toggleMenu.bind(this);
   }
 
   handleLogout(){
@@ -29,14 +32,22 @@ export default class NavBar extends React.Component {
     // this.props.history.push('/');
   }
 
+  toggleMenu(){
+    const menu = document.getElementById('top-right-menu');
+    menu.classList.toggle('show');
+  }
+
   render(){
+    const message = this.props.currentUser ? `Hello, ${this.props.currentUser.fname}` : 'Welcome to Bedfast';
     return (
       <div id="top-nav">
-        <Link to={'/'}>Bedfast</Link>
+        <div>
+        <img id="airbnblogo" src={logo} alt="logo" />
+        <Link to={'/'}>{message}</Link>
+        </div>
         <SearchBar />
         <div id="right-nav">
-          {this.props.currentUser ? <button onClick={this.handleLogout}>Logout</button> : <></>}
-          <div className="menu-button">
+          <div onClick={this.toggleMenu} className="menu-button">
             <div className="menu-icon-item"></div>
             <div className="menu-icon-item"></div>
             <div className="menu-icon-item"></div>
