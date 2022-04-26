@@ -47,29 +47,31 @@ export default class SessionFormModal extends React.Component{
     // debugger;
     // console.log(this.props.errors);
     return (
-      <div className='session-modal'>
-        <form onSubmit={this.handleSubmit}>
-        <h1>{this.props.formType}</h1>
-          <label className='session-label'>Email:
-            <input type="text" value={this.state.email} onChange={this.update('email')} />
-          </label>
-          <br />
-          <label className='session-label'>First Name:
-            <input type="text" value={this.state.fname} onChange={this.update('fname')} />
-          </label>
-          <br />
-          <label className='session-label'>Last Name:
-            <input type="text" value={this.state.lname} onChange={this.update('lname')} />
-          </label>
-          <br />
-          <label className='session-label'>Password:
-            <input type="text" value={this.state.password} onChange={this.update('password')} />
-          </label>
-          <br />
-          {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
-          <input className='session-btn' type="submit" value={this.props.formType} />
-          <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
-        </form>
+      <div id="session-container">
+        <div className='session-modal'>
+          <form onSubmit={this.handleSubmit}>
+          <h1>{this.props.formType}</h1>
+            <label className='session-label'>Email:
+              <input type="text" value={this.state.email} onChange={this.update('email')} />
+            </label>
+            <br />
+            <label className='session-label'>First Name:
+              <input type="text" value={this.state.fname} onChange={this.update('fname')} />
+            </label>
+            <br />
+            <label className='session-label'>Last Name:
+              <input type="text" value={this.state.lname} onChange={this.update('lname')} />
+            </label>
+            <br />
+            <label className='session-label'>Password:
+              <input type="text" value={this.state.password} onChange={this.update('password')} />
+            </label>
+            <br />
+            {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
+            <input className='session-btn' type="submit" value={this.props.formType} />
+            <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
+          </form>
+        </div>
       </div>
     )
   }
