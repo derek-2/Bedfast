@@ -2,10 +2,30 @@
     display: inline-block;
     position: absolute;
     right: 200px;
-    top: 50px;
+    top: 60px;
     background-color: aliceblue;
     border-radius: 5px;
     border: 1px solid black;
     color: black;
-    padding: 5px 3px;
+    // padding: 5px 10px;
+    width: 100px;
+}
+
+.top-right-menu li {
+    padding: 10px;
+}
+
+.menu-button{
+    cursor: pointer;
+}
+
+.menu-icon-item {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+.logout-btn{
+    cursor: pointer;
 }

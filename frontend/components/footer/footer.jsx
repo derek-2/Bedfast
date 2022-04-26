@@ -23,7 +23,7 @@ const Footer = () => {
                     <li className="footer-item">stuff3</li>
                 </ul>
             </div>
-            <div class="real-footer">
+            <div className="real-footer">
                 <p>© 2022 Bedfast, Inc.</p>
             </div>
         </div>

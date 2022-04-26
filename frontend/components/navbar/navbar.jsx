@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
-import Menu from '../menu/menu';
+import MenuContainer from '../menu/menu_container';
 // const NavBar = (props) => {
 //   return (
 //     <div>
@@ -26,7 +26,6 @@ export default class NavBar extends React.Component {
 
   handleLogout(){
     this.props.logout();
-    debugger;
     // this.props.history.push('/');
   }
 
@@ -37,11 +36,12 @@ export default class NavBar extends React.Component {
         <SearchBar />
         <div id="right-nav">
           {this.props.currentUser ? <button onClick={this.handleLogout}>Logout</button> : <></>}
-          <ul>
-            <li><Link to={'/login'}>Login</Link></li>
-            <li><Link to={'/signup'}>Sign Up</Link></li>
-          </ul>
-          <Menu />
+          <div className="menu-button">
+            <div className="menu-icon-item"></div>
+            <div className="menu-icon-item"></div>
+            <div className="menu-icon-item"></div>
+          </div>
+          <MenuContainer />
         </div>
       </div>
     )}
