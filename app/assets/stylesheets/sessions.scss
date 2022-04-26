@@ -2,42 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
+#top-half{
+  background-color: black;
   color: white;
 }
+// .topnav {
+//   overflow: hidden;
+//   background-color: #333;
+// }
 
-.topnav-right {
-  float: right;
+// .topnav a {
+//   float: left;
+//   color: #f2f2f2;
+//   text-align: center;
+//   padding: 14px 16px;
+//   text-decoration: none;
+//   font-size: 17px;
+// }
+
+#topnav a:hover {
+  // background-color: yellow;
+  // color: yellow;
 }
 
+// .topnav a.active {
+//   background-color: #04AA6D;
+//   color: white;
+// }
+
+// .topnav-right {
+//   float: right;
+// }
+
 .session-modal {
+  display: flex;
   font-family: arial;
-  margin: 25px 30%;
+  // margin: 25px 30%;
   outline: solid 1px black;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
+  position: fixed;
+  left: 42%;
+  top: 5%;
+  background-color: white;
+  border-radius: 15px;
+  color: black;
+}
+
+label {
+  display: flex;
 }
 
 .session-btn {
@@ -53,9 +68,14 @@
   cursor: pointer;
 }
 
-.session-label {
-  // display: flex;
-  display: block;
-  block-size: auto;
-  // border: black solid 1px;
+img{
+  width: 100%;
+}
+
+#top-nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  align-items: center;
 }

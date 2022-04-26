@@ -108,6 +108,12 @@ video {
   vertical-align: baseline;
 }
 
+/* i added this*/
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -150,9 +156,9 @@ table {
   border-spacing: 0;
 }
 
-body {
+/* body {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
+} */
 
 h1 {
   font-size: 25px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from '../searchbar/search_bar';
 
 // const NavBar = (props) => {
 //   return (
@@ -31,17 +32,17 @@ export default class NavBar extends React.Component {
 
   render(){
     return (
-      <div>
-        <div className="topnav">
-          <Link to={'/'}>Bedfast</Link>
-          <div className="topnav-right">
-            {this.props.currentUser ? <button onClick={this.handleLogout}>Logout</button> : <></>}
-            <Link to={'/login'}>Login</Link> :
-            <Link to={'/signup'}>Sign Up</Link>
-            <a href="/">Search</a>
-          </div>
+      <div id="top-nav">
+        <Link to={'/'}>Bedfast</Link>
+        <SearchBar />
+        <div id="right-nav">
+          {this.props.currentUser ? <button onClick={this.handleLogout}>Logout</button> : <></>}
+          <ul>
+            <li><Link to={'/login'}>Login</Link></li>
+            <li><Link to={'/signup'}>Sign Up</Link></li>
+          </ul>
         </div>
       </div>
     )}
-
+      /// will ahve to move login/signup buttons to modal component
 }

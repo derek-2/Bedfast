@@ -1,0 +1,28 @@
+.footer {
+    background-color: #F7F7F7;
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+}
+
+.footer-label{
+    font-weight: 900;
+    // font-weight: bolder;
+}
+
+.real-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border-top: .5px solid gray;
+}
+
+.real-footer:after {
+    position: absolute;
+    content: '';
+    border-bottom: 1px solid #d2d7da;
+    width: 70%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    left: 50%;
+  }

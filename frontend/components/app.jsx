@@ -5,16 +5,22 @@ import NavBarContainer from './navbar/navbar_container';
 import { Route, Switch, Redirect } from 'react-router';
 // import SessionFormModal from './session/session_form';
 import background from '../../app/assets/images/splash.jpg';
+import Footer from './footer/footer';
 
 const App = (props) => (
     <div>
-        <div className='modals'>
-            <NavBarContainer />
+        <div id="top-half">
+            <div className='modals'>
+                <NavBarContainer />
+            </div>
+            <img src={background} alt="splash" />
+            <Route path='/signup' component={SignUpModalContainer}/>
+            <Route path='/login' component={LoginModalCotainer}/>
         </div>
-        <img src={background} alt="splash" />
+        <div id="bottom-half">
 
-        <Route path='/signup' component={SignUpModalContainer}/>
-        <Route path='/login' component={LoginModalCotainer}/>
+        <Footer />
+        </div>
     </div>
 );
 
