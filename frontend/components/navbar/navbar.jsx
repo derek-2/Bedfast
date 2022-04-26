@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
 import MenuContainer from '../menu/menu_container';
 import logo from '../../../app/assets/images/logo.png';
+import profilepic from '../../../app/assets/images/default_profile_pic.png';
 
 // const NavBar = (props) => {
 //   return (
@@ -28,6 +29,8 @@ export default class NavBar extends React.Component {
   }
 
   handleLogout(){
+    const menu = document.getElementById('top-right-menu');
+    menu.classList.remove('show');
     this.props.logout();
     // this.props.history.push('/');
   }
@@ -50,6 +53,7 @@ export default class NavBar extends React.Component {
             <div className="menu-icon-item"></div>
             <div className="menu-icon-item"></div>
           </div>
+          <img className="menu-button" onClick={this.toggleMenu} src={profilepic} alt="profile-pic" />
           <MenuContainer />
         </div>
       </div>

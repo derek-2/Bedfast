@@ -23,13 +23,16 @@ export default class SessionFormModal extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
+    const menu = document.getElementById('top-right-menu');
+    menu.classList.remove('show');
     this.props.submitForm(this.state);
     // this.props.history.push('/');
     //commented this out b/c with authroutes, it shoul;d auto redirect
   }
 
-  demoLogin(e) {
-    e.preventDefault();
+  demoLogin() {
+    const menu = document.getElementById('top-right-menu');
+    menu.classList.remove('show');
     this.props.login({
       email: 'Demo',
       fname: 'Demo',
@@ -40,9 +43,9 @@ export default class SessionFormModal extends React.Component{
   }
 
   render() {
-    const login='';
-    debugger;
-    console.log(this.props.errors);
+    // const login='';
+    // debugger;
+    // console.log(this.props.errors);
     return (
       <div className='session-modal'>
         <form onSubmit={this.handleSubmit}>

@@ -2,9 +2,11 @@ import React from 'react';
 import SignUpModalContainer from './session/signup_container';
 import LoginModalCotainer from './session/login_container';
 import NavBarContainer from './navbar/navbar_container';
-import { Route, Switch, Redirect } from 'react-router';
 import background from '../../app/assets/images/splash.jpg';
 import Footer from './footer/footer';
+import {AuthRoute} from '../util/route_util';
+
+import { Route, Switch, Redirect } from 'react-router';
 
 const App = (props) => (
     <div id="main">
@@ -13,8 +15,8 @@ const App = (props) => (
                 <NavBarContainer />
             </div>
             <img className='background' src={background} alt="splash" />
-            <Route path='/signup' component={SignUpModalContainer}/>
-            <Route path='/login' component={LoginModalCotainer}/>
+            <AuthRoute path='/signup' component={SignUpModalContainer}/>
+            <AuthRoute path='/login' component={LoginModalCotainer}/>
         </div>
         <div id="bottom-half">
 

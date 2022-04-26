@@ -81,7 +81,15 @@ label {
   padding-bottom: 8px;
 }
 
-#airbnblogo{
+#right-nav{
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+  height: 30px;
+}
 
-
+#right-nav img {
+  border-radius: 50%;
+  padding-left: 5px;
 }
