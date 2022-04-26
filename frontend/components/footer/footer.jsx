@@ -2,19 +2,25 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
+        <div className="main-footer">
             <div className="footer">
                 <ul>
-                    <li className="footer-label">Links</li>
-                    <li><a href="https://github.com/derek-2">Github</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
+                    <li className="footer-label footer-item">Links</li>
+                    <li className="footer-item"><a href="https://github.com/derek-2">Github</a></li>
+                    <li className="footer-item"><a href="#">Link 2</a></li>
+                    <li className="footer-item"><a href="#">Link 3</a></li>
                 </ul>
                 <ul>
-                    <li className="footer-label">Technologies</li>
+                    <li className="footer-label footer-item">Technologies</li>
+                    <li className="footer-item">stuff1</li>
+                    <li className="footer-item">stuff2</li>
+                    <li className="footer-item">stuff3</li>
                 </ul>
                 <ul>
-                    <li className="footer-label">About</li>
+                    <li className="footer-label footer-item">About</li>
+                    <li className="footer-item">stuff1</li>
+                    <li className="footer-item">stuff2</li>
+                    <li className="footer-item">stuff3</li>
                 </ul>
             </div>
             <div class="real-footer">

@@ -8,7 +8,7 @@ import background from '../../app/assets/images/splash.jpg';
 import Footer from './footer/footer';
 
 const App = (props) => (
-    <div>
+    <div id="main">
         <div id="top-half">
             <div className='modals'>
                 <NavBarContainer />

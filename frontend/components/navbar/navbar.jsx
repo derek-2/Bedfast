@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
-
+import Menu from '../menu/menu';
 // const NavBar = (props) => {
 //   return (
 //     <div>
@@ -41,6 +41,7 @@ export default class NavBar extends React.Component {
             <li><Link to={'/login'}>Login</Link></li>
             <li><Link to={'/signup'}>Sign Up</Link></li>
           </ul>
+          <Menu />
         </div>
       </div>
     )}

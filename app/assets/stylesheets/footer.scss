@@ -1,11 +1,13 @@
 .footer {
-    background-color: #F7F7F7;
     display: flex;
     justify-content: space-around;
     font-size: 14px;
+    // padding: 0  100px 0 100px ;
+    padding: 15px 0 0 0;
 }
 
 .footer-label{
+    font-size: 20px;
     font-weight: 900;
     // font-weight: bolder;
 }
@@ -15,14 +17,14 @@
     justify-content: center;
     align-items: center;
     // border-top: .5px solid gray;
+    padding: 15px 0;
+    // border-top: 1px solid black;
 }
 
-.real-footer:after {
-    position: absolute;
-    content: '';
-    border-bottom: 1px solid #d2d7da;
-    width: 70%;
-    transform: translateX(-50%);
-    bottom: -15px;
-    left: 50%;
-  }
+.main-footer{
+    background-color: #F7F7F7;
+}
+
+.footer-item{
+    padding: 3px;
+}
