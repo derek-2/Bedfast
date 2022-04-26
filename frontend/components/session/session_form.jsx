@@ -43,9 +43,6 @@ export default class SessionFormModal extends React.Component{
   }
 
   render() {
-    // const login='';
-    // debugger;
-    // console.log(this.props.errors);
     return (
       <div id="session-container">
         <div className='session-modal'>
