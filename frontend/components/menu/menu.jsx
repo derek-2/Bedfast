@@ -8,7 +8,6 @@ export default class Menu extends React.Component{
     }
 
     handleLogout(){
-        debugger;
         this.props.logout();
     }
 

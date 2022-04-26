@@ -5,7 +5,7 @@ import SessionFormModal from './session_form';
 const mapState = (state) => {
     return ({
         errors: state.errors,
-        users: state.users,
+        users: state.entities.users,
         formType: 'Sign Up'
     })
 }

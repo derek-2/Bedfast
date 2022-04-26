@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
 import MenuContainer from '../menu/menu_container';
-import logo from '../../../app/assets/images/airbnblogo.png';
+import logo from '../../../app/assets/images/logo.png';
 
 // const NavBar = (props) => {
 //   return (
@@ -41,10 +41,8 @@ export default class NavBar extends React.Component {
     const message = this.props.currentUser ? `Hello, ${this.props.currentUser.fname}` : 'Welcome to Bedfast';
     return (
       <div id="top-nav">
-        <div>
-        <img id="airbnblogo" src={logo} alt="logo" />
-        <Link to={'/'}>{message}</Link>
-        </div>
+        <Link to={'/'}><img id="airbnblogo" src={logo} alt="logo" /></Link>
+        <p>{message}</p>
         <SearchBar />
         <div id="right-nav">
           <div onClick={this.toggleMenu} className="menu-button">

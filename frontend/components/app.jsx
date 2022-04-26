@@ -12,7 +12,7 @@ const App = (props) => (
             <div className='modals'>
                 <NavBarContainer />
             </div>
-            <img src={background} alt="splash" />
+            <img className='background' src={background} alt="splash" />
             <Route path='/signup' component={SignUpModalContainer}/>
             <Route path='/login' component={LoginModalCotainer}/>
         </div>

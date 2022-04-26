@@ -24,7 +24,8 @@ export default class SessionFormModal extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state);
-    this.props.history.push('/');
+    // this.props.history.push('/');
+    //commented this out b/c with authroutes, it shoul;d auto redirect
   }
 
   demoLogin(e) {
@@ -40,7 +41,8 @@ export default class SessionFormModal extends React.Component{
 
   render() {
     const login='';
-
+    debugger;
+    console.log(this.props.errors);
     return (
       <div className='session-modal'>
         <form onSubmit={this.handleSubmit}>
@@ -61,7 +63,7 @@ export default class SessionFormModal extends React.Component{
             <input type="text" value={this.state.password} onChange={this.update('password')} />
           </label>
           <br />
-          {this.props.errors ? this.props.errors.map(error => <p>error</p>):<></>}
+          {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
           <input className='session-btn' type="submit" value={this.props.formType} />
           <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
         </form>
