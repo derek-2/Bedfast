@@ -2,7 +2,6 @@ import React from 'react';
 import SignUpModalContainer from './session/signup_container';
 import LoginModalCotainer from './session/login_container';
 import NavBarContainer from './navbar/navbar_container';
-import background from '../../app/assets/images/splash.jpg';
 import Footer from './footer/footer';
 import {AuthRoute} from '../util/route_util';
 
@@ -14,7 +13,7 @@ const App = (props) => (
             <div className='modals'>
                 <NavBarContainer />
             </div>
-            <img className='background' src={background} alt="splash" />
+            <img className='background' src={window.background} alt="splash" />
             <AuthRoute path='/signup' component={SignUpModalContainer}/>
             <AuthRoute path='/login' component={LoginModalCotainer}/>
         </div>

@@ -34,6 +34,7 @@ class Api::ListingsController < ApplicationController
         if @listing
             @listing.destroy
             render json: {message: 'Listing Destroyed'}
+        end
     end
 
     def listing_params

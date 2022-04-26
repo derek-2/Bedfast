@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
 import MenuContainer from '../menu/menu_container';
-import logo from '../../../app/assets/images/logo.png';
-import profilepic from '../../../app/assets/images/default_profile_pic.png';
 
 // const NavBar = (props) => {
 //   return (
@@ -44,7 +42,7 @@ export default class NavBar extends React.Component {
     const message = this.props.currentUser ? `Hello, ${this.props.currentUser.fname}` : 'Welcome to Bedfast';
     return (
       <div id="top-nav">
-        <Link to={'/'}><img id="airbnblogo" src={logo} alt="logo" /></Link>
+        <Link to={'/'}><img id="airbnblogo" src={window.logo} alt="logo" /></Link>
         <p>{message}</p>
         <SearchBar />
         <div id="right-nav">
@@ -53,7 +51,7 @@ export default class NavBar extends React.Component {
             <div className="menu-icon-item"></div>
             <div className="menu-icon-item"></div>
           </div>
-          <img className="menu-button" onClick={this.toggleMenu} src={profilepic} alt="profile-pic" />
+          <img className="menu-button" onClick={this.toggleMenu} src={window.default_profile_pic} alt="profile-pic" />
           <MenuContainer />
         </div>
       </div>
