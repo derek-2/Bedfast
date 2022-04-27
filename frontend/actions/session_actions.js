@@ -6,7 +6,7 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 
-export const receiveCurrentUser = (currentUser) => ({
+export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
     currentUser
 })
@@ -15,12 +15,12 @@ export const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER
 })
 
-export const receiveSessionErrors = (errors) => ({
+export const receiveSessionErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
 })
 
-export const receiveUsers = (users) => ({
+export const receiveUsers = users => ({
     type: RECEIVE_USERS,
     users
 })

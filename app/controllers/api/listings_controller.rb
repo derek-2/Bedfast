@@ -5,8 +5,8 @@ class Api::ListingsController < ApplicationController
     end
 
     def create
-        debugger
         @listing = Listing.new(listing_params)
+        debugger
         if @listing.save
             render :show
         else
