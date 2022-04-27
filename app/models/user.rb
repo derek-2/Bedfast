@@ -9,8 +9,8 @@ class User < ApplicationRecord
     SecureRandom::urlsafe_base64
   end
 
-  def self.find_by_credentials(email, password)
-    @user = User.find_by(email: email)
+  def self.find_by_credentials(email, fname, lname, password)
+    @user = User.find_by(email: email, fname: fname, lname: lname)
 
     return nil if @user.nil?
     if @user.is_password?(password)
