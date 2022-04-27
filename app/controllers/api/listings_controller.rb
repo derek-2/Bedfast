@@ -6,7 +6,6 @@ class Api::ListingsController < ApplicationController
 
     def create
         @listing = Listing.new(listing_params)
-        debugger
         if @listing.save
             render :show
         else

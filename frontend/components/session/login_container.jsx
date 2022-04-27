@@ -4,7 +4,8 @@ import SessionFormModal from './session_form';
 
 const mapState = state => ({
   errors: state.errors,
-  formType: 'Login'
+  formType: 'Login',
+  users: state.entities.users,
 })
 
 const mapDispatch = dispatch => ({

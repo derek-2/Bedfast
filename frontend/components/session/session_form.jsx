@@ -14,7 +14,9 @@ export default class SessionFormModal extends React.Component{
   }
 
   componentDidMount() {
-    // this.props.fetchCurrentUser();
+    // debugger;
+    // this.props.fetchUsers();
+    // debugger;
   }
 
   update(field) {

@@ -10,8 +10,9 @@ const receiveListing = listing => ({
     listing
 })
 
-const receiveListings = () => ({
-    type: RECEIVE_LISTINGS
+const receiveListings = listings => ({
+    type: RECEIVE_LISTINGS,
+    listings
 })
 
 const removeListing = listingId => ({
