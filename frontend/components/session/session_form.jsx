@@ -46,7 +46,7 @@ export default class SessionFormModal extends React.Component{
 
   render() {
     return (
-      <div id="session-container">
+      <div id="session-container hidden">
         <div className='session-modal'>
           <form onSubmit={this.handleSubmit}>
           <h1>{this.props.formType}</h1>
@@ -54,14 +54,19 @@ export default class SessionFormModal extends React.Component{
               <input type="text" value={this.state.email} onChange={this.update('email')} />
             </label>
             <br />
-            <label className='session-label'>First Name:
-              <input type="text" value={this.state.fname} onChange={this.update('fname')} />
+
+            {(this.props.formType === "Sign Up") ? 
+            <>
+              <label className='session-label'>First Name:
+                <input type="text" value={this.state.fname} onChange={this.update('fname')} />
+              </label>
+              <br />
+              <label className='session-label'>Last Name:
+                <input type="text" value={this.state.lname} onChange={this.update('lname')} />
             </label>
             <br />
-            <label className='session-label'>Last Name:
-              <input type="text" value={this.state.lname} onChange={this.update('lname')} />
-            </label>
-            <br />
+            </> : <></>}
+
             <label className='session-label'>Password:
               <input type="text" value={this.state.password} onChange={this.update('password')} />
             </label>

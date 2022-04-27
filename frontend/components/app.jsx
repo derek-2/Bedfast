@@ -7,6 +7,7 @@ import {AuthRoute} from '../util/route_util';
 import HomePageContainer from './homepage/homepage_container';
 
 const App = (props) => (
+    <>
     <div id="main">
         <div id="top-half">
             <div className='modals'>
@@ -21,6 +22,7 @@ const App = (props) => (
             <Footer />
         </div>
     </div>
+    </>
 );
 
 export default App;
