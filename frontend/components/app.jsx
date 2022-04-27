@@ -5,8 +5,6 @@ import NavBarContainer from './navbar/navbar_container';
 import Footer from './footer/footer';
 import {AuthRoute} from '../util/route_util';
 
-import { Route, Switch, Redirect } from 'react-router';
-
 const App = (props) => (
     <div id="main">
         <div id="top-half">

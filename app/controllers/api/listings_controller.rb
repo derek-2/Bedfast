@@ -5,8 +5,8 @@ class Api::ListingsController < ApplicationController
     end
 
     def create
+        debugger
         @listing = Listing.new(listing_params)
-
         if @listing.save
             render :show
         else
@@ -38,7 +38,7 @@ class Api::ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:host_id, :location, :check_in_date, :check_out_date, :max_num_guests, :num_beds, :num_baths, :description, :price_per_night)
+        params.require(:listing).permit(:host_id, :address, :city, :state, :zipcode, :latitude, :longitude, :check_in_date, :check_out_date, :max_num_guests, :num_beds, :num_baths, :description, :price_per_night)
     end
 
 end

@@ -17,9 +17,14 @@ ActiveRecord::Schema.define(version: 2022_04_26_194128) do
 
   create_table "listings", force: :cascade do |t|
     t.integer "host_id", null: false
-    t.string "location", null: false
-    t.date "check_in_date", null: false
-    t.date "check_out_date", null: false
+    t.string "address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.integer "zipcode", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.datetime "check_in_date", null: false
+    t.datetime "check_out_date", null: false
     t.integer "max_num_guests", null: false
     t.integer "num_beds", null: false
     t.integer "num_baths", null: false
@@ -27,8 +32,8 @@ ActiveRecord::Schema.define(version: 2022_04_26_194128) do
     t.integer "price_per_night", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_listings_on_address", unique: true
     t.index ["host_id"], name: "index_listings_on_host_id"
-    t.index ["location"], name: "index_listings_on_location", unique: true
   end
 
   create_table "users", force: :cascade do |t|
