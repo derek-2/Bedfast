@@ -1,0 +1,71 @@
+.homepage-stuff{
+    margin: 25px 0;
+}
+
+.inspiration-container{
+    display: flex;
+}
+
+.inspiration-image{
+    flex-basis: 15%;
+}
+
+.homepage-text{
+    font-size: 42px;
+    font-weight: bolder;
+}
+
+.individual-inspiration-container{
+    margin-right: 5px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inspiration-container li:last-child{
+    color: yellow;
+    // margin-left: 5px;
+}
+
+.inspiration-text{
+    height: 213px;
+    width: 320px;
+
+    color: white;
+}
+
+.individual-inspiration-container p{
+    font-size: 35px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.inspiration-text p:last-child{
+    font-size: 20px;
+}
+
+.inspiration1{
+    background-color: #D93B30;
+}
+.inspiration2{
+    background-color: #D33151;
+}
+.inspiration3{
+    background-color: #BC1A6E;
+}
+.inspiration4{
+    background-color: #CC2D4A;
+}
+
+.questions-container{
+}
+
+.questions-container p{
+    // position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.questions-container button{
+    position: absolute;
+}
