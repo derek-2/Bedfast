@@ -57,15 +57,36 @@
     background-color: #CC2D4A;
 }
 
-.questions-container{
+.questions-container img{
+    width: 100%;
+    margin-top: 15px;
 }
 
 .questions-container p{
-    // position: absolute;
-    left: 0;
-    top: 0;
+    position: absolute;
+    width: 300px;
+    display: flex;
+    margin: 5%;
+    font-size: 95px;
+    font-weight: bolder;
+    color: white;
 }
 
 .questions-container button{
     position: absolute;
+    margin: 35% 0 0 5%;
+    border-radius: 15px;
+    padding: 14px 20px;
+    font-weight: bolder;
+}
+
+
+
+
+
+
+.temp{
+    position: absolute;
+    margin: 50px;
+    padding: 20px;
 }
