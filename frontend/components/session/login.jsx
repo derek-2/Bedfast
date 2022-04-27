@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class SessionFormModal extends React.Component{
+export default class LoginModal extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -46,7 +46,7 @@ export default class SessionFormModal extends React.Component{
 
   render() {
     return (
-      <div id="session-container hidden">
+      <div id="login-modal" className="session-container">
         <div className='session-modal'>
           <form onSubmit={this.handleSubmit}>
           <h1>{this.props.formType}</h1>

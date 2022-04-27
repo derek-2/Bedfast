@@ -3,7 +3,7 @@
     position: absolute;
     right: 200px;
     top: 72px;
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 5px;
     border: 1px solid black;
     color: black;
@@ -12,6 +12,10 @@
 
 .top-right-menu li {
     padding: 10px;
+    cursor: pointer;
+}
+.top-right-menu li:hover{
+    background-color:#f3f3f3;
 }
 
 .menu-button{
@@ -32,4 +36,10 @@
 
 .show{
     display: inline-block;
+}
+
+.close-session{
+    display: absolute;
+    right: 0;
+    top: 0;
 }

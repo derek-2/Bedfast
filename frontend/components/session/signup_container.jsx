@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { signUp, fetchUsers, logout, login } from '../../actions/session_actions';
-import SessionFormModal from './session_form';
+import SignUpModal from './signup';
 
 const mapState = (state) => {
     return ({
@@ -20,4 +20,4 @@ const mapDispatch = dispatch => {
     })
 }
 
-export default connect(mapState, mapDispatch)(SessionFormModal);
+export default connect(mapState, mapDispatch)(SignUpModal);

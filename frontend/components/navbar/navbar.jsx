@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
 import MenuContainer from '../menu/menu_container';
 
+
 // const NavBar = (props) => {
 //   return (
 //     <div>
