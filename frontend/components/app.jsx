@@ -18,24 +18,23 @@ const App = (props) => {
 
     return (
     <div>
-    <div id="main">
-        <div id="top-half">
-            <div className='modals'>
-                <NavBarContainer />
-                <img className='background' src={window.background} alt="splash" />
+        <div id="main">
+            <div id="top-half">
+                <div className='modals'>
+                    <NavBarContainer />
+                    <img className='background' src={window.background} alt="splash" />
+                </div>
+                {/* <AuthRoute path='/signup' component={SignUpModalContainer}/>
+                <AuthRoute path='/login' component={LoginModalCotainer}/> */}
             </div>
-            {/* <AuthRoute path='/signup' component={SignUpModalContainer}/>
-            <AuthRoute path='/login' component={LoginModalCotainer}/> */}
+            <div id="bottom-half">
+                <HomePageContainer />
+                <Footer />
+            </div>
         </div>
-        <div id="bottom-half">
-            <HomePageContainer />
-            <Footer />
-        </div>
-    </div>
-    <div onClick={hideModal} id="session-modal-container" className="session-modal-container">
+        <div onClick={hideModal} id="session-modal-container" className="session-modal-container"></div>
         <SignUpModal />
         <LoginModal />
-    </div>
     </div>
     )
 };
