@@ -9,7 +9,14 @@ import SignUpModal from './session/signup_container';
 import LoginModal from './session/login_container';
 
 
-const App = (props) => (
+const App = (props) => {
+    const hideModal = () => {
+        document.getElementById('session-modal-container').classList.add('hide');
+        document.getElementById(`login-modal`).classList.remove('unhide');
+        document.getElementById(`signup-modal`).classList.remove('unhide');
+    }
+
+    return (
     <div>
     <div id="main">
         <div id="top-half">
@@ -30,6 +37,7 @@ const App = (props) => (
         <LoginModal />
     </div>
     </div>
-);
+    )
+};
 
 export default App;

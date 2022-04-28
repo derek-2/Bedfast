@@ -5,21 +5,21 @@ export default class Menu extends React.Component{
     constructor(props){
         super(props);
         this.handleLogout=this.handleLogout.bind(this);
-        this.toggleModal=this.toggleModal.bind(this);
+        this.toggleModal=this.showModal.bind(this);
     }
 
     handleLogout(){
         this.props.logout();
     }
 
-    toggleModal(field){
+    showModal(field){
 
         return () => {
-            debugger;
             const modal = document.getElementById(`${field}-modal`);
             const modal2 = document.getElementById('session-modal-container');
-            modal.classList.toggle('unhide');
-            modal2.classList.toggle('unhide');
+            modal.classList.add('unhide');
+            modal2.classList.add('unhide');
+            modal2.classList.remove('hide');
             console.log('???')
         }
       }
@@ -33,8 +33,8 @@ export default class Menu extends React.Component{
                         {this.props.currentUser ?
                             <li className="logout-btn" onClick={this.handleLogout}>Logout</li> :
                             <>
-                                <li onClick={this.toggleModal('login')}>Login</li>
-                                <li onClick={this.toggleModal('signup')}>Sign Up</li>
+                                <li onClick={this.showModal('login')}>Login</li>
+                                <li onClick={this.showModal('signup')}>Sign Up</li>
                             </>
                         }
                     </ul>

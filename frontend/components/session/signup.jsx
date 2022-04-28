@@ -74,7 +74,7 @@ export default class SignUpModal extends React.Component{
             {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
             <input className='session-btn' type="submit" value={this.props.formType} />
             <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
-            <span class="close-session">&times;</span>
+            <span className="close-session">&times;</span>
           </form>
         </div>
       </div>

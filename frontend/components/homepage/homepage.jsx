@@ -39,7 +39,7 @@ export default class HomePage extends React.Component{
                         </li>
                     </ul>
                     <div className="questions-container">
-                        {/* <div class="temp">yo</div> */}
+                        {/* <div className="temp">yo</div> */}
                         <p>Questions about hosting?</p>
                         <button className="question-btn">Ask a supervisor</button>
                         <img src={window.questions} alt="questions?" />
