@@ -29,9 +29,9 @@ const App = (props) => {
             </div>
             <div id="bottom-half">
                 <HomePageContainer />
-                <Footer />
             </div>
         </div>
+        <Footer />
         <div onClick={hideModal} id="session-modal-container" className="session-modal-container"></div>
         <SignUpModal />
         <LoginModal />
