@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 import HomePageContainer from './homepage/homepage_container';
 import SignUpModal from './session/signup_container';
 import LoginModal from './session/login_container';
-import NewListingContainer from './listings/new_listing_container';
+import NewListingContainer from './listings_form/new_listing_container';
 
 
 const App = (props) => {

@@ -21,10 +21,11 @@ export const fetchListing = listingId => {
     })
 }
 
-export const fetchListings = () => {
+export const fetchListings = (searchParams) => {
     return $.ajax({
         method: 'GET',
-        url: '/api/listings'
+        url: '/api/listings',
+        data: {searchParams}
     })
 }
 

@@ -3,7 +3,7 @@ import { createListing } from '../../actions/listing_actions';
 import NewListing from './new_listing';
 
 const mapState = state => ({
-
+    currentUser: state.entities.users[state.session.currentUserId]
 })
 
 const mapDispatch = dispatch => ({
