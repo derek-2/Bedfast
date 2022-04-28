@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
   window.user5 = { fname: 'morian', lname: 'hayley', password:'password', email: 'dorianhayley@gmail.com'};
 
   window.listing1 = {
-    host_id:1, address: '123 bum st', city: 'NY', state: 'NY', zipcode: '11111', latitude: '1.00000', longitude:'6.999999999', check_in_date: '2017-04-12 10:30:14', check_out_date: '2017-04-20 10:30:14', max_num_guests: 2, num_beds: 2, num_baths: 1, description: 'very cool', price_per_night: 99
+    title: 'cool house 147' , description: 'very cool', host_id:1, address: '123 bum st', city: 'NY', state: 'NY', zipcode: '11111', latitude: '1.00000', longitude:'6.999999999', max_num_guests: 2, num_beds: 2, num_baths: 1, price_per_night: 99
   }
   window.listing2 = {
-    host_id:3, address: '1243 N Sterling St', city: 'UNION CITY', state: 'IN', zipcode: '47390', latitude: '1.00000', longitude:'6.999999999', check_in_date: '1999-11-02 10:30:14', check_out_date: '2014-11-02 10:30:14', max_num_guests: 5, num_beds: 4, num_baths: 3, description: 'GREAT', price_per_night: 149
+    title: 'GREAT HOUSE 229', description: 'GREAT', host_id:3, address: '1243 N Sterling St', city: 'UNION CITY', state: 'IN', zipcode: '47390', latitude: '1.00000', longitude:'6.999999999', max_num_guests: 5, num_beds: 4, num_baths: 3, price_per_night: 149
   }
   window.listing3 = {
-    host_id:2, address: '421 Monmouth St', city: 'TRENTON', state: 'NJ', zipcode: '08609', latitude: '1.00000', longitude:'6.999999999', check_in_date: '2022-4-27 10:30:14', check_out_date: '2022-9-30 10:30:14', max_num_guests: 1, num_beds: 1, num_baths: 1, description: 'IT\'S AIGHT', price_per_night: 77
+    title: 'THE AIGHT HOUSE', description: 'IT\'S AIGHT I GUESS', host_id:2, address: '421 Monmouth St', city: 'TRENTON', state: 'NJ', zipcode: '08609', latitude: '1.00000', longitude:'6.999999999', max_num_guests: 1, num_beds: 1, num_baths: 1, price_per_night: 77
   }
 
   window.login = login;

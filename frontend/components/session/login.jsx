@@ -8,7 +8,7 @@ export default class LoginModal extends React.Component{
       fname: '',
       lname: '',
       password: ''
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
   }
@@ -41,7 +41,7 @@ export default class LoginModal extends React.Component{
       lname: 'Demo',
       password: 'password'
     })
-    this.props.history.push('/');
+    // this.props.history.push('/');
   }
 
   render() {

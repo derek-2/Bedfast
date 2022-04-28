@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2022_04_26_194128) do
   enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
     t.integer "host_id", null: false
     t.string "address", null: false
     t.string "city", null: false
@@ -23,12 +25,9 @@ ActiveRecord::Schema.define(version: 2022_04_26_194128) do
     t.integer "zipcode", null: false
     t.float "latitude", null: false
     t.float "longitude", null: false
-    t.datetime "check_in_date", null: false
-    t.datetime "check_out_date", null: false
     t.integer "max_num_guests", null: false
     t.integer "num_beds", null: false
     t.integer "num_baths", null: false
-    t.text "description", null: false
     t.integer "price_per_night", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

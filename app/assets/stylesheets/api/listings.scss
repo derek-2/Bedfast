@@ -1,3 +1,22 @@
 // Place all the styles related to the api/listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.listing-form{
+    position: fixed;
+    top: 0;
+    left: 35vw;
+    display: flex;
+    width: 30vw;
+    flex-direction: column;
+    background-color: pink;
+    padding: 10px;
+}
+
+.listing-form * {
+    margin: 5px;
+}
+
+#listing-form-container{
+    // position
+}

@@ -1,12 +1,12 @@
 import React from 'react';
-import SignUpModalContainer from './session/signup_container';
-import LoginModalCotainer from './session/login_container';
 import NavBarContainer from './navbar/navbar_container';
 import Footer from './footer/footer';
 import {AuthRoute} from '../util/route_util';
+import {Route, Switch} from 'react-router-dom';
 import HomePageContainer from './homepage/homepage_container';
 import SignUpModal from './session/signup_container';
 import LoginModal from './session/login_container';
+import NewListingContainer from './listings/new_listing_container';
 
 
 const App = (props) => {
@@ -18,19 +18,29 @@ const App = (props) => {
 
     return (
     <div>
-        <div id="main">
-            <div id="top-half">
-                <div className='modals'>
-                    <NavBarContainer />
-                    <img className='background' src={window.background} alt="splash" />
-                </div>
-                {/* <AuthRoute path='/signup' component={SignUpModalContainer}/>
-                <AuthRoute path='/login' component={LoginModalCotainer}/> */}
-            </div>
-            <div id="bottom-half">
+        <NavBarContainer />
+        <Switch>
+            <Route exact path='/'>
+                <div id="main">
+                    <div id="top-half">
+                        <div className='modals'>
+                            <img className='background' src={window.background} alt="splash" />
+                        </div>
+                    </div>
+                    <div id="bottom-half">
                 <HomePageContainer />
-            </div>
-        </div>
+                    </div>
+                </div>
+            </Route>
+
+            <Route path='/listings'>
+                <NewListingContainer />
+            </Route>
+        </Switch>
+
+
+
+
         <Footer />
         <div onClick={hideModal} id="session-modal-container" className="session-modal-container"></div>
         <SignUpModal />
