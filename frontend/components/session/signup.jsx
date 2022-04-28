@@ -49,7 +49,12 @@ export default class SignUpModal extends React.Component{
       <div id="signup-modal" className="session-container">
         <div className='session-modal'>
           <form onSubmit={this.handleSubmit}>
-          <h1>{this.props.formType}</h1>
+          <div className="session-modal-header">
+              <div className="session-formType-div">
+                <h2 className="session-formType">Login or sign up</h2>
+              </div>
+                <h2 className="session-formWelcome">Welcome to Bedfast</h2>
+            </div>
             <label className='session-label'>Email:
               <input type="text" value={this.state.email} onChange={this.update('email')} />
             </label>

@@ -20,7 +20,6 @@ export default class Menu extends React.Component{
             modal.classList.add('unhide');
             modal2.classList.add('unhide');
             modal2.classList.remove('hide');
-            console.log('???')
         }
       }
 
