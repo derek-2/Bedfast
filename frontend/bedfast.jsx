@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     
   const store = configureStore(preloadedState);
 
-  window.store = store.getState();
+  window.store = store.getState;
   window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, root);

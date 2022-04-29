@@ -1,8 +1,11 @@
 class Api::ListingsController < ApplicationController
     def index
-        @listings = Listing.all.select do |listing|
-            listing.city.include?(params[:searchParams]) || listing.state.include?(params[:searchParams]) || listing.address.include?(params[:searchParams])
-        end
+
+        @listings = params[:searchParams] ?
+         Listing.all.select do |listing|
+            listing.city.downcase.include?(params[:searchParams].downcase) || listing.state.downcase.include?(params[:searchParams].downcase) || listing.address.downcase.include?(params[:searchParams].downcase)
+        end :
+        @listings = Listing.all
 
         # debugger
         render :index
