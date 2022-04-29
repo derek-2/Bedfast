@@ -6,6 +6,15 @@ export default class ListingsIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchListings(this)
+        this.props.fetchListings(this.props.match.params.city);
+        debugger;
+    }
+
+    render(){
+        return(
+            <div>
+                <p>YOYOYO</p>
+            </div>
+        )
     }
 }

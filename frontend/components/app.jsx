@@ -7,6 +7,7 @@ import HomePageContainer from './homepage/homepage_container';
 import SignUpModal from './session/signup_container';
 import LoginModal from './session/login_container';
 import NewListingContainer from './listings_form/new_listing_container';
+import ListingsIndexContainer from './listings_index/listing_index_container';
 
 
 const App = (props) => {
@@ -33,11 +34,18 @@ const App = (props) => {
                 </div>
             </Route>
 
-            <Route path='/listings'>
+            <Route path='/listings/new'>
                 <NewListingContainer />
             </Route>
         </Switch>
 
+
+        <Route exact path="/listings/:city" component={ListingsIndexContainer}></Route>
+
+        {/* <Route exact path='/listings/show/:listingId' component={<ListingShowContainer />}></Route> */}
+            {/* <ListingShowContainer /> */}
+            {/* show page for a single listing */}
+        
 
 
 

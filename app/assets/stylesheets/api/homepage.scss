@@ -4,11 +4,12 @@
 
 .inspiration-container{
     display: flex;
+    justify-content: space-between;
 }
 
-.inspiration-image{
-    flex-basis: 15%;
-}
+// .inspiration-image{
+//     flex-basis: 15%;
+// }
 
 .homepage-text{
     font-size: 42px;
@@ -20,6 +21,7 @@
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    width: 19vw;
 }
 
 .inspiration-container li:last-child{
