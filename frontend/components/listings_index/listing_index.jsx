@@ -12,11 +12,12 @@ export default class ListingsIndex extends React.Component{
     }
 
     render(){
-        debugger;
+        // debugger;
         return(
             <div className='listings-index-container'>
-                <div className='listings-index-item-container'>
-                    {Object.values(this.props.listings).map(listing => {<ListingIndexItem listing={listing}/>})}
+                <div className='listings-index-items-container'>
+                    <p>{`${Object.values(this.props.listings).length} stays in ${this.props.match.params.city}`}</p>
+                    {Object.values(this.props.listings).map(listing => <ListingIndexItem key={`listing-${listing.id}`} listing={listing}/> )}
                 </div>
                 <div className='map-container'>MAP</div>
             </div>

@@ -20,3 +20,75 @@
 .listings-index-container{
     display: flex;
 }
+
+.map-container{
+    width: 50vw;
+    border: black solid 1px;
+}
+
+.listings-index-items-container{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.listings-index-text-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.listings-index-text-container p {
+    margin: 5px 0 0 0;
+    // color: blue;
+}
+
+.listing-index-item{
+    border-top: 1px solid rgb(211, 211, 211);
+    margin: 0 20px 0 20px;
+    padding: 20px 0 20px 0;
+    display: flex;
+}
+
+.listings-index-items-container > p:first-child{
+    color: purple;
+    margin: 0 20px 0 20px;
+    padding: 20px 0 20px 0;
+}
+
+.listing-index-item img{
+    width: 50%;
+    height:100%;
+}
+
+.item-details{
+    display: flex;
+}
+
+.title{
+    font-weight: bolder;
+    font-size:20px;
+}
+
+.price{
+    display: flex;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+}
+
+.reviews{
+    display: flex;
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+}
+
+.separator{
+    width:10%;
+    text-align: left;
+    margin-left:0;
+}
