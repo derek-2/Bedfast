@@ -6,7 +6,7 @@ const ListingIndexItem = props => {
     debugger;
     return(
         <div className='listing-index-item'>
-            <img src={photoUrl} alt="placeholder ting" />
+            <img src={photoUrl[0]} alt="placeholder ting" />
             <div className='listings-index-text-container'>
                 {/* at some point, i'll need the average review score of a listing using an association in the fetch request in the listings controller */}
                     <p >{description}</p>
