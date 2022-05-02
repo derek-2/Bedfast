@@ -18,6 +18,7 @@ listing1= Listing.create(title: 'cool house 147' , description: 'very cool', hos
 
 listing3= Listing.create(title: 'THE AIGHT HOUSE', description: 'IT\'S AIGHT I GUESS', host_id:2, address: '421 Monmouth St', city: 'TRENTON', state: 'NJ', zipcode: '08609', latitude: '23.26426', longitude:'6.163445', max_num_guests: 1, num_beds: 1, num_baths: 1, price_per_night: 77)
 
-listing1.photos.attach(io: File.open("/home/derek/desktop/cool_house.jpg"), filename: 'cool_house.jpg')
-# listing2.photos.attach(io: File.open("/home/derek/desktop/great_house.jpg"), filename: 'great_house.jpg')
-listing3.photos.attach(io: File.open("/home/derek/desktop/the_aight_house.jpg"), filename: 'the_aight_house.jpg')
+listing1.photos.attach(io: File.open('app/assets/images/seed/cool_house.jpg'), filename: 'cool_house.jpg')
+# listing1.photos.attach(io: File.open("/Users/derek/desktop/images/cool_house.jpg"), filename: 'cool_house.jpg')
+# listing2.photos.attach(io: File.open("/Users/derek/desktop/images/great_house.jpg"), filename: 'great_house.jpg')
+listing3.photos.attach(io: File.open('app/assets/images/seed/the_aight_house.jpg'), filename: 'the_aight_house.jpg')
