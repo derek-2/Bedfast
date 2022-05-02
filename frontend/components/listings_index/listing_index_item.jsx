@@ -1,12 +1,12 @@
 import React from 'react';
 
 const ListingIndexItem = props => {
-    const {title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night, photoUrl } = props.listing;
-    // debugger;
+    const {title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night, photoUrls } = props.listing;
+    debugger;
 
     return(
         <div className='listing-index-item'>
-            <img src={photoUrl[0]} alt="photo" />
+            <img src={photoUrls[0]} alt="photo" />
             {/* <img src={window.placeholder} alt="photo" /> */}
             <div className='listings-index-text-container'>
                 {/* at some point, i'll need the average review score of a listing using an association in the fetch request in the listings controller */}
