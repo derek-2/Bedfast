@@ -35,12 +35,14 @@ export default class NavBar extends React.Component {
   }
 
   toggleMenu(){
+
     const menu = document.getElementById('top-right-menu');
     menu.classList.toggle('show');
   }
 
   render(){
     const message = this.props.currentUser ? `Hello, ${this.props.currentUser.fname}` : 'Welcome to Bedfast';
+
     return (
       <div id="top-nav">
         <Link to={'/'}><img id="airbnblogo" src={window.logo} alt="logo" /></Link>

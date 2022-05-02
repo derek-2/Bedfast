@@ -20,6 +20,10 @@
 .listings-index-container{
     display: flex;
 }
+.listing-form label{
+    display: flex;
+    flex-direction: column;
+}
 
 .map-container{
     width: 50vw;

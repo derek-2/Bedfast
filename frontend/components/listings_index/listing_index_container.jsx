@@ -3,7 +3,6 @@ import { fetchListings } from '../../actions/listing_actions';
 import ListingsIndex from './listing_index';
 
 const mapState = (state, ownProps) => {
-    // debugger;
 
     return{
         listings: state.entities.listings,

@@ -13,17 +13,12 @@ export default class LoginModal extends React.Component{
     this.demoLogin = this.demoLogin.bind(this);
   }
 
-  componentDidMount() {
-    // debugger;
-    // this.props.fetchUsers();
-    // debugger;
-  }
-
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
+    console.log('hello');
     e.preventDefault();
     const menu = document.getElementById('top-right-menu');
     menu.classList.remove('show');
@@ -45,6 +40,7 @@ export default class LoginModal extends React.Component{
   }
 
   render() {
+
     return (
       <div id="login-modal" className="session-container">
         <div className='session-modal'>

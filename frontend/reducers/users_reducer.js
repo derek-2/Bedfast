@@ -8,7 +8,6 @@ const UsersReducer = (state={}, action) => {
             nextState[action.currentUser.id] = action.currentUser;
             return nextState;
         case RECEIVE_USERS:
-            debugger;
             return Object.assign(nextState, action.users);
         default:
             return state;

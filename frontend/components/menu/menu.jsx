@@ -13,6 +13,7 @@ export default class Menu extends React.Component{
     }
 
     showModal(field){
+        console.log('toggling menu modal');
 
         return () => {
             const modal = document.getElementById(`${field}-modal`);
@@ -24,6 +25,7 @@ export default class Menu extends React.Component{
       }
 
     render(){
+
         return(
             <>
                 <div className='top-right-menu' id='top-right-menu'>

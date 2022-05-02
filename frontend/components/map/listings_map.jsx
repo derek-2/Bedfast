@@ -9,15 +9,16 @@ export default class ListingsMap extends React.Component{
         };
     
         // wrap this.mapNode in a Google Map
-        this.map = new google.maps.Map(this.mapNode, mapOptions);
+        // this.map = new google.maps.Map(this.mapNode, mapOptions);
       }
     
     render() {
     return (
+      <></>
         // ...
-        <div id='map-container' ref={map => this.mapNode = map}> 
+        // <div id='map-container' ref={map => this.mapNode = map}> 
                 
-            </div>
+        //     </div>
     )
     }
 }
