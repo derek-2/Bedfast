@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .listing-form{
-    position: fixed;
+    position: relative;
     // top: 10vh;
     left: 35vw;
     display: flex;
@@ -81,14 +81,14 @@
     display: flex;
     position: absolute;
     right: 20px;
-    bottom: 0;
+    bottom: 5px;
 }
 
 .reviews{
     display: flex;
     position: absolute;
     left: 20px;
-    bottom: 0;
+    bottom: 5px;
 }
 
 .separator{

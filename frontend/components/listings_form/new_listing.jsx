@@ -14,7 +14,8 @@ export default class NewListing extends React.Component{
             num_beds: '',
             num_baths: '',
             price_per_night: '',
-            photos:[]
+            photos:[],
+            previewPhotos:[]
         };
         this.handleSubmit=this.handleSubmit.bind(this);
     }
@@ -30,17 +31,28 @@ export default class NewListing extends React.Component{
     }
 
     updatePhotos(e){
-        console.log('blue');
-        debugger;
-        //e.target.files --> is an array of all the files
-        return e => {
-           debugger;
-        }
+        console.log(e.target.files.length);
+        let arr = [];
+        arr=arr.concat(Object.values(e.target.files).map(photo => URL.createObjectURL(photo)))
+        // debugger;
+
+        this.setState(
+            {
+            photos: this.state.photos.concat([Object.values(e.target.files)]),
+            previewPhotos: this.state.previewPhotos.concat(arr)
+            }
+        )
+
+        // debugger;
     }
     
     render(){
         console.log(this.state);
-        console.log(this.state.photos);
+        console.log('photos:',this.state.photos);
+        console.log('preview:',this.state.previewPhotos);
+        const preview = this.state.previewPhotos ?
+            this.state.previewPhotos.map((preview,idx) => <img key={idx} src={preview} alt='some tings'/>) :
+            <></>
         return(
             <div id="listing-form-container" onSubmit={this.handleSubmit}>
                 <form className='listing-form'>
@@ -69,6 +81,7 @@ export default class NewListing extends React.Component{
                         <input type="number" min="1" placeholder='Price/night' onChange={this.update('price_per_night')} />
                     </div>
                     <input type="file" multiple onChange={e => this.updatePhotos(e)}/>
+                    {preview}
                     <input type="submit" />
                 </form>
             </div>
