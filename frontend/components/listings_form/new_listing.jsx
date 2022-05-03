@@ -18,6 +18,7 @@ export default class NewListing extends React.Component{
             previewPhotos:[]
         };
         this.handleSubmit=this.handleSubmit.bind(this);
+        this.update=this.update.bind(this);
     }
 
     handleSubmit(e){
@@ -27,6 +28,7 @@ export default class NewListing extends React.Component{
     }
 
     update(field){
+        debugger;
         return e => this.setState({[field]:e.currentTarget.value})
     }
 
@@ -45,13 +47,17 @@ export default class NewListing extends React.Component{
 
         // debugger;
     }
+
+    removePhoto(idx){
+        // return e => 
+    }
     
     render(){
         console.log(this.state);
         console.log('photos:',this.state.photos);
         console.log('preview:',this.state.previewPhotos);
         const preview = this.state.previewPhotos ?
-            this.state.previewPhotos.map((preview,idx) => <img className='preview-photos' key={idx} src={preview} alt='some tings'/>) :
+            this.state.previewPhotos.map((preview,idx) => <div><span className='remove-photo'>&times;</span><img className='preview-photos' key={idx} src={preview} alt='preview'/></div>) :
             <></>
         return(
             <div id="listing-form-container" onSubmit={this.handleSubmit}>
@@ -75,10 +81,10 @@ export default class NewListing extends React.Component{
                         <input type="text" placeholder='Zipcode' onChange={this.update('zipcode')} />
                     </label>
                     <div className='listing-number-container'>
-                        <input type="number" placeholder='Capacity' onChange={this.update('max_num_guests')} />
-                        <input type="number" min="1" placeholder='Beds' onChange={this.update('num_beds')} />
-                        <input type="number" min="1" placeholder='Baths' onChange={this.update('num_baths')} />
-                        <input type="number" min="1" placeholder='Price/night' onChange={this.update('price_per_night')} />
+                        <input className='small-input-field' type="number" placeholder='Capacity' onChange={this.update('max_num_guests')} />
+                        <input className='small-input-field' type="number" min="1" placeholder='Beds' onChange={this.update('num_beds')} />
+                        <input className='small-input-field' type="number" min="1" placeholder='Baths' onChange={this.update('num_baths')} />
+                        <input className='small-input-field' type="number" min="1" placeholder='Price/night' onChange={this.update('price_per_night')} />
                     </div>
                     <input type="file" multiple onChange={e => this.updatePhotos(e)}/>
                     {preview}

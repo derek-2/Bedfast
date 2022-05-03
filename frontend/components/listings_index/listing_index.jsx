@@ -1,5 +1,5 @@
 import React from 'react';
-import ListingsMap from '../map/listings_map';
+// import Map from '../map/map';
 import ListingIndexItem from './listing_index_item';
 
 export default class ListingsIndex extends React.Component{
@@ -20,7 +20,7 @@ export default class ListingsIndex extends React.Component{
                     <p>{`${Object.values(this.props.listings).length} stays in ${this.props.match.params.city}`}</p>
                     {Object.values(this.props.listings).map(listing => <ListingIndexItem key={`listing-${listing.id}`} listing={listing}/> )}
                 </div>
-                <div className='map-container'><ListingsMap /></div>
+                {/* <div className='map-container'><Map /></div> */}
             </div>
         )
     }
