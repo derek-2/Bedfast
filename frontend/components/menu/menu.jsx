@@ -13,7 +13,6 @@ export default class Menu extends React.Component{
     }
 
     showModal(field){
-        console.log('toggling menu modal');
 
         return () => {
             const modal = document.getElementById(`${field}-modal`);
