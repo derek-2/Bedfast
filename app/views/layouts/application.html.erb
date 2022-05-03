@@ -2,19 +2,18 @@
 <html>
   <head>
     <title>Bedfast</title>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="<%= image_url('favicon.png') %>">
 
     <script type="text/javascript"> // store static images
@@ -28,8 +27,6 @@
       window.inspiration4 = "<%= image_url('inspiration4.jpg') %>";
       window.questions = "<%= image_url('questions.jpg') %>";
       window.placeholder = "<%= image_url('placeholder.png') %>";
-
-      
     </script>
 
     <style>

@@ -1,22 +1,15 @@
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
+import {mapStyle} from '../../util/map_style';
 
 export default class Map extends React.Component{
     componentDidMount() {
-<<<<<<< HEAD
         const mapOptions = {
           center: { lat: 40.736278, lng: -73.994022 }, 
-=======
-        // set the map to show SF 40.736278, -73.994022
-        
-
-        const mapOptions = {
-          center: { lat: 40.736278, lng: -73.994022 }, // this is SF
->>>>>>> dea2dfab9a947413028c81fab80fdc758cd37bde
           zoom: 13,
           disableDefaultUI: true,
           zoomControl: true,
-          // styles:
+          styles: mapStyle
         };
     
         // wrap this.mapNode in a Google Map
