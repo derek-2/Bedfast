@@ -18,6 +18,7 @@ export default class NewListing extends React.Component{
             previewPhotos:[]
         };
         this.handleSubmit=this.handleSubmit.bind(this);
+        this.update=this.update.bind(this);
     }
 
     handleSubmit(e){
