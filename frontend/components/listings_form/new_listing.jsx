@@ -34,11 +34,11 @@ export default class NewListing extends React.Component{
         console.log(e.target.files.length);
         let arr = [];
         arr=arr.concat(Object.values(e.target.files).map(photo => URL.createObjectURL(photo)))
-        // debugger;
+        debugger;
 
         this.setState(
             {
-            photos: this.state.photos.concat([Object.values(e.target.files)]),
+            photos: this.state.photos.concat(Object.values(e.target.files)),
             previewPhotos: this.state.previewPhotos.concat(arr)
             }
         )
@@ -51,7 +51,7 @@ export default class NewListing extends React.Component{
         console.log('photos:',this.state.photos);
         console.log('preview:',this.state.previewPhotos);
         const preview = this.state.previewPhotos ?
-            this.state.previewPhotos.map((preview,idx) => <img key={idx} src={preview} alt='some tings'/>) :
+            this.state.previewPhotos.map((preview,idx) => <img className='preview-photos' key={idx} src={preview} alt='some tings'/>) :
             <></>
         return(
             <div id="listing-form-container" onSubmit={this.handleSubmit}>
