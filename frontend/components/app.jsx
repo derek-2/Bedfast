@@ -17,7 +17,7 @@ const App = (props) => {
     }
 
     return (
-    <div>
+    <main>
         
         <NavBarContainer />
         <Switch>
@@ -53,7 +53,7 @@ const App = (props) => {
         <div onClick={hideModal} id="session-modal-container" className="session-modal-container"></div>
         <SignUpModal />
         <LoginModal />
-    </div>
+    </main>
     )
 };
 

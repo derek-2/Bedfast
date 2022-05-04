@@ -5,11 +5,13 @@ import {mapStyle} from '../../util/map_style';
 export default class Map extends React.Component{
     componentDidMount() {
         const mapOptions = {
-          center: { lat: 40.736278, lng: -73.994022 }, 
-          zoom: 13,
+          //40.688641, -73.960258
+          center: { lat: 40.688641, lng: -73.960258 }, 
+          zoom: 11,
           disableDefaultUI: true,
           zoomControl: true,
           styles: mapStyle,
+          animation: google.maps.Animation.DROP,
           options: {
             gestureHandling: 'greedy'
           }
@@ -27,12 +29,15 @@ export default class Map extends React.Component{
       componentDidUpdate(){
 
         this.MarkerManager.updateMarkers(this.props.listings);
+        console.log('we hit update!');
       }
     
     render() {
     return (
-      <div id='map-container' ref={map => this.mapNode = map}> 
-              
+      <div id="test">
+        <div id='map-container' ref={map => this.mapNode = map}> 
+                
+        </div>
       </div>
     )
     }
