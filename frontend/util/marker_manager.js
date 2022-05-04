@@ -33,7 +33,7 @@ export default class MarkerManager{
         return new google.maps.Marker({
             position: {lat: listing.latitude, lng: listing.longitude},
             map: this.map,
-            title: 'deez nuts',
+            title: 'very very cheap for sure',
             animation: google.maps.Animation.DROP,
             label: {
                 text: `$${listing.price_per_night.toString()}`,

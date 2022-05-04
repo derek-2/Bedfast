@@ -14,17 +14,52 @@ export default class NewListing extends React.Component{
             num_beds: '',
             num_baths: '',
             price_per_night: '',
-            photos:[],
-            previewPhotos:[]
+            photos: [],
+            // photos:null,
+            previewPhotos:[],
+            errors:''
         };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.update=this.update.bind(this);
     }
+    // 40.704868, -74.017313
+    // 40.795199, -73.933641
 
     handleSubmit(e){
-        console.log('yellow');
-        // debugger;
+        console.log('Attempting to create a new listing...');
         e.preventDefault();
+        const formData = new FormData();
+        const latitude = (Math.random()*(40.795199-40.704868))+40.704868;
+        const longitude = (Math.random()*(-73.933641+74.017313))-74.017313;
+        // debugger;
+        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.state.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length === 0){
+            this.setState({errors: 'fill out all fields bruh'})
+            debugger;
+        }
+        else {
+            formData.append('listing[title]', this.state.title);
+            formData.append('listing[description]', this.state.description);
+            formData.append('listing[address]', this.state.address);
+            formData.append('listing[host_id]', this.props.currentUser.id);
+            formData.append('listing[city]', this.state.city);
+            formData.append('listing[state]', this.state.state);
+            formData.append('listing[zipcode]', this.state.zipcode);
+            formData.append('listing[latitude]', latitude);
+            formData.append('listing[longitude]', longitude);
+            formData.append('listing[max_num_guests]', this.state.max_num_guests);
+            formData.append('listing[num_beds]', this.state.num_beds);
+            formData.append('listing[num_baths]', this.state.num_baths);
+            formData.append('listing[price_per_night]', this.state.price_per_night);
+            // formData.append('listing[photos]', this.state.photos);
+    
+            for (let i = 0; i < this.state.photos.length; i++) {
+                formData.append("listing[photos][]", this.state.photos[i]);
+            }
+            // debugger;
+            this.props.createListing(formData);
+        }
+
+        // debugger;
     }
 
     update(field){
@@ -39,6 +74,7 @@ export default class NewListing extends React.Component{
         this.setState(
             {
             photos: this.state.photos.concat(Object.values(e.target.files)),
+            // photos: Object.values(e.target.files)[0],
             previewPhotos: this.state.previewPhotos.concat(arr)
             }
         )
@@ -50,9 +86,9 @@ export default class NewListing extends React.Component{
     }
     
     render(){
-        console.log(this.state);
+        // console.log(this.state);
         console.log('photos:',this.state.photos);
-        console.log('preview:',this.state.previewPhotos);
+        // console.log('preview:',this.state.previewPhotos);
         const preview = this.state.previewPhotos ?
             this.state.previewPhotos.map((preview,idx) => 
             <div className='individual-preview-photo'>
@@ -60,6 +96,9 @@ export default class NewListing extends React.Component{
                 <img className='preview-photos' key={idx} src={preview} alt='preview'/>
             </div>) :
             <></>
+
+        const errors = this.state.errors ? <><p>{this.state.errors}</p></> : null;
+        // debugger;
         return(
             <div id="listing-form-container" onSubmit={this.handleSubmit}>
                 <form className='listing-form'>
@@ -82,10 +121,18 @@ export default class NewListing extends React.Component{
                         <input type="text" placeholder='e.g. 12345' onChange={this.update('zipcode')} />
                     </label>
                     <div className='listing-number-container'>
-                        <input className='small-input-field' type="number" placeholder='Capacity' onChange={this.update('max_num_guests')} />
-                        <input className='small-input-field' type="number" min="1" placeholder='Beds' onChange={this.update('num_beds')} />
-                        <input className='small-input-field' type="number" min="1" placeholder='Baths' onChange={this.update('num_baths')} />
-                        <input className='small-input-field' type="number" min="1" placeholder='Price/night' onChange={this.update('price_per_night')} />
+                        <label className='some-labels'>Capacity
+                            <input className='small-input-field' type="number" onChange={this.update('max_num_guests')} />
+                        </label>
+                        <label className='some-labels'> Beds
+                            <input className='small-input-field' type="number" min="1" onChange={this.update('num_beds')} />
+                        </label>
+                        <label className='some-labels'>Baths
+                            <input className='small-input-field' type="number" min="1" onChange={this.update('num_baths')} />
+                        </label>
+                        <label className='some-labels'>Price per night
+                            <input className='small-input-field' type="number" min="1" onChange={this.update('price_per_night')} />
+                        </label>
                     </div>
                     <label className='upload-images'>Choose Files
                         <input type="file" multiple onChange={e => this.updatePhotos(e)}/>
@@ -93,6 +140,7 @@ export default class NewListing extends React.Component{
                     <div className='preview-container'>
                         {preview}
                     </div>
+                    {errors}
                     <input type="submit" />
                 </form>
             </div>

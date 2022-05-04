@@ -14,6 +14,7 @@ export default class ListingsIndex extends React.Component{
     }
 
     render(){
+        // debugger;
         return(
             <div className='listings-index-container'>
                 <div className='listings-index-items-container'>

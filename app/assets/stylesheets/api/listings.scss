@@ -148,14 +148,18 @@
 }
 
 .small-input-field{
-    max-width: 20%;
     border: 0px;
     border-radius:5px;
+}
+
+.some-labels{
+    max-width: 50%;
 }
 
 .listing-number-container{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     // align-items: center;
 }
 
