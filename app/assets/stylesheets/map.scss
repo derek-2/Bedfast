@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 #map-container{
     // width: 500px;
     // width:100%;
@@ -11,7 +13,30 @@
 }
 
 .info-window{
-    width:200px;
+    width:150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gm-style-iw-d{
+    // opacity:.1;
+}
+
+.gm-style .gm-style-iw-c{
+    padding: 0;
+}
+.gm-style .gm-style-iw-c img{
+    border-radius: inherit;
+    max-width:100%;
+}
+
+.info-window-text{
+    padding: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.transformers{
+    transform: scale(1.1, 1.1);
 }
 
 // .map-images{

@@ -14,6 +14,8 @@ export default class MarkerManager{
                 this.infoWindows[listing.id]=this.createInfoWindow(listing);
                 // console.log(this.markers[listing.id])
                 this.markers[listing.id].addListener('click', () => {
+                    Object.values(this.infoWindows).forEach(infoWindow => infoWindow.close())
+                    // closes all other infowindows
                     this.infoWindows[listing.id].open({
                         anchor: this.markers[listing.id],
                         map: this.map,
@@ -23,7 +25,7 @@ export default class MarkerManager{
                 this.markers[listing.id].addListener('click', () => console.log(`clicked marker ${listing.id}`))
             }
         });
-        debugger;
+        // debugger;
     }
 
     createMarker(listing){
@@ -49,6 +51,11 @@ export default class MarkerManager{
         let contentString=
             (`<div class='info-window'>
                 <img class='map-images' src=${listing.photoUrls[0]} />
+                <div class='info-window-text'>
+                    <p>${listing.title}</p>
+                    <p><b>${listing.description}</b></p>
+                    <p>$${listing.price_per_night} night</p>
+                </div>
             </div>`
             
             )
