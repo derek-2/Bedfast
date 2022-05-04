@@ -18,25 +18,26 @@ label {
 }
 
 .session-btn {
-    background-color: #DC0F63;
-    border-radius: 12px;
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 14px 24px;
+        border: none;
+        transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+        background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+        color: #fff;
+        margin: 4px 2px;
   }
 
 
 .session-container{
     display: none;
-    // display: flex;
     width: 100%;
     height: 100%;
-    // opacity: .2;
     z-index: 200;
 }
 
@@ -47,7 +48,7 @@ label {
     left:0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.1)
+    background-color: rgba(255, 255, 255, 0.2)
 }
 
 .unhide{
@@ -56,13 +57,6 @@ label {
 
 .hide{
     display: none;
-}
-
-.session-modal-header{
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // flex-direction: column;
 }
 
 .session-modal-header h2{

@@ -9,19 +9,23 @@ export default class Map extends React.Component{
           zoom: 13,
           disableDefaultUI: true,
           zoomControl: true,
-          styles: mapStyle
+          styles: mapStyle,
+          options: {
+            gestureHandling: 'greedy'
+          }
+          
         };
     
         // wrap this.mapNode in a Google Map
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map);
-        debugger;
+
         this.MarkerManager.updateMarkers(this.props.listings);
 
       }
 
       componentDidUpdate(){
-        debugger;
+
         this.MarkerManager.updateMarkers(this.props.listings);
       }
     

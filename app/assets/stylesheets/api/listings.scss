@@ -48,15 +48,11 @@
     flex-direction: column;
 }
 
-.map-container{
-    width: 50vw;
-    border: black solid 1px;
-}
-
 .listings-index-items-container{
     width: 50vw;
     display: flex;
     flex-direction: column;
+    
 }
 
 .listings-index-text-container{
@@ -99,19 +95,21 @@
     font-weight: bolder;
     font-size:20px;
 }
-
+//350x180
 .price{
     display: flex;
     position: absolute;
-    right: 20px;
-    bottom: 5px;
+    right: 1vw;
+    bottom: 3vh;
+
 }
 
 .reviews{
     display: flex;
     position: absolute;
-    left: 20px;
-    bottom: 5px;
+    left: 1vw;
+    bottom: 3vh;
+
 }
 
 .separator{
@@ -120,20 +118,71 @@
     margin-left:0;
 }
 
-.preview-photos{
-    // height: 100%;
-    max-height:100%; max-width:100%;
+.preview-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    // flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.individual-preview-photo{
+    flex-basis:30%;
+    // justify-content: space-between;
+    display: relative;
+    margin: 3px;
+}
+
+.remove-photo{
+    position: absolute;
+    color: yellow;
+    margin:0;
+    right: 0;
+    top:0;
+}
+
+.preview-photos{
+    max-width: 100%;
+    max-height: 100%;
+    width:100%;
+    height:100%;
 }
 
 .small-input-field{
     max-width: 20%;
+    border: 0px;
+    border-radius:5px;
 }
 
 .listing-number-container{
     display: flex;
     justify-content: space-between;
     // align-items: center;
+}
+
+.listing-images{
+    width: 50vw;
+    height: 100vw;
+}
+
+.upload-images input[type="file"] {
+    display: none;
+}
+
+.upload-images{
+    background-color: #ffb6c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    // color: gray;
+    width: 10vw;
+    font-size: 2vmin;
+}
+
+.upload-images:hover{
+    background-color: #ff8a9e;
+    // box-shadow: 10px 10px #ffccd5;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }

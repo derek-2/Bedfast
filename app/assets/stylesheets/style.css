@@ -8,12 +8,12 @@ body{
 }
 
 #top-half{
-  padding: 15px  200px 0 200px ;
-  /* padding: 2vw 20vw 0 200px ; */
+  padding: 15px  10vw 0 10vw ;
+  /* padding: 2vw 20vw 0 15vw ; */
 }
 
 #bottom-half{
-  padding: 15px  200px 0 200px ;
+  padding: 15px  10vw 0 10vw ;
 }
 
 img{

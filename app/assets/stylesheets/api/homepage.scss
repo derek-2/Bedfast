@@ -61,6 +61,7 @@
 
 .questions-container{
     position: relative;
+    overflow: hidden;
 }
 
 .questions-container img{
@@ -77,7 +78,7 @@
     font-size: 95px;
     font-weight: bolder;
     color: white;
-    overflow: hidden;
+    
 }
 
 .questions-container button{
@@ -88,6 +89,8 @@
     font-weight: bolder;
     bottom: 5%;
     left: 5%;
+    // max-height:5%;
+    // max-width:10%;
 }
 
 

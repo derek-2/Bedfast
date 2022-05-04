@@ -8,8 +8,6 @@ import SignUpModal from './session/signup_container';
 import LoginModal from './session/login_container';
 import NewListingContainer from './listings_form/new_listing_container';
 import ListingsIndexContainer from './listings_index/listing_index_container';
-import Map from './map/map';
-
 
 const App = (props) => {
     const hideModal = () => {
@@ -55,7 +53,6 @@ const App = (props) => {
         <div onClick={hideModal} id="session-modal-container" className="session-modal-container"></div>
         <SignUpModal />
         <LoginModal />
-        <Map />
     </div>
     )
 };
