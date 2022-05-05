@@ -58,14 +58,14 @@
 .listings-index-text-container{
     display: flex;
     flex-direction: column;
-    padding: 0 15px 0 10px;
+    margin: 0 15px 0 10px;
     overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 50%;
 }
 
 .listings-index-text-container p {
-    margin: 5px 0 0 0;
+    margin: 10px 0 0 0;
     // color: blue;
 }
 
@@ -74,18 +74,19 @@
     margin: 0 20px 0 20px;
     padding: 20px 0 20px 0;
     display: flex;
+    min-width: 600px;
 }
 
 .listings-index-items-container > p:first-child{
-    color: purple;
+    // color: purple;
     margin: 0 20px 0 20px;
     padding: 20px 0 20px 0;
 }
 
-.listing-index-item img{
-    width: 50%;
-    height:100%;
-}
+// .listing-index-item img{
+//     width: 50%;
+//     height:100%;
+// }
 
 .item-details{
     display: flex;
@@ -99,16 +100,16 @@
 .price{
     display: flex;
     position: absolute;
-    right: 1vw;
-    bottom: 3vh;
+    right: 0;
+    bottom: 1vh;
 
 }
 
 .reviews{
     display: flex;
     position: absolute;
-    left: 1vw;
-    bottom: 3vh;
+    left: 0;
+    bottom: 1vh;
 
 }
 
@@ -164,8 +165,9 @@
 }
 
 .listing-images{
-    width: 50vw;
-    height: 100vw;
+    width: 300px;
+    max-width: 40%;
+    height: 100%;
 }
 
 .upload-images input[type="file"] {

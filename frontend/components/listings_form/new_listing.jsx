@@ -31,9 +31,9 @@ export default class NewListing extends React.Component{
         const formData = new FormData();
         const latitude = (Math.random()*(40.795199-40.704868))+40.704868;
         const longitude = (Math.random()*(-73.933641+74.017313))-74.017313;
-        // debugger;
-        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.state.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length === 0){
-            this.setState({errors: 'fill out all fields bruh'})
+        debugger;
+        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.props.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length === 0){
+            // this.setState({errors: 'fill out all fields bruh'})
             debugger;
         }
         else {

@@ -7,7 +7,7 @@ export default class Map extends React.Component{
         const mapOptions = {
           //40.688641, -73.960258
           center: { lat: 40.688641, lng: -73.960258 }, 
-          zoom: 11,
+          zoom: 12,
           disableDefaultUI: true,
           zoomControl: true,
           styles: mapStyle,

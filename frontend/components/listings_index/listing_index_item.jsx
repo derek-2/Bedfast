@@ -15,7 +15,7 @@ const ListingIndexItem = props => {
                 <div className='item-details'>
                     <p>{max_num_guests}{max_num_guests>1 ? ' guests ·' : ' guest ·' }</p>&nbsp;
                     <p>{num_beds}{num_beds>1 ? ' beds ·' : ' bed ·' }</p>&nbsp;
-                    <p>{num_baths}{num_baths>1 ? ' baths ·' : ' bath' }</p>
+                    <p>{num_baths}{num_baths>1 ? ' baths' : ' bath' }</p>
                     <div className='reviews'> &#9733;-5/5 (999 reviews)</div>
                     <div className='price'>   <b>{`$${price_per_night}`}</b>&nbsp;night</div>
                 </div>

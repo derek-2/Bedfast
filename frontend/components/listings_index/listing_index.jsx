@@ -13,13 +13,19 @@ export default class ListingsIndex extends React.Component{
         // debugger;
     }
 
+    componentDidUpdate(){
+        debugger;
+    }
+
     render(){
-        // debugger;
+        debugger;
         return(
             <div className='listings-index-container'>
                 <div className='listings-index-items-container'>
                     <p>{`${Object.values(this.props.listings).length} stays in ${this.props.match.params.city}`}</p>
-                    {Object.values(this.props.listings).map(listing => <ListingIndexItem key={`listing-${listing.id}`} listing={listing}/> )}
+                    {Object.values(this.props.listings).map(listing =>{ 
+                    debugger;
+                    return <ListingIndexItem listing={listing}/>} )}
                 </div>
                 <Map listings={this.props.listings} />
             </div>

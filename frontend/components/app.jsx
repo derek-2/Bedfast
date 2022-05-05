@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBarContainer from './navbar/navbar_container';
 import Footer from './footer/footer';
-import {AuthRoute} from '../util/route_util';
+import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import {Route, Switch} from 'react-router-dom';
 import HomePageContainer from './homepage/homepage_container';
 import SignUpModal from './session/signup_container';
@@ -34,9 +34,9 @@ const App = (props) => {
                 </div>
             </Route>
 
-            <Route path='/listings/new'>
+            <ProtectedRoute path='/listings/new'>
                 <NewListingContainer />
-            </Route>
+            </ProtectedRoute>
             <Route exact path="/listings/:city" component={ListingsIndexContainer}></Route>
         </Switch>
 
