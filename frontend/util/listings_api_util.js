@@ -26,8 +26,9 @@ export const fetchListing = listingId => {
 export const fetchListings = (searchParams) => {
     return $.ajax({
         method: 'GET',
-        url: '/api/listings',
-        data: {searchParams}
+        url: `/api/listings/?searchParams=${searchParams}`,
+        // url: '/api/listings',
+        // data: {searchParams}
     })
 }
 

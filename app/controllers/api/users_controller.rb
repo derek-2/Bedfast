@@ -11,7 +11,16 @@ class Api::UsersController < ApplicationController
       login(@user)
       render :show
     else
-      render json: @user.errors.full_messages, status: 422
+      errors=[]
+      # render json: @user.errors.full_messages, status: 422
+      # debugger
+      if user_params[:fname] == ''
+        errors << 'First name can\'t be blank'
+      end
+      if @user.lname == ''
+        errors << 'Last name can\'t be blank'
+      end
+      render json: @user.errors.full_messages.concat(errors), status: 422
     end
   end
 

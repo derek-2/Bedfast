@@ -34,9 +34,9 @@ const App = (props) => {
                 </div>
             </Route>
 
-            <ProtectedRoute path='/listings/new'>
-                <NewListingContainer />
-            </ProtectedRoute>
+            <Route path='/listings/new' component={NewListingContainer}>
+                
+            </Route>
             <Route exact path="/listings/:city" component={ListingsIndexContainer}></Route>
         </Switch>
 

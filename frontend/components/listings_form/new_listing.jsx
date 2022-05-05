@@ -22,8 +22,10 @@ export default class NewListing extends React.Component{
         this.handleSubmit=this.handleSubmit.bind(this);
         this.update=this.update.bind(this);
     }
-    // 40.704868, -74.017313
-    // 40.795199, -73.933641
+    
+    componentWillUnmount(){
+        debugger;
+    }
 
     handleSubmit(e){
         console.log('Attempting to create a new listing...');
@@ -31,9 +33,9 @@ export default class NewListing extends React.Component{
         const formData = new FormData();
         const latitude = (Math.random()*(40.795199-40.704868))+40.704868;
         const longitude = (Math.random()*(-73.933641+74.017313))-74.017313;
-        debugger;
-        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.props.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length === 0){
-            // this.setState({errors: 'fill out all fields bruh'})
+        // debugger;
+        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.props.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length < 5){
+            this.setState({errors: 'fill out all fields bruh'})
             debugger;
         }
         else {
@@ -56,9 +58,11 @@ export default class NewListing extends React.Component{
                 formData.append("listing[photos][]", this.state.photos[i]);
             }
             // debugger;
-            this.props.createListing(formData);
+            this.props.createListing(formData).then(this.props.fetchAllListings());
+            debugger;
+            this.props.history.push('/');
         }
-
+        ;
         // debugger;
     }
 
@@ -86,8 +90,8 @@ export default class NewListing extends React.Component{
     }
     
     render(){
-        // console.log(this.state);
-        console.log('photos:',this.state.photos);
+        console.log(this.state);
+        // console.log('photos:',this.state.photos);
         // console.log('preview:',this.state.previewPhotos);
         const preview = this.state.previewPhotos ?
             this.state.previewPhotos.map((preview,idx) => 
@@ -97,7 +101,7 @@ export default class NewListing extends React.Component{
             </div>) :
             <></>
 
-        const errors = this.state.errors ? <><p>{this.state.errors}</p></> : null;
+        const errors = this.state.errors ? <><p className='error-message'>{this.state.errors}</p></> : null;
         // debugger;
         return(
             <div id="listing-form-container" onSubmit={this.handleSubmit}>
@@ -134,7 +138,8 @@ export default class NewListing extends React.Component{
                             <input className='small-input-field' type="number" min="1" onChange={this.update('price_per_night')} />
                         </label>
                     </div>
-                    <label className='upload-images'>Choose Files
+                    <label className='upload-images'>
+                        Choose Files (min: 5)
                         <input type="file" multiple onChange={e => this.updatePhotos(e)}/>
                     </label>
                     <div className='preview-container'>

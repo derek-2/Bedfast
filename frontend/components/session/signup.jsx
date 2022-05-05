@@ -51,30 +51,28 @@ export default class SignUpModal extends React.Component{
           <form onSubmit={this.handleSubmit}>
           <div className="session-modal-header">
               <div className="session-formType-div">
-                <h2 className="session-formType">Login or sign up</h2>
+                <h2 className="session-formType">Sign up</h2>
               </div>
                 <h2 className="session-formWelcome">Welcome to Bedfast</h2>
             </div>
-            <label className='session-label'>Email:
-              <input type="text" value={this.state.email} onChange={this.update('email')} />
-            </label>
-            <br />
-
-            {(this.props.formType === "Sign Up") ? 
+            <div className="session-div">
+              <input type="text" className="inputText" value={this.state.email} onChange={this.update('email')} />
+              <span className="floating-label">Email address</span>
+            </div>
             <>
-              <label className='session-label'>First Name:
-                <input type="text" value={this.state.fname} onChange={this.update('fname')} />
-              </label>
-              <br />
-              <label className='session-label'>Last Name:
-                <input type="text" value={this.state.lname} onChange={this.update('lname')} />
-            </label>
-            <br />
-            </> : <></>}
-
-            <label className='session-label'>Password:
-              <input type="text" value={this.state.password} onChange={this.update('password')} />
-            </label>
+            <div className="session-div">
+              <input type="text" className="inputText" value={this.state.fname} onChange={this.update('fname')}/>
+              <span className="floating-label">First Name</span>
+            </div>
+            <div className="session-div">
+              <input type="text" className="inputText" value={this.state.lname} onChange={this.update('lname')}/>
+              <span className="floating-label">Last Name</span>
+            </div>
+            </>
+            <div className="session-div">
+              <input type="password" className="inputText" value={this.state.password} onChange={this.update('password')} />
+              <span className="floating-label">Password</span>
+            </div>
             <br />
             {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
             <input className='session-btn' type="submit" value={this.props.formType} />

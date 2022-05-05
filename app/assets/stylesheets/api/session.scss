@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .session-modal {
     display: flex;
     font-family: arial;
@@ -11,6 +13,7 @@
     background-color: white;
     border-radius: 15px;
     color: black;
+    font-family: 'Montserrat', sans-serif;
   }
 
 label {
@@ -65,10 +68,12 @@ label {
 
 .session-formType{
     font-size: 16px;
+    font-weight: bold;
 }
 
 .session-formWelcome{
     font-size: 22px;
+    font-weight: bold;
     margin: 20px 0 20px 0;
     display: relative;
 }
@@ -84,4 +89,36 @@ label {
     display: none;
     right: 0;
     top: 0;
+}
+
+
+.inputText:focus ~ .floating-label,
+.inputText:not(:focus):valid ~ .floating-label{
+  font-size: 11px;
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+
+.session-div{
+  position: relative;
+}
+
+.inputText {
+  font-size: 14px;
+  width: 200px;
+  height: 35px;
+  font-size: 11px;
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+
+.floating-label {
+  position: absolute;
+//   pointer-events: none;
+  left: 10px;
+  top: 10px;
+//   transition: 0.2s ease all;
+  transform: scale(0.9, 0.9);
 }

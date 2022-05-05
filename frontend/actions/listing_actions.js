@@ -26,7 +26,9 @@ const receiveListingErrors = errors => ({
 })
 
 export const createListing = listing => dispatch => {
-    return ListingsApiUtil.createListing(listing).then(listing =>dispatch(receiveListing(listing)), err => dispatch(receiveListingErrors(err.responseJSON)))
+    return ListingsApiUtil.createListing(listing).then(listing => {
+        debugger;
+        return dispatch(receiveListing(listing)), err => dispatch(receiveListingErrors(err.responseJSON))})
 }
 
 export const editListing = listing => dispatch => {
@@ -38,7 +40,9 @@ export const fetchListing = listingId => dispatch => {
 }
 
 export const fetchListings = (searchParams) => dispatch => {
-    return ListingsApiUtil.fetchListings(searchParams).then(listings => dispatch(receiveListings(listings)), err => dispatch(receiveListingErrors(err.responseJSON)))
+    return ListingsApiUtil.fetchListings(searchParams).then(listings => {
+        debugger;
+        return dispatch(receiveListings(listings)), err => dispatch(receiveListingErrors(err.responseJSON))})
 }
 
 export const deleteListing = listingId => dispatch => {
