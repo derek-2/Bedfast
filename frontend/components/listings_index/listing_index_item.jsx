@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ListingIndexItem = props => {
-    const {title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night, photoUrls } = props.listing;
+    const {id, title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night, photoUrls } = props.listing;
     debugger;
     return(
-        <div className='listing-index-item'>
+        <div className='listing-index-item' id={`listing-${id}`}>
             <img className='listing-images' src={photoUrls[0]} alt="photo" />
             {/* <img src={window.placeholder} alt="photo" /> */}
             <div className='listings-index-text-container'>

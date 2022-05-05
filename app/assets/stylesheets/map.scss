@@ -13,13 +13,18 @@
 }
 
 .info-window{
-    width:150px;
+    width:200px;
     display: flex;
     flex-direction: column;
 }
 
-.gm-style-iw-d{
-    // opacity:.1;
+.gm-ui-hover-effect > span{
+    // color: white;
+    // border: solid yellow 1px;
+}
+
+.gm-style-iw-d {
+    overflow: hidden !important;
 }
 
 .gm-style .gm-style-iw-c{
@@ -35,11 +40,15 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.transformers{
-    transform: scale(1.1, 1.1);
-}
-
 // .map-images{
 //     // height: auto;
 //     width: 200px;
 // }
+
+.hoverable{
+    background-color: yellow;
+}
+
+.info-window-description{
+    font-size: 1.3em;
+}

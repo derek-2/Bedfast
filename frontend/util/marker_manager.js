@@ -22,6 +22,20 @@ export default class MarkerManager{
                         shouldFocus: false
                     })
                 })
+                // this.markers[listing.id].addListener('mouseover', () => {
+                //     debugger;
+                //     console.log(`hovered ${listing.id}`)
+                //     const listing = document.getElementById(`listing-${listing.id}`);
+                //     listing.classList.toggle('hoverable');
+                // })
+
+                // ---
+                const iwOuter = $('.gm-style-iw');
+                const iwBackground = iwOuter.prev();
+                iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+                iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+                // reference: https://stackoverflow.com/questions/21542870/remove-right-and-bottom-margin-on-infowindows
+
                 this.markers[listing.id].addListener('click', () => console.log(`clicked marker ${listing.id}`))
             }
         });
@@ -41,7 +55,7 @@ export default class MarkerManager{
                 fontSize: '12'
             },
             icon: {
-                url: window.roundedRectangle,
+                url: window.whitecircle,
                 scaledSize: new google.maps.Size(31,31),
             }
         })
@@ -53,7 +67,7 @@ export default class MarkerManager{
                 <img class='map-images' src=${listing.photoUrls[0]} />
                 <div class='info-window-text'>
                     <p>${listing.title}</p>
-                    <p><b>${listing.description}</b></p>
+                    <p class='info-window-description'><b>${listing.description}</b></p>
                     <p>$${listing.price_per_night} night</p>
                 </div>
             </div>`
