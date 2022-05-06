@@ -37,7 +37,7 @@ export default class MarkerManager{
         return new google.maps.Marker({
             position: {lat: listing.latitude, lng: listing.longitude},
             map: this.map,
-            title: 'very very cheap for sure',
+            title: `listing #${listing.id}`,
             animation: google.maps.Animation.DROP,
             label: {
                 text: `$${listing.price_per_night.toString()}`,
@@ -56,8 +56,8 @@ export default class MarkerManager{
             (`<div class='info-window'>
                 <img class='map-images' src=${listing.photoUrls[0]} />
                 <div class='info-window-text'>
-                    <p>${listing.title}</p>
-                    <p class='info-window-description'><b>${listing.description}</b></p>
+                    <p ><b>${listing.description}</b></p>
+                    <p class='info-window-title'>${listing.title}</p>
                     <p>$${listing.price_per_night} night</p>
                 </div>
             </div>`
