@@ -13,12 +13,6 @@ export default class SignUpModal extends React.Component{
     this.demoLogin = this.demoLogin.bind(this);
   }
 
-  componentDidMount() {
-    // debugger;
-    // this.props.fetchUsers();
-    // debugger;
-  }
-
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }

@@ -4,7 +4,6 @@ export default class NewListing extends React.Component{
     
     constructor(props){
         super(props);
-        debugger;
         this.state= {
             title: '',
             description: '',
@@ -17,28 +16,25 @@ export default class NewListing extends React.Component{
             num_baths: '',
             price_per_night: '',
             photos: [],
-            // photos:null,
             previewPhotos:[],
             errors:''
         };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.update=this.update.bind(this);
     }
-    
-    componentWillUnmount(){
-        // debugger;
-    }
 
     handleSubmit(e){
-        console.log('Attempting to create a new listing...');
+        // console.log('Attempting to create a new listing...');
         e.preventDefault();
         const formData = new FormData();
         const latitude = (Math.random()*(40.795199-40.704868))+40.704868;
         const longitude = (Math.random()*(-73.933641+74.017313))-74.017313;
-        // debugger;
-        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.props.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length < 1){
-            this.setState({errors: 'fill out all fields bruh'})
-            debugger;
+        debugger;
+        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length < 1){
+            this.setState({errors: 'fill out all fields bruh'});
+        }
+        else if(this.props.currentUser === undefined) {
+            this.setState({errors: 'must be logged in to create new listing'});
         }
         else {
             formData.append('listing[title]', this.state.title);
@@ -54,18 +50,13 @@ export default class NewListing extends React.Component{
             formData.append('listing[num_beds]', this.state.num_beds);
             formData.append('listing[num_baths]', this.state.num_baths);
             formData.append('listing[price_per_night]', this.state.price_per_night);
-            // formData.append('listing[photos]', this.state.photos);
     
             for (let i = 0; i < this.state.photos.length; i++) {
                 formData.append("listing[photos][]", this.state.photos[i]);
             }
-            // debugger;
             this.props.createListing(formData).then(() => this.props.fetchAllListings());
-            debugger;
             this.props.history.push('/listings/NY');
-        }
-        ;
-        // debugger;
+        };
     }
 
     update(field){
@@ -73,7 +64,7 @@ export default class NewListing extends React.Component{
     }
 
     updatePhotos(e){
-        console.log(e.target.files.length);
+        // console.log(e.target.files.length);
         let arr = [];
         arr=arr.concat(Object.values(e.target.files).map(photo => URL.createObjectURL(photo)))
 
@@ -84,7 +75,6 @@ export default class NewListing extends React.Component{
             previewPhotos: this.state.previewPhotos.concat(arr)
             }
         )
-        // debugger;
     }
 
     removePhoto(idx){
@@ -92,7 +82,7 @@ export default class NewListing extends React.Component{
     }
     
     render(){
-        console.log(this.state);
+        // console.log(this.state);
         // console.log('photos:',this.state.photos);
         // console.log('preview:',this.state.previewPhotos);
         const preview = this.state.previewPhotos ?
@@ -104,7 +94,6 @@ export default class NewListing extends React.Component{
             <></>
 
         const errors = this.state.errors ? <><p className='error-message'>{this.state.errors}</p></> : null;
-        // debugger;
         return(
             <div id="listing-form-container" onSubmit={this.handleSubmit}>
                 <form className='listing-form'>

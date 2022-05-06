@@ -27,9 +27,7 @@ export default class Map extends React.Component{
       }
 
       componentDidUpdate(){
-
         this.MarkerManager.updateMarkers(this.props.listings);
-        console.log('we hit update!');
       }
     
     render() {

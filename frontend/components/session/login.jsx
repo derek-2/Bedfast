@@ -18,7 +18,6 @@ export default class LoginModal extends React.Component{
   }
 
   handleSubmit(e) {
-    console.log('hello');
     e.preventDefault();
     const menu = document.getElementById('top-right-menu');
     menu.classList.remove('show');
@@ -39,7 +38,6 @@ export default class LoginModal extends React.Component{
   }
 
   render() {
-    console.log(this.state);
     return (
       <div id="login-modal" className="session-container">
         <div className='session-modal'>

@@ -1,18 +1,15 @@
 class Api::ListingsController < ApplicationController
     def index
-        # debugger
         @listings = params[:searchParams] != 'undefined' ?
          Listing.all.select do |listing|
             listing.city.downcase.include?(params[:searchParams].downcase) || listing.state.downcase.include?(params[:searchParams].downcase) || listing.address.downcase.include?(params[:searchParams].downcase)
         end :
         @listings = Listing.all
 
-        debugger
         render :index
     end
 
     def create
-        # debugger
         @listing = Listing.new(listing_params)
         if @listing.save
             render :show

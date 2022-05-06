@@ -6,8 +6,6 @@ export default class MarkerManager{
     }
 
     updateMarkers(listings){
-        // debugger;
-        console.log('in map!!!');
         Object.values(listings).forEach(listing => {
             if (this.markers[listing.id] === undefined){
                 this.markers[listing.id]=this.createMarker(listing);
@@ -22,12 +20,6 @@ export default class MarkerManager{
                         shouldFocus: false
                     })
                 })
-                // this.markers[listing.id].addListener('mouseover', () => {
-                //     debugger;
-                //     console.log(`hovered ${listing.id}`)
-                //     const listing = document.getElementById(`listing-${listing.id}`);
-                //     listing.classList.toggle('hoverable');
-                // })
 
                 // ---
                 const iwOuter = $('.gm-style-iw');
@@ -36,14 +28,12 @@ export default class MarkerManager{
                 iwBackground.children(':nth-child(4)').css({'display' : 'none'});
                 // reference: https://stackoverflow.com/questions/21542870/remove-right-and-bottom-margin-on-infowindows
 
-                this.markers[listing.id].addListener('click', () => console.log(`clicked marker ${listing.id}`))
+                // this.markers[listing.id].addListener('click', () => console.log(`clicked marker ${listing.id}`))
             }
         });
-        // debugger;
     }
 
     createMarker(listing){
-        // debugger;
         return new google.maps.Marker({
             position: {lat: listing.latitude, lng: listing.longitude},
             map: this.map,

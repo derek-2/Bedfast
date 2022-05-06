@@ -13,7 +13,6 @@ class Api::UsersController < ApplicationController
     else
       errors=[]
       # render json: @user.errors.full_messages, status: 422
-      # debugger
       if user_params[:fname] == ''
         errors << 'First name can\'t be blank'
       end
