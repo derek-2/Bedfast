@@ -7,7 +7,7 @@ class Api::ListingsController < ApplicationController
         end :
         @listings = Listing.all
 
-        # debugger
+        debugger
         render :index
     end
 

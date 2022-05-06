@@ -1,8 +1,10 @@
 import React from 'react';
 
 export default class NewListing extends React.Component{
+    
     constructor(props){
         super(props);
+        debugger;
         this.state= {
             title: '',
             description: '',
@@ -24,7 +26,7 @@ export default class NewListing extends React.Component{
     }
     
     componentWillUnmount(){
-        debugger;
+        // debugger;
     }
 
     handleSubmit(e){
@@ -34,7 +36,7 @@ export default class NewListing extends React.Component{
         const latitude = (Math.random()*(40.795199-40.704868))+40.704868;
         const longitude = (Math.random()*(-73.933641+74.017313))-74.017313;
         // debugger;
-        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.props.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length < 5){
+        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.props.currentUser.id === null || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length < 1){
             this.setState({errors: 'fill out all fields bruh'})
             debugger;
         }
@@ -58,9 +60,9 @@ export default class NewListing extends React.Component{
                 formData.append("listing[photos][]", this.state.photos[i]);
             }
             // debugger;
-            this.props.createListing(formData).then(this.props.fetchAllListings());
+            this.props.createListing(formData).then(() => this.props.fetchAllListings());
             debugger;
-            this.props.history.push('/');
+            this.props.history.push('/listings/NY');
         }
         ;
         // debugger;

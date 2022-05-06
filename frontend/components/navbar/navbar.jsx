@@ -35,7 +35,6 @@ export default class NavBar extends React.Component {
   }
 
   toggleMenu(){
-
     const menu = document.getElementById('top-right-menu');
     menu.classList.toggle('show');
   }

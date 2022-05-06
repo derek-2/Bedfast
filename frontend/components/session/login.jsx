@@ -24,7 +24,6 @@ export default class LoginModal extends React.Component{
     menu.classList.remove('show');
     this.props.submitForm(this.state);
     // this.props.history.push('/');
-    //commented this out b/c with authroutes, it shoul;d auto redirect
   }
 
   demoLogin() {
