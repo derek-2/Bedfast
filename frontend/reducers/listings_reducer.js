@@ -9,7 +9,8 @@ export const ListingsReducer = (state={}, action) => {
         case RECEIVE_LISTING:
             return nextState[action.listing.id]=action.listing;
         case RECEIVE_LISTINGS:
-            return Object.assign(nextState, action.listings);
+            Object.assign(nextState, action.listings);
+            return nextState;
         case REMOVE_LISTING:
             delete nextState[action.listingId];
             return nextState;

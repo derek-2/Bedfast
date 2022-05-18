@@ -19,12 +19,12 @@ class Api::ListingsController < ApplicationController
     end
 
     def show
-        @listing = Listing.find(params[:listing][:id])
+        @listing = Listing.find(params[:id])
         render :show
     end
 
     def update
-        @listing = Listing.find(params[:listing][:id])
+        @listing = Listing.find(params[:id])
 
         if @listing.update(listing_params)
             render :show
@@ -37,7 +37,7 @@ class Api::ListingsController < ApplicationController
         @listing = Listing.find(params[:id])
         if @listing
             @listing.destroy
-            render json: {message: 'Listing Destroyed'}
+            render json: {message: 'Listing destroyed'}
         end
     end
 

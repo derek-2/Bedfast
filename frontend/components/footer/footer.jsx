@@ -10,8 +10,8 @@ const Footer = () => {
                     <div></div>
                     <li className="footer-label footer-item">Links</li>
                     <li className="footer-item"><a href="https://github.com/derek-2">Github</a></li>
-                    <li className="footer-item"><a href="#">Linkedin</a></li>
-                    <li className="footer-item"><a href="#">AngelList</a></li>
+                    <li className="footer-item"><a href="https://www.linkedin.com/in/derek-lee-a43632152/">Linkedin</a></li>
+                    <li className="footer-item"><a href="https://angel.co/u/derek-lee-35">AngelList</a></li>
                 </ul>
             </div>
             <div className="real-footer">

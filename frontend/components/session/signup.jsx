@@ -21,6 +21,7 @@ export default class SignUpModal extends React.Component{
     e.preventDefault();
     const menu = document.getElementById('top-right-menu');
     menu.classList.remove('show');
+    debugger;
     this.props.submitForm(this.state);
     // this.props.history.push('/');
     //commented this out b/c with authroutes, it shoul;d auto redirect
@@ -37,8 +38,8 @@ export default class SignUpModal extends React.Component{
     })
     document.getElementById('login-modal').classList.remove('unhide');
     document.getElementById('signup-modal').classList.remove('unhide');
-    document.getElementById('session-modal-container').remove('unhide');
-    document.getElementById('session-modal-container').add('hide');
+    document.getElementById('session-modal-container').classList.remove('unhide');
+    document.getElementById('session-modal-container').classList.add('hide');
     // this.props.history.push('/');
   }
 
@@ -74,7 +75,7 @@ export default class SignUpModal extends React.Component{
             <br />
             {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
             <input className='session-btn' type="submit" value={this.props.formType} />
-            <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
+            <div className='session-btn' onClick={this.demoLogin}>Demo Login</div>
             <span className="close-session">&times;</span>
           </form>
         </div>
