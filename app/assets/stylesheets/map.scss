@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 #map-container{
-    // width: 500px;
-    // width:100%;
-    width:50vw;
+    width: 100%;
     height: 100vh;
-    // height: 100%;
-    // border: black solid 1px;
-    position:sticky !important;
-    top:0;
-    right:0;
+    position: sticky !important;
+    top: 0;
+    right: 0;
 }
 
 .info-window{

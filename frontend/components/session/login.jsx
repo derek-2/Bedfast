@@ -19,9 +19,10 @@ export default class LoginModal extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    const menu = document.getElementById('top-right-menu');
-    menu.classList.remove('show');
-    this.props.submitForm(this.state);
+    this.props.submitForm(this.state).then(() => {
+      const menu = document.getElementById('top-right-menu');
+      menu.classList.remove('show');
+    });
     // this.props.history.push('/');
   }
 

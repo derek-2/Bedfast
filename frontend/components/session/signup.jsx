@@ -21,8 +21,12 @@ export default class SignUpModal extends React.Component{
     e.preventDefault();
     const menu = document.getElementById('top-right-menu');
     menu.classList.remove('show');
-    debugger;
+    // debugger;
     this.props.submitForm(this.state);
+    // this.props.submitForm(this.state).then(() => {
+    //   const menu = document.getElementById('top-right-menu');
+    //   menu.classList.remove('show');
+    // });
     // this.props.history.push('/');
     //commented this out b/c with authroutes, it shoul;d auto redirect
   }

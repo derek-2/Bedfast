@@ -9,7 +9,6 @@ body{
 
 #top-half{
   padding: 0px  10vw 20px 10vw ;
-  /* padding: 2vw 20vw 0 15vw ; */
 }
 
 #bottom-half{
@@ -18,4 +17,12 @@ body{
 
 img{
   border-radius: 15px;
+}
+
+.container{
+  margin: 15px 10vw 10px 10vw;
+}
+
+.listing-show-map{
+  width: 100vw;
 }
