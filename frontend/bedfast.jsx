@@ -6,6 +6,7 @@ import Root from './components/root';
 import { login, logout, signUp} from './actions/session_actions';
 import { createListing, editListing, fetchListing, fetchListings, deleteListing } from './actions/listing_actions';
 import {fetchUsers} from './actions/session_actions';
+import * as BookingActions from './actions/booking_actions';
 
 document.addEventListener('DOMContentLoaded', ()=> {
   const root = document.getElementById('root');
@@ -38,6 +39,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
   window.fetchListings = fetchListings;
   window.deleteListing = deleteListing;
 
+  window.createBooking = BookingActions.createBooking;
+  window.updateBooking = BookingActions.updateBooking;
+  window.fetchBooking = BookingActions.fetchBooking;
+  window.fetchBookings = BookingActions.fetchBookings;
+  window.deleteBooking = BookingActions.deleteBooking;
 
   let preloadedState;
   if (window.currentUser) {

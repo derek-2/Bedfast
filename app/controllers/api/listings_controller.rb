@@ -1,6 +1,6 @@
 class Api::ListingsController < ApplicationController
     def index
-        @listings = params[:searchParams] != 'undefined' ?
+        @listings = params[:searchParams] ?
          Listing.all.select do |listing|
             listing.city.downcase.include?(params[:searchParams].downcase) || listing.state.downcase.include?(params[:searchParams].downcase) || listing.address.downcase.include?(params[:searchParams].downcase)
         end :
@@ -19,12 +19,16 @@ class Api::ListingsController < ApplicationController
     end
 
     def show
-        @listing = Listing.find(params[:id])
-        render :show
+        @listing = Listing.find_by(id: params[:id])
+        if @listing
+            render :show
+        else
+            render json: ['listing with that id does not exist']
+        end
     end
 
     def update
-        @listing = Listing.find(params[:id])
+        @listing = Listing.find_by(id: params[:id])
 
         if @listing.update(listing_params)
             render :show
@@ -34,7 +38,7 @@ class Api::ListingsController < ApplicationController
     end
 
     def destroy
-        @listing = Listing.find(params[:id])
+        @listing = Listing.find_by(id: params[:id])
         if @listing
             @listing.destroy
             render json: {message: 'Listing destroyed'}

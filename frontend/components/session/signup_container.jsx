@@ -4,7 +4,7 @@ import SignUpModal from './signup';
 
 const mapState = (state) => {
     return ({
-        errors: state.errors,
+        errors: state.errors.session,
         users: state.entities.users,
         formType: 'Sign Up'
     })

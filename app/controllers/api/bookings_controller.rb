@@ -5,8 +5,12 @@ class Api::BookingsController < ApplicationController
     end
 
     def show
-        @booking = Booking.find(params[:id])
-        render :show
+        @booking = Booking.find_by(id: params[:id])
+        if @booking
+            render :show
+        else
+            render json: ['booking doesn\'t exist'], status: 404
+        end
     end
 
     def create
@@ -19,7 +23,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def update
-        @booking = Booking.find(params[:id])
+        @booking = Booking.find_by(id: params[:id])
         if @booking.update(booking_params)
             render :show
         else
@@ -28,7 +32,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def destroy
-        @booking = Booking.find(params[:id])
+        @booking = Booking.find_by(id: params[:id])
         if @booking
             @booking.destroy
             render json: {message: 'Booking destroyed'}

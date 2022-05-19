@@ -1,5 +1,6 @@
 import React from "react";
 import Map from '../map/map';
+import NewBookingFormContainer from "../booking_form/new_booking_form_container";
 
 export default class Listing extends React.Component{
     constructor(props){
@@ -13,7 +14,7 @@ export default class Listing extends React.Component{
     render(){
         console.log(this.props.listing)
         if (this.props.listing){ 
-            const {address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
+            const {host_name, address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
             const allPhotos = (
                 <>
                 <div className='photos-container'>
@@ -31,22 +32,24 @@ export default class Listing extends React.Component{
                 </div>
                 </>
             );
-            debugger;
             return (
                 <div className='container'>
-                    {title}
+                    <p>{title} by {host_name}</p>
                     <p>{city},{state}</p>
                     {allPhotos}
-                    {title}
-                    <p>{max_num_guests} guests · {num_beds} beds · {num_baths} baths</p>
-
-                    <hr className='listing-show-separator' />
-                    {description}
-                    {price_per_night}
-                    <p>&lt;Booking Form&gt;</p>
+                    <div className='listing-show-container'>
+                        <div>
+                            {description}
+                            {/* <p>&lt;Booking Form&gt;</p> */}
+                        </div>
+                            <NewBookingFormContainer listingId={id} price={price_per_night}/>
+                        </div>
                     <p>&lt;Review Component&gt;</p>
                     <p>Where you'll be</p>
                     <p>{city}, {state}</p>
+                    <p>{max_num_guests} guests · {num_beds} beds · {num_baths} baths</p>
+                    {title}
+                    <hr className='listing-show-separator' />
                     <Map listings={[this.props.listing]}/>
                 </div>
         )}

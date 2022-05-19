@@ -37,8 +37,8 @@ export default class LoginModal extends React.Component{
     })
     document.getElementById('login-modal').classList.remove('unhide');
     document.getElementById('signup-modal').classList.remove('unhide');
-    document.getElementById('session-modal-container').remove('unhide');
-    document.getElementById('session-modal-container').add('hide');
+    document.getElementById('session-modal-container').classList.remove('unhide');
+    document.getElementById('session-modal-container').classList.add('hide');
 
     // this.props.history.push('/');
   }
