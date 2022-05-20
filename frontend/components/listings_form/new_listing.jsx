@@ -53,8 +53,9 @@ export default class NewListing extends React.Component{
             for (let i = 0; i < this.state.photos.length; i++) {
                 formData.append("listing[photos][]", this.state.photos[i]);
             }
-            this.props.createListing(formData).then(() => this.props.fetchAllListings());
-            this.props.history.push('/listings/NY');
+            debugger;
+            // this.props.createListing(formData).then(() => this.props.fetchAllListings());
+            // this.props.history.push('/listings/search/NY/0');
         };
     }
 

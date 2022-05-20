@@ -66,6 +66,9 @@ export default class NewBookingForm extends React.Component{
         const end = new Date(this.state.check_out_date);
         const num_days = (end - start) / (1000 * 60 * 60 * 24)
 
+        const pricexnights = num_days < 1 ? 
+            <><b>${price}</b> night x {num_days + 1}</> : <><b>${price}</b> nights x {num_days + 1}</>;
+
         return(
             <form className='new-booking-form' onSubmit={this.handleSubmit}>
                 <p><b>${price}</b> night</p>
@@ -94,10 +97,13 @@ export default class NewBookingForm extends React.Component{
                     </div>
                     <button className='session-btn'>Reserve</button>
                 </div>
-                <div>
-                    {num_days < 1 ? `$${price} night x ${num_days + 1}` : `$${price} nights x ${num_days + 1}` }
-                    <br />
-                    Total before Taxes {`$${price * (num_days + 1)}`}
+                <div className='booking-costs-container'>
+                    <div>
+                        {pricexnights}
+                    </div>
+                    <div>
+                        Total: <b>{`$${price * (num_days + 1)}`}</b>
+                    </div>
                 </div>
             </form>
         )

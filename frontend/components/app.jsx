@@ -35,10 +35,9 @@ const App = (props) => {
                 </div>
             </Route>
 
-            <Route path='/listings/new' component={NewListingContainer}>
                 
-            </Route>
-            <Route exact path="/listings/search/:city" component={ListingsIndexContainer}></Route>
+            <Route exact path='/listings/new' component={NewListingContainer}></Route>
+            <Route exact path="/listings/search/:city/:guests" component={ListingsIndexContainer}></Route>
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>
         </Switch>
 

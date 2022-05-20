@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 .new-booking-form{
     width: 30vw;
     box-shadow: rgba(100, 100, 111, .8) 0px 7px 29px 0px;
     border: solid rgb(221,221,221) 1px;
     border-radius: 15px;
     padding: 20px;
+    min-width: 300px;
+}
+
+.new-booking-form > div:first-child{
+    padding: 5% 0;
+    border: 1px solid black;
 }
 
 .new-booking-inputs{
@@ -11,6 +19,7 @@
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    padding: 5% 0;
 }
 
 input[type="date"]{
@@ -55,13 +64,14 @@ input[type="date"]{
 
 .num-guests-input input[type="number"]{
     border: none;
-    width: 95%;
+    width: auto;
     padding: 3px;
 }
 
 .listing-show-container{
     display: flex;
     padding: 3vh 0;
+    flex-wrap: wrap;
 }
 
 .listing-show-container > div:first-child{
@@ -73,3 +83,39 @@ input[type="date"]{
     position: relative;
 }
 
+.booking-costs-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+b{
+    font-weight: 700;
+}
+
+.listing-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-info > div {
+    display: flex;
+}
+
+.listing-info > div img{
+    display: flex;
+    height: 5vh;
+    border-radius: 0;
+}
+
+.placeholder-info-text{
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.placeholder-info-wrap{
+    display: flex;
+    padding: 1vh 0;
+    align-items: center;
+}

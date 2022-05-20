@@ -1,11 +1,19 @@
 class Api::ListingsController < ApplicationController
     def index
-        @listings = params[:searchParams] ?
-         Listing.all.select do |listing|
-            listing.city.downcase.include?(params[:searchParams].downcase) || listing.state.downcase.include?(params[:searchParams].downcase) || listing.address.downcase.include?(params[:searchParams].downcase)
-        end :
-        @listings = Listing.all
-
+        @listings = []
+        if params[:searchParams].empty? && params[:guests].empty?
+            @listings = Listing.all
+        elsif params[:searchParams].empty?
+            @listings = Listing.where('max_num_guests >= ?', params[:guests])
+        elsif params[:guests].empty?
+            @listings = Listing.all.select do |listing|
+                            listing.city.downcase.include?(params[:searchParams].downcase) || listing.state.downcase.include?(params[:searchParams].downcase) || listing.address.downcase.include?(params[:searchParams].downcase)
+                        end
+        else
+            @listings = Listing.all.select do |listing|
+                listing.max_num_guests >= params[:guests].to_i && (listing.city.downcase.include?(params[:searchParams].downcase) || listing.state.downcase.include?(params[:searchParams].downcase) || listing.address.downcase.include?(params[:searchParams].downcase))
+            end
+        end
         render :index
     end
 
