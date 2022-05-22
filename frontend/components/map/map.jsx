@@ -31,7 +31,8 @@ export default class Map extends React.Component{
       }
 
       componentDidUpdate(prevProps){
-        if ((this.props.match.params.city !== prevProps.match.params.city) || (this.props.match.params.guests !== prevProps.match.params.guests)){
+        debugger;
+        if ((this.props.match.params.city !== prevProps.match.params.city) || (this.props.match.params.guests !== prevProps.match.params.guests) || (this.props.listings !== prevProps.listings) ){
           const mapOptions = {
             //40.688641, -73.960258
             center: { lat: 40.688641, lng: -73.960258 },
@@ -50,7 +51,6 @@ export default class Map extends React.Component{
           this.map = new google.maps.Map(this.mapNode, mapOptions);
           this.MarkerManager = new MarkerManager(this.map);
 
-          this.MarkerManager.updateMarkers(this.props.listings);
         }
         this.MarkerManager.updateMarkers(this.props.listings);
       }
