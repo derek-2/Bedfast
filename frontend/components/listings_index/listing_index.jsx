@@ -11,26 +11,25 @@ export default class ListingsIndex extends React.Component{
 
     componentDidMount(){
         // debugger;
-       
-        this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests, () =>this.props.clearListings())
+        this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests)
     }
         
         // componentWillReceiveProps(nextProps){
         //     // debugger
         // }
         
-        componentDidUpdate(prevProps, prevState){
-            if ((this.props.match.params.city !== prevProps.match.params.city) || (this.props.match.params.guests !== prevProps.match.params.guests)){
-                // this.props.clearListings();
-                this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests);
-            }
-            // if (prevState.listings !== this.state.listings){
-            //     this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests)
-            // }
+    componentDidUpdate(prevProps, prevState){
+        if ((this.props.match.params.city !== prevProps.match.params.city) || (this.props.match.params.guests !== prevProps.match.params.guests)){
+            this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests);
         }
+        // if (prevState.listings !== this.state.listings){
+        //     this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests)
+        // }
+    }
 
     render(){
         // console.log(this.state.listings);
+        debugger;
         console.log(this.props.listings);
         if (!this.props.listings){
             return null;
@@ -43,7 +42,7 @@ export default class ListingsIndex extends React.Component{
                         {Object.values(this.props.listings).map(listing =>{ 
                         return <ListingIndexItem listing={listing}/>} )}
                     </div>
-                    <Map listings={this.props.listings} />
+                    <Map match={this.props.match} listings={this.props.listings} />
                 </div>
             )
         }
