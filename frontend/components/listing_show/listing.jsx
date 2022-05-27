@@ -39,10 +39,12 @@ export default class Listing extends React.Component{
                     {allPhotos}
                     <div className='listing-show-container'>
                         <div className='listing-info'>
-                            {description}
+                            {title}
                             <p>{city}, {state}</p>
                             <p>{max_num_guests} guests · {num_beds} beds · {num_baths} baths</p>
-                            {title}
+                            {description}
+                            <p>Lorem ipsum dolor sit amet. Est sint neque nam sapiente laboriosam eos dignissimos nostrum vel maiores voluptatem non eligendi maiores sed maiores distinctio. Sed officia quibusdam eum architecto repellat non rerum facere ut deserunt ipsa et galisum dicta sit fugiat maiores. </p><p>Vel cumque consequatur cum nostrum deleniti rem dolor consequatur. Qui vero consequatur in quibusdam quaerat qui necessitatibus labore At doloribus reiciendis ut quia voluptas? </p><p>Ab expedita dolorem ut deleniti animi qui placeat dolor aut dolor Quis et unde adipisci eos nihil unde. In beatae saepe ut dolorem quaerat est illo dolores vel provident cupiditate. </p>
+
                             <hr className='listing-show-separator' />
                             <div className='placeholder-info-wrap'>
                                 <img src={window.door} alt="door!" /> 

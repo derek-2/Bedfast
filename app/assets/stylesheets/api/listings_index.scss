@@ -127,10 +127,16 @@
 }
 
 .individual-preview-photo{
+    display: flex;
     flex-basis:30%;
     // justify-content: space-between;
-    display: relative;
     margin: 3px;
+}
+
+.trash-btn{
+    display: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .remove-photo{

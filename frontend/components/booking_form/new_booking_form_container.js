@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import NewBookingForm from './new_booking_form';
-import createBooking from '../../actions/booking_actions';
+import {createBooking} from '../../actions/booking_actions';
 
 const mapState = (state, ownProps) => {
     return {
@@ -14,4 +15,4 @@ const mapDispatch = dispatch => {
     }
 }
 
-export default connect(mapState, mapDispatch)(NewBookingForm);
+export default withRouter(connect(mapState, mapDispatch)(NewBookingForm));

@@ -35,8 +35,8 @@ export default class NewBookingForm extends React.Component{
     handleSubmit(){
         console.log('hit submit!');
         console.log(this.state);
-        // this.props.createBooking(this.state)
-        //     .then(() => console.log('hello!'))
+        this.props.createBooking(this.state)
+        // .then(() => this.props.history.push('/')) push to profile page
     }
 
     updateDate(field,price_per_night){
@@ -67,7 +67,7 @@ export default class NewBookingForm extends React.Component{
         const num_days = (end - start) / (1000 * 60 * 60 * 24)
 
         const pricexnights = num_days < 1 ? 
-            <><b>${price}</b> night x {num_days + 1}</> : <><b>${price}</b> nights x {num_days + 1}</>;
+            <><b>${price}</b> x {num_days + 1} night</> : <><b>${price}</b> x {num_days + 1} nights</>;
 
         return(
             <form className='new-booking-form' onSubmit={this.handleSubmit}>
@@ -95,14 +95,14 @@ export default class NewBookingForm extends React.Component{
                             </label>
                         </div>
                     </div>
-                    <button className='session-btn'>Reserve</button>
+                    <button className='session-btn reserve-btn'>Reserve</button>
                 </div>
                 <div className='booking-costs-container'>
                     <div>
-                        {pricexnights}
+                        Total before taxes:  
                     </div>
                     <div>
-                        Total: <b>{`$${price * (num_days + 1)}`}</b>
+                    {pricexnights} = <b>{`$${price * (num_days + 1)}`}</b>
                     </div>
                 </div>
             </form>

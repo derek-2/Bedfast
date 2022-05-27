@@ -21,6 +21,7 @@ export default class NewListing extends React.Component{
         };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.update=this.update.bind(this);
+        this.removePhoto = this.removePhoto.bind(this);
     }
 
     handleSubmit(e){
@@ -53,9 +54,9 @@ export default class NewListing extends React.Component{
             for (let i = 0; i < this.state.photos.length; i++) {
                 formData.append("listing[photos][]", this.state.photos[i]);
             }
-            debugger;
-            // this.props.createListing(formData).then(() => this.props.fetchAllListings());
-            // this.props.history.push('/listings/search/NY/0');
+
+            this.props.createListing(formData).then(() => this.props.history.push('/listings/search/NY/0'))
+            
         };
     }
 
@@ -77,8 +78,10 @@ export default class NewListing extends React.Component{
         )
     }
 
-    removePhoto(idx){
-        // return e => 
+    removePhoto(e,idx){
+        e.preventDefault();
+        console.log(idx);
+        debugger;
     }
     
     render(){
@@ -90,6 +93,7 @@ export default class NewListing extends React.Component{
             <div className='individual-preview-photo'>
                 {/* <span className='remove-photo'>&times;</span> */}
                 <img className='preview-photos' key={idx} src={preview} alt='preview'/>
+                <span ><button className="trash-btn" onClick={(e) => this.removePhoto(e,idx)}>trash!!</button></span>
             </div>) :
             <></>
 

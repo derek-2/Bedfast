@@ -31,7 +31,6 @@ export default class Map extends React.Component{
       }
 
       componentDidUpdate(prevProps){
-        debugger;
         if ((this.props.match.params.city !== prevProps.match.params.city) || (this.props.match.params.guests !== prevProps.match.params.guests) || (this.props.listings !== prevProps.listings) ){
           const mapOptions = {
             //40.688641, -73.960258

@@ -10,13 +10,8 @@ export default class ListingsIndex extends React.Component{
     }
 
     componentDidMount(){
-        // debugger;
         this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests)
     }
-        
-        // componentWillReceiveProps(nextProps){
-        //     // debugger
-        // }
         
     componentDidUpdate(prevProps, prevState){
         if ((this.props.match.params.city !== prevProps.match.params.city) || (this.props.match.params.guests !== prevProps.match.params.guests)){

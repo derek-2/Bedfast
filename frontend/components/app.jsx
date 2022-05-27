@@ -9,6 +9,7 @@ import LoginModal from './session/login_container';
 import NewListingContainer from './listings_form/new_listing_container';
 import ListingsIndexContainer from './listings_index/listing_index_container';
 import ListingContainer from './listing_show/listing_container';
+import ProfileContainer from './profile/profile_container';
 
 const App = (props) => {
     const hideModal = () => {
@@ -39,17 +40,13 @@ const App = (props) => {
             <Route exact path='/listings/new' component={NewListingContainer}></Route>
             <Route exact path="/listings/search/:city/:guests" component={ListingsIndexContainer}></Route>
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>
+            <Route exact path='/profile' component={ProfileContainer}></Route>
         </Switch>
-
-
 
         {/* <Route exact path='/listings/show/:listingId' component={<ListingShowContainer />}></Route> */}
             {/* <ListingShowContainer /> */}
             {/* show page for a single listing */}
         
-
-
-
         <Footer />
         <div onClick={hideModal} id="session-modal-container" className="session-modal-container"></div>
         <SignUpModal />
