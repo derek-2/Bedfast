@@ -14,3 +14,7 @@
 .my-listing-item{
     border: 1px solid blue;
 }
+
+.one-reservation{
+    border: solid red 1px;
+}

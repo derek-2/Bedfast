@@ -1,4 +1,5 @@
 json.extract! user, :id, :fname, :lname
+json.created_at user.created_at.year
 
 listings = []
 bookings = []

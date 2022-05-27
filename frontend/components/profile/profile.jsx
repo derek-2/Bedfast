@@ -1,14 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { fetchBookings } from "../../util/booking_util";
+import BookingItem from './booking_item';
 
 export default class Profile extends React.Component{
     constructor(props){
         super(props);
+        this.state={
+            myBookings: []
+        };
     }
 
     componentDidMount(){
-        const {currentUserId, users, bookings, listings, fetchListingsByUser, fetchBookingsByUser} = this.props;
-        fetchListingsByUser(currentUserId).then(() => fetchBookingsByUser(currentUserId));
+        const {currentUserId, users, bookings, listings, fetchListingsByUser, fetchBookingsByUser, fetchUsers} = this.props;
+        fetchListingsByUser(currentUserId)
+        .then(() => fetchBookingsByUser(currentUserId))
+        .then((bookings) => this.setState({myBookings: Object.values(bookings.bookings)}))
+        .then(() => fetchBookings())
+        .then(() => fetchUsers())
     }
 
     bookings(){
@@ -22,23 +31,32 @@ export default class Profile extends React.Component{
     }
 
     listings(){
-        const {listings} = this.props;
+        const {listings, users, bookings} = this.props;
         return Object.values(listings).map((listing, idx) => (
-            <div className={`my-listing-${idx} my-listing-item`}key={listing.id}>
-                <p>{listing.title}</p>
-                <p>{listing.address} {listing.city}, {listing.state} {listing.zipcode}</p>
-                <p>{listing.created_at}</p>
-                <p>{listing.updated_at}</p>
-                <p>{listing.bookings.length} reservations</p>
-            </div>
+            <Link to={`/listings/${listing.id}`}>
+                <div className={`my-listing-${idx} my-listing-item`}key={listing.id}>
+                    <img src={listing.photoUrls[0]} alt={listing.description} />
+                    <p>{listing.title}</p>
+                    <p>{listing.address} {listing.city}, {listing.state} {listing.zipcode}</p>
+                    <p>{listing.created_at}</p>
+                    <p>{listing.updated_at}</p>
+                    <p>{listing.bookings.length} reservations</p>
+                    {listing.bookings.map(booking => <BookingItem key={booking} users={users} booking={booking} bookings={bookings} listings={listings}/>)}
+                </div>
+            </Link>
         ))
     }
     
     render(){
         const {currentUserId, users} = this.props;
+        // console.log(users[currentUserId].email)
+        console.log(currentUserId)
+        console.log(users)
+        console.log(users[currentUserId])
+        
         return (
             <div>
-                <p>Hi, {users[currentUserId].email}!</p>
+                <p>Hi, {users[currentUserId].fname}!</p>
                 <p>Joined in {users[currentUserId].created_at} </p>
                 
                 <p>we in da profile component</p>

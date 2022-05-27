@@ -8,7 +8,13 @@ export default class Listing extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchListing(this.props.match.params.listingId).then(() => console.log('hello'));
+        this.props.fetchListing(this.props.match.params.listingId);
+    }
+
+    componentDidUpdate(prevProps){
+        if (prevProps.match.params.listingId !== this.props.match.params.listingId){
+            this.props.fetchListing(this.props.match.params.listingId)
+        }
     }
 
     render(){
