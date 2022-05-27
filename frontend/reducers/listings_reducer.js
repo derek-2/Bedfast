@@ -10,7 +10,7 @@ export const ListingsReducer = (state={}, action) => {
             nextState[action.listing.id]=action.listing;
             return nextState;
         case RECEIVE_LISTINGS:
-            nextState = Object.values(action.listings);
+            action.listings.forEach(listing => nextState[listing.id] = listing)
             return nextState;
         case REMOVE_LISTING:
             delete nextState[action.listingId];

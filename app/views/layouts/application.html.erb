@@ -55,6 +55,8 @@
         email: '<%= current_user.email %>',
         fname: '<%= current_user.fname %>',
         lname: '<%= current_user.lname %>',
+        created_at: '<%= current_user.created_at.year %>',
+
       }
     </script>
     <% else %>

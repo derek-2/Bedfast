@@ -46,3 +46,7 @@ export const fetchListings = (searchParams,guests) => dispatch => {
 export const deleteListing = listingId => dispatch => {
     return ListingsApiUtil.deleteListing(listingId).then(res => dispatch(removeListing(listingId)), err => dispatch(receiveListingErrors(err.responseJSON)))
 }
+
+export const fetchListingsByUser = userId => dispatch => {
+    return ListingsApiUtil.fetchListingsByUser(userId).then(listings => dispatch(receiveListings(listings)), err => dispatch(receiveListingErrors(err.responseJSON)))
+}

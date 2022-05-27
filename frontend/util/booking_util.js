@@ -20,6 +20,13 @@ export const fetchBooking = bookingId => {
     })
 }
 
+export const fetchBookingsByUser = userId => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/users/${userId}/bookings`
+    })
+}
+
 export const deleteBooking = bookingId => {
     return $.ajax({
         method: 'DELETE',

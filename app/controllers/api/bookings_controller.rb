@@ -13,6 +13,11 @@ class Api::BookingsController < ApplicationController
         end
     end
 
+    def user_bookings
+        @bookings = Booking.where('guest_id = ?', params[:id])
+        render :index
+    end
+
     def create
         @booking = Booking.new(booking_params)
         if @booking.save

@@ -1,0 +1,16 @@
+.my-listings{
+    border: 1px black solid;
+    margin: 5px;
+}
+.my-bookings{
+    border: 1px black solid;
+    margin: 5px;
+}
+
+.my-booking-item{
+    border: 1px solid green;
+}
+
+.my-listing-item{
+    border: 1px solid blue;
+}

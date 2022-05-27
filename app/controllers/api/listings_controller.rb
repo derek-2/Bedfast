@@ -16,22 +16,27 @@ class Api::ListingsController < ApplicationController
         end
         render :index
     end
-
-    def create
-        @listing = Listing.new(listing_params)
-        if @listing.save
-            render :show
-        else
-            render json: @listing.errors.full_messages, status: 422
-        end
-    end
-
+    
     def show
         @listing = Listing.find_by(id: params[:id])
         if @listing
             render :show
         else
             render json: ['listing with that id does not exist']
+        end
+    end
+    
+    def user_listings
+        @listings = Listing.where('host_id = ?', params[:id])
+        render :index
+    end
+    
+    def create
+        @listing = Listing.new(listing_params)
+        if @listing.save
+            render :show
+        else
+            render json: @listing.errors.full_messages, status: 422
         end
     end
 

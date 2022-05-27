@@ -32,6 +32,13 @@ export const fetchListings = (searchParams, guests) => {
     })
 }
 
+export const fetchListingsByUser = userId => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/users/${userId}/listings`
+    })
+}
+
 export const deleteListing = listingId => {
     return $.ajax({
         method: 'DELETE',

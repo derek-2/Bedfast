@@ -49,3 +49,9 @@ export const updateBooking = booking => dispatch => {
     return BookingUtil.updateBooking(booking)
         .then(booking => dispatch(receiveBooking(booking)), err => dispatch(receiveBookingErrors(err.responseJSON)))
 }
+
+export const fetchBookingsByUser = userId => dispatch => {
+    return BookingUtil.fetchBookingsByUser(userId)
+        .then(bookings => dispatch(receiveBookings(bookings)),
+        err => dispatch(receiveBookingErrors(err.responseJSON)))
+}
