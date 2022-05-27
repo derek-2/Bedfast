@@ -5,7 +5,12 @@ export default class Profile extends React.Component{
         super(props);
     }
 
+    componentDidMount(){
+        const {} = this.props;
+    }
+
     render(){
+        const {} = this.props;
         return (
             <div>
                 profile component

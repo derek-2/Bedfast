@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { login, fetchUsers, logout} from '../../actions/session_actions';
+import {login, logout} from '../../actions/session_actions';
+import {fetchUsers} from '../../actions/user_actions';
 import LoginModal from './login';
 
 const mapState = state => ({

@@ -9,7 +9,7 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-
+    
 })
 
 export default connect(mapState, mapDispatch)(Profile);

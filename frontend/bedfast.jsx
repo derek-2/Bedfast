@@ -5,7 +5,7 @@ import Root from './components/root';
 
 import { login, logout, signUp} from './actions/session_actions';
 import { createListing, editListing, fetchListing, fetchListings, deleteListing } from './actions/listing_actions';
-import {fetchUsers} from './actions/session_actions';
+import {fetchUsers, fetchUser} from './actions/user_actions';
 import * as BookingActions from './actions/booking_actions';
 
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   window.login = login;
   window.logout = logout;
   window.signUp = signUp;
-  window.fetchUsers = fetchUsers;
 
   window.createListing = createListing;
   window.editListing = editListing;
@@ -44,6 +43,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
   window.fetchBooking = BookingActions.fetchBooking;
   window.fetchBookings = BookingActions.fetchBookings;
   window.deleteBooking = BookingActions.deleteBooking;
+
+  window.fetchUsers = fetchUsers;
+  window.fetchUser = fetchUser;
 
   let preloadedState;
   if (window.currentUser) {

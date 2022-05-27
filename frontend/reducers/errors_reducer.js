@@ -1,11 +1,13 @@
+import { combineReducers } from "redux";
 import BookingErrorsReducer from "./booking_errors_reducer";
 import SessionsErrorReducer from "./session_errors_reducer";
-import { combineReducers } from "redux";
+import user from './user_errors_reducer';
 
 
 const RootReducer = combineReducers({
     booking: BookingErrorsReducer,
-    session: SessionsErrorReducer
+    session: SessionsErrorReducer,
+    user
 });
 
 export default RootReducer;
