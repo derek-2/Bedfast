@@ -10,6 +10,7 @@ import NewListingContainer from './listings_form/new_listing_container';
 import ListingsIndexContainer from './listings_index/listing_index_container';
 import ListingContainer from './listing_show/listing_container';
 import ProfileContainer from './profile/profile_container';
+import EditListingContainer from './listings_form/edit_listing_container';
 
 const App = (props) => {
     const hideModal = () => {
@@ -39,6 +40,7 @@ const App = (props) => {
                 
             <Route exact path='/listings/new' component={NewListingContainer}></Route>
             <Route exact path="/listings/search/:city/:guests" component={ListingsIndexContainer}></Route>
+            <Route exact path='/listings/:listingId/edit' component={EditListingContainer}></Route>
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>
             <Route exact path='/profile' component={ProfileContainer}></Route>
         </Switch>

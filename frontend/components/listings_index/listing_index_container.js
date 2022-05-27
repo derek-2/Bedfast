@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { fetchListings } from '../../actions/listing_actions';
+import { clearListings, fetchListings } from '../../actions/listing_actions';
 import ListingsIndex from './listing_index';
 
 const mapState = (state, ownProps) => {
@@ -11,7 +11,8 @@ const mapState = (state, ownProps) => {
 //:city is from url
 
 const mapDispatch = dispatch => ({
-    fetchListings: (searchParams, guests) => dispatch(fetchListings(searchParams, guests))
+    fetchListings: (searchParams, guests) => dispatch(fetchListings(searchParams, guests)),
+    clearListings: () => dispatch(clearListings())
 })
 
 export default connect(mapState, mapDispatch)(ListingsIndex);

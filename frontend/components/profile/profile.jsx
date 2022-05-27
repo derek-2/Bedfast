@@ -32,6 +32,7 @@ export default class Profile extends React.Component{
 
     listings(){
         const {listings, users, bookings} = this.props;
+        debugger
         return Object.values(listings).map((listing, idx) => (
             <Link to={`/listings/${listing.id}`}>
                 <div className={`my-listing-${idx} my-listing-item`}key={listing.id}>

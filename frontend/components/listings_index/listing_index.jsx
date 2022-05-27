@@ -10,13 +10,14 @@ export default class ListingsIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests)
+        this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests, this.props.clearListings())
     }
         
-    componentDidUpdate(prevProps, prevState){
+    componentDidUpdate(prevProps){
         if ((this.props.match.params.city !== prevProps.match.params.city) || (this.props.match.params.guests !== prevProps.match.params.guests)){
             console.log('hit update index');
-            this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests)
+            this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests, this.props.clearListings())
+            
         }
         // if (prevState.listings !== this.state.listings){
         //     this.props.fetchListings(this.props.match.params.city, this.props.match.params.guests)

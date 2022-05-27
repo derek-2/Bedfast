@@ -1,11 +1,11 @@
 class Api::ListingsController < ApplicationController
     def index
         @listings = []
-        if params[:searchParams].empty? && params[:guests].empty?
+        if (params[:searchParams].empty? && params[:guests].empty?) || (params[:searchParams] == 'undefined' && params[:guests] == 'undefined')
             @listings = Listing.all
-        elsif params[:searchParams].empty?
+        elsif params[:searchParams].empty? || params[:searchParams] == 'undefined'
             @listings = Listing.where('max_num_guests >= ?', params[:guests])
-        elsif params[:guests].empty?
+        elsif params[:guests].empty? || params[:guests] == 'undefined'
             @listings = Listing.all.select do |listing|
                             listing.city.downcase.include?(params[:searchParams].downcase) || listing.state.downcase.include?(params[:searchParams].downcase) || listing.address.downcase.include?(params[:searchParams].downcase)
                         end

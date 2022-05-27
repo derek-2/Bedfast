@@ -1,4 +1,4 @@
-import { RECEIVE_LISTING, RECEIVE_LISTINGS, REMOVE_LISTING } from "../actions/listing_actions";
+import { CLEAR_LISTINGS, RECEIVE_LISTING, RECEIVE_LISTINGS, REMOVE_LISTING } from "../actions/listing_actions";
 
 
 export const ListingsReducer = (state={}, action) => {
@@ -12,6 +12,8 @@ export const ListingsReducer = (state={}, action) => {
         case RECEIVE_LISTINGS:
             action.listings.forEach(listing => nextState[listing.id] = listing)
             return nextState;
+        case CLEAR_LISTINGS:
+            return {};
         case REMOVE_LISTING:
             delete nextState[action.listingId];
             return nextState;

@@ -4,6 +4,7 @@ export const RECEIVE_LISTING = 'RECEIVE_LISTING';
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const REMOVE_LISTING = 'REMOVE_LISTING';
 export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS';
+export const CLEAR_LISTINGS = 'CLEAR_LISTINGS';
 
 const receiveListing = listing => ({
     type: RECEIVE_LISTING,
@@ -23,6 +24,10 @@ const removeListing = listingId => ({
 const receiveListingErrors = errors => ({
     type: RECEIVE_LISTING_ERRORS,
     errors
+})
+
+const emptyListings = () => ({
+    type: CLEAR_LISTINGS
 })
 
 export const createListing = listing => dispatch => {
@@ -49,4 +54,8 @@ export const deleteListing = listingId => dispatch => {
 
 export const fetchListingsByUser = userId => dispatch => {
     return ListingsApiUtil.fetchListingsByUser(userId).then(listings => dispatch(receiveListings(listings)), err => dispatch(receiveListingErrors(err.responseJSON)))
+}
+
+export const clearListings = () => dispatch => {
+    return dispatch(emptyListings())
 }
