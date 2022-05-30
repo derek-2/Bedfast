@@ -31,10 +31,14 @@ export default class Menu extends React.Component{
                     <ul>
                         
                         {this.props.currentUser ?
-                            <li className="logout-btn" onClick={this.handleLogout}>Logout</li> :
+                            <>
+                            <li><Link to='/profile'>Profile</Link></li>
+                            <li className="logout-btn" onClick={this.handleLogout}>Logout</li>
+                            </> :
                             <>
                                 <li onClick={this.showModal('login')}>Login</li>
                                 <li onClick={this.showModal('signup')}>Sign Up</li>
+                                
                             </>
                         }
                     </ul>

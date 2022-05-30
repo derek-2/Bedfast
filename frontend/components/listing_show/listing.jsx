@@ -19,7 +19,7 @@ export default class Listing extends React.Component{
 
     render(){
         console.log(this.props.listing)
-        if (this.props.listing){ 
+        if (this.props.listing && Object.values(this.props.listing).length > 0){ 
             const {host_name, address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
             const allPhotos = (
                 <>

@@ -7,7 +7,8 @@ const mapState = (state) => {
     return ({
         errors: state.errors.session,
         users: state.entities.users,
-        formType: 'Sign Up'
+        formType: 'Sign Up',
+        session: state.session
     })
 }
 

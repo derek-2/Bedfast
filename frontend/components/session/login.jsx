@@ -26,7 +26,8 @@ export default class LoginModal extends React.Component{
     // this.props.history.push('/');
   }
 
-  demoLogin() {
+  demoLogin(e) {
+    e.preventDefault();
     const menu = document.getElementById('top-right-menu');
     menu.classList.remove('show');
     this.props.login({

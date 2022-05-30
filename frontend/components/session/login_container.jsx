@@ -7,6 +7,7 @@ const mapState = state => ({
   errors: state.errors.session,
   formType: 'Login',
   users: state.entities.users,
+  session: state.session
 })
 
 const mapDispatch = dispatch => ({

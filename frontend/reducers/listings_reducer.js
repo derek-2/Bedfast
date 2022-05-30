@@ -6,11 +6,12 @@ export const ListingsReducer = (state={}, action) => {
     let nextState = Object.assign({}, state);
 
     switch(action.type){
+        case RECEIVE_LISTINGS:
+            const newState = {};
+            action.listings.forEach(listing => newState[listing.id] = listing)
+            return newState;
         case RECEIVE_LISTING:
             nextState[action.listing.id]=action.listing;
-            return nextState;
-        case RECEIVE_LISTINGS:
-            action.listings.forEach(listing => nextState[listing.id] = listing)
             return nextState;
         case CLEAR_LISTINGS:
             return {};

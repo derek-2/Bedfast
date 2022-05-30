@@ -19,8 +19,23 @@ export default class EditListingForm extends React.Component{
             const currentListing = this.props.listings[this.props.match.params.listingId];
             const previewPhotos = [];
             // currentListing.photos.forEach(photo => previewPhotos.push(URL.createObjectURL(photo)));
-            debugger
             this.setState(currentListing)
+        }
+    }
+
+    prevPhotos(){
+        // debugger
+        const {props} = this;
+        if (props.listing && props.listing.photoUrls){
+            return (
+                <>
+                <img src={this.props.listing.photoUrls[0]} alt="photo1" />
+                <img src={this.props.listing.photoUrls[1]} alt="photo2" />
+                <img src={this.props.listing.photoUrls[2]} alt="photo3" />
+                <img src={this.props.listing.photoUrls[3]} alt="photo4" />
+                <img src={this.props.listing.photoUrls[4]} alt="photo5" />
+                </>
+            )
         }
     }
 
@@ -101,6 +116,7 @@ export default class EditListingForm extends React.Component{
                                 <label className='some-labels'>Price per night
                                     <input value={price_per_night} className='small-input-field' type="number" min="1" onChange={this.update('price_per_night')} />
                                 </label>
+                                {this.prevPhotos()}
                             </div>
                             <input type="submit" />
                         </form>

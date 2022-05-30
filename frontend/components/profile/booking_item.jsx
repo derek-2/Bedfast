@@ -4,12 +4,12 @@ function isEmptyObj(...objects){
     return objects.every(obj => Object.values(obj).length > 0);
 }
 const BookingItem = props => {
-    const {booking, bookings,users, listings} = props;
-    if (!booking || !isEmptyObj(bookings, users, listings)){
+    const {bookingId, bookings,users, listings} = props;
+    if (!bookingId || !isEmptyObj(bookings, users, listings)){
         return null;
     } else {
-        const guest = users[bookings[booking].guest_id];
-        const bookingDetails = bookings[booking];
+        const guest = users[bookings[bookingId].guest_id];
+        const bookingDetails = bookings[bookingId];
         return (
             <div className='one-reservation hidden'>
                 <p>Guest: {guest.fname} {guest.lname}</p>

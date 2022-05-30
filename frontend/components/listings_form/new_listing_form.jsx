@@ -75,7 +75,7 @@ export default class NewListing extends React.Component{
             previewPhotos: [this.state.previewPhotos.slice(0,idx).concat(this.state.previewPhotos.slice(idx))]
         })
         console.log(idx);
-        debugger;
+        // debugger;
     }
     
     render(){
