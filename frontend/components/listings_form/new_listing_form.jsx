@@ -134,7 +134,7 @@ export default class NewListing extends React.Component{
                             {preview}
                         </div>
                         {/* {errors} */}
-                        <input type="submit" />
+                        <input type="submit" value={`${this.props.formType} Listing`} />
                     </form>
                 </div>
             )

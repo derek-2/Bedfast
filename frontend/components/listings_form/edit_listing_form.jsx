@@ -8,19 +8,21 @@ export default class EditListingForm extends React.Component{
         //     this.state['previewPhotos'] = [];
         //     this.state.photos.forEach(photo => this.state.previewPhotos.push(URL.createObjectURL(photo)))
         // }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount(){
-        this.props.fetchAllListings();
+        // this.props.fetchAllListings().then(()=> this.setState({listing: this.props.listing})).then(()=>console.log(this.props.listing));
+        this.props.fetchListing(this.props.match.params.listingId).then(() => this.setState(this.props.listing))
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.formType === 'Edit' && prevProps.listing !== this.props.listing){
-            const currentListing = this.props.listings[this.props.match.params.listingId];
-            const previewPhotos = [];
-            // currentListing.photos.forEach(photo => previewPhotos.push(URL.createObjectURL(photo)));
-            this.setState(currentListing)
-        }
+        // if (this.props.formType === 'Edit' && prevProps.listing !== this.props.listing){
+        //     const currentListing = this.props.listings[this.props.match.params.listingId];
+        //     const previewPhotos = [];
+        //     // currentListing.photos.forEach(photo => previewPhotos.push(URL.createObjectURL(photo)));
+        //     this.setState(currentListing)
+        // }
     }
 
     prevPhotos(){
@@ -43,14 +45,15 @@ export default class EditListingForm extends React.Component{
         // console.log('Attempting to create a new listing...');
         e.preventDefault();
         const formData = new FormData();
-        
-        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length < 1){
+        // debugger
+        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ===''){
             this.setState({errors: 'fill out all fields bruh'});
         }
         else if(this.props.currentUser === undefined) {
             this.setState({errors: 'must be logged in to create new listing'});
         }
         else {
+            formData.append('listing[id]', this.state.id);
             formData.append('listing[title]', this.state.title);
             formData.append('listing[description]', this.state.description);
             formData.append('listing[address]', this.state.address);
@@ -65,10 +68,10 @@ export default class EditListingForm extends React.Component{
             formData.append('listing[num_baths]', this.state.num_baths);
             formData.append('listing[price_per_night]', this.state.price_per_night);
     
-            for (let i = 0; i < this.state.photos.length; i++) {
-                formData.append("listing[photos][]", this.state.photos[i]);
-            }
-
+            // for (let i = 0; i < this.state.photoUrls.length; i++) {
+            //     formData.append("listing[photos][]", this.state.photoUrls[i]);
+            // }
+            console.log(this.state)
             this.props.submitForm(formData).then(() => this.props.history.push('/listings/search/NY/0'))
             
         };
@@ -116,9 +119,9 @@ export default class EditListingForm extends React.Component{
                                 <label className='some-labels'>Price per night
                                     <input value={price_per_night} className='small-input-field' type="number" min="1" onChange={this.update('price_per_night')} />
                                 </label>
-                                {this.prevPhotos()}
+                                {/* {this.prevPhotos()} */}
                             </div>
-                            <input type="submit" />
+                            <input type="submit" value={`${this.props.formType} Listing`} />
                         </form>
                     </div>
             )}

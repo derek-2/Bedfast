@@ -9,10 +9,13 @@ export const createListing = listing => {
 }
 
 export const editListing = listing => {
+    debugger
     return $.ajax({
         method: 'PATCH',
-        url: `/api/listings/${listing.id}`,
-        data: {listing}
+        url: `/api/listings/${listing.get('listing[id]')}`,
+        data: listing,
+        contentType: false,
+        processData: false
     })
 }
 

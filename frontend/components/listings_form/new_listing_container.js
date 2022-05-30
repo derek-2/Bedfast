@@ -25,7 +25,7 @@ const mapState = state => {
             price_per_night: '',
             photos: [],
             previewPhotos:[],
-            errors:''
+            errors:[]
         }
     }
 }
