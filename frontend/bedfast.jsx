@@ -7,6 +7,7 @@ import { login, logout, signUp} from './actions/session_actions';
 import { createListing, editListing, fetchListing, fetchListings, deleteListing, fetchListingsByUser } from './actions/listing_actions';
 import {fetchUsers, fetchUser} from './actions/user_actions';
 import * as BookingActions from './actions/booking_actions';
+import * as ReviewActions from './actions/review_actions';
 
 document.addEventListener('DOMContentLoaded', ()=> {
   const root = document.getElementById('root');
@@ -48,6 +49,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
   window.fetchUsers = fetchUsers;
   window.fetchUser = fetchUser;
+
+  window.fetchReviewsByUser = ReviewActions.fetchReviewsByUser;
+  window.fetchReviewsByListing = ReviewActions.fetchReviewsByListing;
+  window.fetchReview = ReviewActions.fetchReview;
+  window.createReview = ReviewActions.createReview;
+  window.updateReview = ReviewActions.updateReview;
+  window.deleteReview = ReviewActions.deleteReview;
 
   let preloadedState;
   if (window.currentUser) {

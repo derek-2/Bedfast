@@ -21,8 +21,7 @@ const App = (props) => {
 
     return (
     <main>
-        
-        <NavBarContainer />
+        <Route component={NavBarContainer}></Route>
         <Switch>
             <Route exact path='/'>
                 <div id="main">

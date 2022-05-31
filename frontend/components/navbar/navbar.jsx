@@ -45,8 +45,8 @@ export default class NavBar extends React.Component {
     return (
       <div id="top-nav">
         <Link to={'/'}><img id="airbnblogo" src={window.logo} alt="logo" /></Link>
-        <p>{message}</p>
-        <SearchBar />
+        {/* <p>{message}</p> */}
+        <SearchBar history={this.props.history} />
         <div id="right-nav">
           <div onClick={this.toggleMenu} className="menu-button">
             <div className="menu-icon-item"></div>

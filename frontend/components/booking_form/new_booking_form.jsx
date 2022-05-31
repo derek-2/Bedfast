@@ -78,13 +78,13 @@ export default class NewBookingForm extends React.Component{
                             <div className='check-in-input booking-input'>
                                 Check In Date:
                                 <label>
-                                    <input type="date" value={this.state.check_in_date} onChange={this.updateDate('check_in_date',price)}/>
+                                    <input required type="date" value={this.state.check_in_date} onChange={this.updateDate('check_in_date',price)}/>
                                 </label>
                             </div>
                             <div className='check-out-input booking-input'>
                                 Check Out Date:
                                 <label>
-                                    <input type="date" value={this.state.check_out_date} onChange={this.updateDate('check_out_date',price)}/>
+                                    <input required type="date" value={this.state.check_out_date} onChange={this.updateDate('check_out_date',price)}/>
                                 </label>
                             </div>
                         </div>

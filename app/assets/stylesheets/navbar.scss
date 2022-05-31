@@ -15,12 +15,13 @@
   position: sticky;
   top: 0;
   left: 0;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   background-color: black;
   color: white;
   align-items: center;
-  padding: 15px 10vw 10px 10vw;
+  padding: 10px 10vw 10px 10vw;
   z-index: 3;
 }
 
@@ -45,5 +46,5 @@
 
 #airbnblogo{
   width: 3vw;
-  height: auto;
+  height: 50px;
 }

@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :update, :destroy, :show, :index]
     resource :session, only: [:create, :destroy]
+
     resources :listings, only: [:create, :update, :destroy, :index, :show]
     get 'users/:id/listings', :to => 'listings#user_listings'
+
     resources :bookings
     get 'users/:id/bookings', :to => 'bookings#user_bookings'
+
+    resources :reviews
+    get 'users/:id/reviews', :to => 'reviews#user_reviews'
+    get 'listings/:id/reviews', :to => 'reviews#listing_reviews'
   end
 
 end

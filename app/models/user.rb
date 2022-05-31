@@ -53,4 +53,9 @@ class User < ApplicationRecord
     foreign_key: :guest_id,
     class_name: :Booking
 
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :guest_id,
+    class_name: :Review
+
 end

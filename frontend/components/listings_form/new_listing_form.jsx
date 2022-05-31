@@ -5,7 +5,8 @@ export default class NewListing extends React.Component{
     constructor(props){
         super(props);
         this.state = this.props.listing;
-
+        if (this.state) this.state.errors = []
+        this.errors=[];
         this.handleSubmit=this.handleSubmit.bind(this);
         this.update=this.update.bind(this);
         this.removePhoto = this.removePhoto.bind(this);
@@ -21,10 +22,10 @@ export default class NewListing extends React.Component{
         const formData = new FormData();
         
         if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ==='' || this.state.photos.length < 1){
-            this.setState({errors: 'fill out all fields bruh'});
+            this.setState({errors: 'all fields are required'})
         }
         else if(this.props.currentUser === undefined) {
-            this.setState({errors: 'must be logged in to create new listing'});
+            this.setState({errors: 'must be logged in to create a new listing'})
         }
         else {
             formData.append('listing[title]', this.state.title);
@@ -89,7 +90,8 @@ export default class NewListing extends React.Component{
             </div>) :
             <></>
 
-        // const errors = this.state.errors ? <><p className='error-message'>{this.state.errors}</p></> : null;
+        const errors = this.state.errors.length>0 ? <><p className='error-message'>{this.state.errors}</p></> : null;
+        
         if (this.state){
             return(
                 <div id="listing-form-container" onSubmit={this.handleSubmit}>
@@ -133,7 +135,7 @@ export default class NewListing extends React.Component{
                         <div className='preview-container'>
                             {preview}
                         </div>
-                        {/* {errors} */}
+                        {errors}
                         <input type="submit" value={`${this.props.formType} Listing`} />
                     </form>
                 </div>

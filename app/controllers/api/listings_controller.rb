@@ -22,7 +22,7 @@ class Api::ListingsController < ApplicationController
         if @listing
             render :show
         else
-            render json: ['listing with that id does not exist']
+            render json: ['listing with that id does not exist'], status: 404
         end
     end
     
@@ -42,8 +42,8 @@ class Api::ListingsController < ApplicationController
 
     def update
         @listing = Listing.find_by(id: params[:id])
-
-        if @listing.update(listing_params)
+        debugger
+        if @listing
             render :show
         else
             render json: @listing.errors.full_messages, status: 422

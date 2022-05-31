@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
     if @user
       render :show
     else
-      render json: ['user with that id does not exist']
+      render json: ['user with that id does not exist'], status: 404
     end
   end
 
