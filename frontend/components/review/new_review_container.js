@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ReviewForm from './review_form';
+import NewReviewForm from './new_review_form';
 import { createReview } from "../../actions/review_actions";
 
 const mapState = (state) => {
@@ -27,4 +27,4 @@ const mapDispatch = dispatch => {
     }
 }
 
-export default connect(mapState, mapDispatch)(ReviewForm);
+export default connect(mapState, mapDispatch)(NewReviewForm);

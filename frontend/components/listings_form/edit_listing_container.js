@@ -3,23 +3,14 @@ import { editListing, fetchListing, fetchListings } from '../../actions/listing_
 import EditListingForm from './edit_listing_form';
 
 const mapState = (state,ownProps) => {
-    if (state.entities.listings[ownProps.match.params.listingId]){
-        return {
-            currentUser: state.entities.users[state.session.currentUserId],
-            listing:  {
-                ...state.entities.listings[ownProps.match.params.listingId],
-                errors: []
-            },
-            formType: 'Update',
-            listings: state.entities.listings
-        }
-    }
-    else {
-        return {
-            currentUser: state.entities.users[state.session.currentUserId],
-            formType: 'Update',
-            listings: state.entities.listings
-        }
+    return {
+        currentUser: state.entities.users[state.session.currentUserId],
+        listing: state.entities.listings[ownProps.match.params.listingId] ?  {
+            ...state.entities.listings[ownProps.match.params.listingId],
+            errors: []
+        } : null,
+        formType: 'Update',
+        listings: state.entities.listings
     }
 }
 

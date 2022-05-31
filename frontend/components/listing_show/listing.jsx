@@ -2,28 +2,52 @@ import React from "react";
 import Map from '../map/map';
 import NewBookingFormContainer from "../booking_form/new_booking_form_container";
 import NewReviewContainer from "../review/new_review_container";
+import ReviewsIndex from '../review/reviews_index';
+import {FaStar} from 'react-icons/fa';
 
 export default class Listing extends React.Component{
     constructor(props){
         super(props);
+        this.state={
+            overallRating: 0
+        }
+
+        this.overallRating = this.overallRating.bind(this);
     }
 
     componentDidMount(){
-        this.props.fetchListing(this.props.match.params.listingId);
+        this.props.fetchListing(this.props.match.params.listingId)
+            .then(() => this.props.fetchUsers())
+            .then(() => this.props.fetchReviewsByListing(this.props.match.params.listingId))
     }
 
     componentDidUpdate(prevProps){
         if (prevProps.match.params.listingId !== this.props.match.params.listingId){
             this.props.fetchListing(this.props.match.params.listingId)
+                .then(() => this.props.fetchReviewsByListing(this.props.match.params.listingId))
+                .then(() => this.props.fetchUsers());
         }
+    }
+
+    overallRating(){
+        let total = 0;
+        const reviews = Object.values(this.props.reviews);
+        reviews.forEach(review => total+=review.overall_rating);
+        return (
+            <>
+             <FaStar /> {Math.round(total*10/reviews.length)/10} · {reviews.length} reviews
+            </>
+        )
     }
 
     render(){
         console.log(this.props.listing)
+        console.log(this.props.reviews)
         if (this.props.listing && Object.values(this.props.listing).length > 0){ 
             const {host_name, address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
             const allPhotos = (
                 <>
+                {this.overallRating()}
                 <div className='photos-container'>
                     <div>
                         <img src={photoUrls[0]} alt="photo1" />
@@ -90,9 +114,12 @@ export default class Listing extends React.Component{
                         </div>
                             <NewBookingFormContainer listingId={id} price={price_per_night}/>
                         </div>
-                    <p>&lt;Review Component&gt;</p>
+                    <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} />
+                    <br />
+                    <br />
                     <NewReviewContainer match={this.props.match}/>
-                    
+                    <br />
+                    <br />
                     <p>Where you'll be</p>
                     <hr className='listing-show-separator' />
                     <Map listings={[this.props.listing]}/>

@@ -2,6 +2,73 @@
     cursor: pointer;
 }
 
-.highlight{
-    color: yellow;
+.reviews-index{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.review-container{
+    flex: 50%;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.testing-container{
+    flex: 5;
+    height: 15px;
+    position: relative;
+}
+
+.review-avg > p:first-child {
+    flex: 5;
+}
+
+.review-avg > p:last-child {
+    flex: 1;
+}
+
+.testing{
+    background-color: rgb(221, 221, 221);
+    height: 10px;
+    top: 0;
+    border-radius: 50px;
+    /* border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-left-radius: 5px; */
+}
+
+.testing1{
+    width: 100%;
+    position: absolute;
+}
+.testing2{
+    position: absolute;
+    /* width: 40%; */
+    background-color: rgb(34, 34, 34);
+    z-index: 2;
+}
+
+.review-avg-container{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.review-avg{
+    display: flex;
+    width: 100%;
+}
+
+.review-half{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.edit-review-wrap{
+    flex: 50%;
+}
+
+.hidden{
+    display: none;
 }

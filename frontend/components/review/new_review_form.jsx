@@ -14,6 +14,7 @@ export default class ReviewForm extends React.Component{
         this.location = this.location.bind(this);
         this.checkIn = this.checkIn.bind(this);
         this.value = this.value.bind(this);
+        this.clearFields = this.clearFields.bind(this);
     }
 
     componentDidMount(){
@@ -60,10 +61,11 @@ export default class ReviewForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log(this.state);
-        const {cleanliness, accuracy, communication, location, check_in, value} = this.state;
-        const overall_rating = (cleanliness+accuracy+communication+location+check_in+value)/6;
-
+        console.log({review:this.state});
+        debugger
+        // this.props.submitForm({review:this.state}).then(() =>{
+        //     if (this.props.formType === 'Create') this.clearFields();
+        // });
     }
 
     updateScore(field, num){
@@ -87,6 +89,21 @@ export default class ReviewForm extends React.Component{
     updateBody(e){
         e.preventDefault();
         this.setState({body:e.target.value})
+    }
+
+    clearFields(){
+        this.setState({
+            listing_id: '',
+            guest_id: '',
+            body: '',
+            overall_rating: 0,
+            cleanliness: 0,
+            accuracy: 0,
+            communication: 0,
+            location: 0,
+            check_in: 0,
+            value: 0
+        })
     }
 
     cleanliness(){
@@ -153,7 +170,7 @@ export default class ReviewForm extends React.Component{
     checkIn(){
         const arr = [];
         for (let i = 1; i <= 5; i++){
-            if (i <= this.state.checkIn){
+            if (i <= this.state.check_in){
                 arr.push(<FaStar color='yellow 'className='check-in-stars' id={`star-${i-1}`}/>);
             } else {
                 arr.push(<FaStar className='check-in-stars' id={`star-${i-1}`}/>)

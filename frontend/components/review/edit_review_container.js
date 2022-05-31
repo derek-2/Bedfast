@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
-import ReviewForm from './review_form';
+import EditReviewForm from './edit_review_form';
 import { fetchReview, updateReview } from "../../actions/review_actions";
 
 const mapState = (state,ownProps) => {
+    debugger
     return {
         currentUserId: state.session.currentUserId,
         formType: 'Update',
-        review: state.entities.reviews[ownProps.match.params.reviewId]
+        review: state.entities.reviews[ownProps.reviewId]
     }
 }
 
@@ -17,4 +18,4 @@ const mapDispatch = dispatch => {
     }
 }
 
-export default connect(mapState, mapDispatch)(ReviewForm);
+export default connect(mapState, mapDispatch)(EditReviewForm);
