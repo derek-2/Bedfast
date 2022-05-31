@@ -1,6 +1,7 @@
 import React from "react";
 import Map from '../map/map';
 import NewBookingFormContainer from "../booking_form/new_booking_form_container";
+import NewReviewContainer from "../review/new_review_container";
 
 export default class Listing extends React.Component{
     constructor(props){
@@ -90,6 +91,7 @@ export default class Listing extends React.Component{
                             <NewBookingFormContainer listingId={id} price={price_per_night}/>
                         </div>
                     <p>&lt;Review Component&gt;</p>
+                    <NewReviewContainer match={this.props.match}/>
                     
                     <p>Where you'll be</p>
                     <hr className='listing-show-separator' />
