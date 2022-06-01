@@ -29,7 +29,8 @@ class Api::ReviewsController < ApplicationController
         if @review.save
             render :show
         else
-            render json: @review.errors.full_messages, state: 422
+            debugger
+            render json: @review.errors.full_messages, status: 422
         end
     end
 
@@ -38,12 +39,11 @@ class Api::ReviewsController < ApplicationController
         if @review.update(review_params)
             render :show
         else
-            render json: @review.errors.full_messages, state: 422
+            render json: @review.errors.full_messages, status: 422
         end
     end
 
     def destroy
-        debugger
         @review = Review.find_by(id: params[:id])
 
         if @review

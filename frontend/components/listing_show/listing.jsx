@@ -114,7 +114,7 @@ export default class Listing extends React.Component{
                         </div>
                             <NewBookingFormContainer listingId={id} price={price_per_night}/>
                         </div>
-                    <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} />
+                    <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} deleteReview={this.props.deleteReview} />
                     <br />
                     <br />
                     <NewReviewContainer match={this.props.match}/>

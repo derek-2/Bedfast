@@ -29,7 +29,7 @@ export const fetchReviewsByUser = userId => dispatch => {
     return ReviewAPIUtil.fetchReviewsByUser(userId)
         .then(reviews => dispatch(receiveReviews(reviews)))
         .fail(err => {
-            debugger
+            // debugger
             return dispatch(receiveReviewErrors(err.responseJSON))
     })
 };

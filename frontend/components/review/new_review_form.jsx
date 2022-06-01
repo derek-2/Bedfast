@@ -62,10 +62,9 @@ export default class ReviewForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         console.log({review:this.state});
-        debugger
-        // this.props.submitForm({review:this.state}).then(() =>{
-        //     if (this.props.formType === 'Create') this.clearFields();
-        // });
+        this.props.submitForm({review:this.state}).then(() =>{
+            if (this.props.formType === 'Create') this.clearFields();
+        });
     }
 
     updateScore(field, num){
@@ -199,7 +198,7 @@ export default class ReviewForm extends React.Component{
     }
 
     render(){
-        // console.log(this.state)
+        console.log(this.state)
         return (
             <>
                 <form className='review-form' onSubmit={this.handleSubmit}>
@@ -213,6 +212,7 @@ export default class ReviewForm extends React.Component{
                         {this.checkIn()}<br />
                         {this.value()}
                         <button>{this.props.formType} Review</button>
+                        <button onClick={this.clearFields}>Clear</button>
                 </form>
             </>
         )

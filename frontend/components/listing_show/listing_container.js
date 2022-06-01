@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchListing } from '../../actions/listing_actions';
-import { fetchReviewsByListing } from '../../actions/review_actions';
+import { deleteReview, fetchReviewsByListing } from '../../actions/review_actions';
 import {fetchUsers} from '../../actions/user_actions';
 import Listing from './listing';
 
@@ -17,7 +17,8 @@ const mapDispatch = dispatch => {
     return {
         fetchListing: (listingId) => dispatch(fetchListing(listingId)),
         fetchReviewsByListing: listingId => dispatch(fetchReviewsByListing(listingId)),
-        fetchUsers: () => dispatch(fetchUsers())
+        fetchUsers: () => dispatch(fetchUsers()),
+        deleteReview: reviewId => dispatch(deleteReview(reviewId))
     }
 }
 

@@ -65,7 +65,7 @@ export default class ReviewForm extends React.Component{
         e.preventDefault();
         console.log({review:this.state});
         this.props.submitForm({review:this.state}).then(() =>{
-            if (this.props.formType === 'Create') this.clearFields();
+            document.getElementById(`edit-review-wrap-${this.reviewId}`).classList.add('hidden');
         });
     }
 
@@ -201,7 +201,7 @@ export default class ReviewForm extends React.Component{
 
     render(){
         return (
-            <div className={`edit-review-wrap edit-review-wrap-${this.reviewId} hidden`}>
+            <div className='edit-review-wrap hidden' id={`edit-review-wrap-${this.reviewId}`}>
                 <form className='review-form' onSubmit={this.handleSubmit}>
                     <label> Comments&nbsp;
                         <textarea onChange={this.updateBody} value={this.state.body}></textarea>

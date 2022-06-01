@@ -6,6 +6,7 @@ export default class ReviewsIndex extends React.Component{
         super(props);
         this.renderEditReviewForm = this.renderEditReviewForm.bind(this);
         this.render = this.render.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     renderEditReviewForm(reviewId){
@@ -15,7 +16,15 @@ export default class ReviewsIndex extends React.Component{
     toggleEdit(num){
         return e => {
             e.preventDefault();
-            document.getElementsByClassName(`edit-review-wrap-${num}`)[0].classList.toggle('hidden');
+            document.getElementById(`edit-review-wrap-${num}`).classList.toggle('hidden');
+        }
+    }
+
+    handleDelete(num){
+        return e => {
+            e.preventDefault();
+            console.log(num);
+            this.props.deleteReview(num);
         }
     }
 
@@ -29,11 +38,11 @@ export default class ReviewsIndex extends React.Component{
                 debugger
                 return (
                     <>
-                        <div className={`review-container review-${review.id}`} key={review.id}>
+                        <div className='review-container' id={`review-${review.id}`} key={review.id}>
                             <p>{users[review.guest_id].fname} {users[review.guest_id].lname}</p>
                             <p>{review.body}</p>
                             {this.props.currentUserId === review.listing_id ? 
-                            <><button onClick={this.toggleEdit(review.id)}>Edit</button><button>Delete</button> </>:
+                            <><button onClick={this.toggleEdit(review.id)}>Edit</button><button onClick={this.handleDelete(review.id)}>Delete</button> </>:
                              <></>}
                         </div>
                         {this.renderEditReviewForm(review.id)}
