@@ -5,7 +5,7 @@ export default class NewBookingForm extends React.Component{
         super(props);
         const dateObj = new Date();
         const month = (dateObj.getUTCMonth() + 1) < 10 ? '0' + (dateObj.getUTCMonth() + 1) : dateObj.getUTCMonth() + 1; //months from 1-12
-        const day = dateObj.getUTCDate() < 10 ? parseInt('0' + dateObj.getUTCDate()) : dateObj.getUTCDate();
+        const day = dateObj.getUTCDate() < 10 ? '0' + dateObj.getUTCDate() : dateObj.getUTCDate();
         const year = dateObj.getUTCFullYear();
 
         const today = (year + '-' + month + '-' + day);
@@ -71,7 +71,7 @@ export default class NewBookingForm extends React.Component{
 
         return(
             <form className='new-booking-form' onSubmit={this.handleSubmit}>
-                <p><b>${price}</b> night</p>
+                <p><b>${price}</b>/night</p>
                 <div>
                     <div className='new-booking-inputs'>
                         <div className='date-input'>

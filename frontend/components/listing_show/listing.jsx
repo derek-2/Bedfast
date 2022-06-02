@@ -36,7 +36,7 @@ export default class Listing extends React.Component{
         reviews.forEach(review => total+=review.overall_rating);
         return (
             <>
-             <FaStar /> {Math.round(total*10/reviews.length)/10} · {reviews.length} reviews
+             <FaStar className="special-star" /> {Math.round(total*100/reviews.length)/100} · {reviews.length} reviews
             </>
         )
     }
@@ -48,7 +48,6 @@ export default class Listing extends React.Component{
             const {host_name, address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
             const allPhotos = (
                 <>
-                {this.overallRating()}
                 <div className='photos-container'>
                     <div>
                         <img src={photoUrls[0]} alt="photo1" />
@@ -66,20 +65,22 @@ export default class Listing extends React.Component{
             );
             return (
                 <div className='container'>
-                    <p>{title} by <Link className='profile-link' to={`/profile/${host_id}`}>{host_name}</Link></p>
-                    <p>{city},{state}</p>
+                    <p className='biggest-font'><b>{title}</b></p>
+                    <p><b>{this.overallRating()} {city},{state}</b></p>
                     {allPhotos}
                     <div className='listing-show-container'>
                         <div className='listing-info'>
-                            {title}
-                            <p>{city}, {state}</p>
+                            <div>
+                                <p>About <Link className='profile-link' to={`/profile/${host_id}`}>{host_name}</Link>'s place </p>
+                                <Link to={`/profile/${host_id}`}><img src={window.default_profile_pic} className='profile-pic' alt='user-profile'/></Link>
+                            </div>
                             <p>{max_num_guests} guests · {num_beds} beds · {num_baths} baths</p>
                             {description}
                             <p>Lorem ipsum dolor sit amet. Est sint neque nam sapiente laboriosam eos dignissimos nostrum vel maiores voluptatem non eligendi maiores sed maiores distinctio. Sed officia quibusdam eum architecto repellat non rerum facere ut deserunt ipsa et galisum dicta sit fugiat maiores. </p><p>Vel cumque consequatur cum nostrum deleniti rem dolor consequatur. Qui vero consequatur in quibusdam quaerat qui necessitatibus labore At doloribus reiciendis ut quia voluptas? </p><p>Ab expedita dolorem ut deleniti animi qui placeat dolor aut dolor Quis et unde adipisci eos nihil unde. In beatae saepe ut dolorem quaerat est illo dolores vel provident cupiditate. </p>
 
                             <hr className='listing-show-separator' />
                             <div className='placeholder-info-wrap'>
-                                <img src={window.door} alt="door!" /> 
+                                <img src={window.door} className='static-pic' alt="door!" /> 
                                 <div className='placeholder-info-text'>
                                     <div>
                                         <b>Self check-in</b>
@@ -90,7 +91,7 @@ export default class Listing extends React.Component{
                                 </div>
                             </div>
                             <div className='placeholder-info-wrap'>
-                                <img src={window.key} alt="key!" /> 
+                                <img src={window.key} className='static-pic' alt="key!" /> 
                                 <div className='placeholder-info-text'>
                                     <div>
                                         <b>Great check-in experience</b>
@@ -101,7 +102,7 @@ export default class Listing extends React.Component{
                                 </div>
                             </div>
                             <div className='placeholder-info-wrap'>
-                                <img src={window.calendar} alt="calendar!" /> 
+                                <img src={window.calendar} className='static-pic' alt="calendar!" /> 
                                 <div className='placeholder-info-text'>
                                     <div>
                                         <b>Free cancellation for 48 hours.</b>

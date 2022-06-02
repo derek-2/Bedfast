@@ -73,7 +73,7 @@
 
 .listing-show-container{
     display: flex;
-    padding: 3vh 0;
+    padding: 2vh 0;
     flex-wrap: wrap;
 }
 
@@ -101,11 +101,20 @@ b{
     flex-direction: column;
 }
 
+.listing-info > div:first-child {
+    justify-content: space-between;
+    align-items: center;
+}
+
 .listing-info > div {
     display: flex;
 }
 
-.listing-info > div img{
+.listing-info > * {
+    padding-right: 10px;
+}
+
+.static-pic {
     display: flex;
     height: 5vh;
     border-radius: 0;

@@ -37,8 +37,7 @@ export default class SearchBar extends React.Component{
                         <option value="1">1 guest</option>
                         <option value="2">2 guests</option>
                         <option value="3">3 guests</option>
-                        <option value="4">4 guests</option>
-                        <option value="5">5 guests</option>
+                        <option value="4"> More guests</option>
                     </select>
                     <div>
                         <FaSearch onClick={this.handleSubmit}/>

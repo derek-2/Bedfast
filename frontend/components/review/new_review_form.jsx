@@ -77,10 +77,10 @@ export default class ReviewForm extends React.Component{
 
             const allStars = document.getElementsByClassName(`${field}-stars`);
             for (let i = 0; i <= num; i++){
-                allStars[i].style.color = 'yellow';
+                allStars[i].style.color = '#F4D03F';
             }
             for (let i = num+1; i < 5; i++){
-                allStars[i].style.color = 'black';
+                allStars[i].style.color = '#C8C8C8';
             }
         }
     }
@@ -115,8 +115,8 @@ export default class ReviewForm extends React.Component{
             }
         }
         return <>
-            <label> Cleanliness:&nbsp;
-                {arr}
+            <label className='review-label'> <p>Cleanliness:</p>
+            <div>{arr}</div>
             </label>
         </>
     }
@@ -131,8 +131,8 @@ export default class ReviewForm extends React.Component{
             }
         }
         return <>
-            <label> Accuracy:&nbsp;
-                {arr}
+            <label className='review-label'> <p>Accuracy:</p>
+            <div>{arr}</div>
             </label>
         </>
     }
@@ -146,8 +146,8 @@ export default class ReviewForm extends React.Component{
             }
         }
         return <>
-            <label> Communication:&nbsp;
-                {arr}
+            <label className='review-label'> <p>Communication:</p>
+            <div>{arr}</div>
             </label>
         </>
     }
@@ -161,8 +161,8 @@ export default class ReviewForm extends React.Component{
             }
         }
         return <>
-            <label> Location:&nbsp;
-                {arr}
+            <label className='review-label'> <p>Location:</p>
+            <div>{arr}</div>
             </label>
         </>
     }
@@ -176,8 +176,8 @@ export default class ReviewForm extends React.Component{
             }
         }
         return <>
-            <label> Check-in:&nbsp;
-                {arr}
+            <label className='review-label'><p> Check-in:</p>
+            <div>{arr}</div>
             </label>
         </>
     }
@@ -191,8 +191,8 @@ export default class ReviewForm extends React.Component{
             }
         }
         return <>
-            <label> Value:&nbsp;
-                {arr}
+            <label className='review-label'> <p>Value:</p>
+                <div>{arr}</div>
             </label>
         </>
     }
@@ -212,8 +212,8 @@ export default class ReviewForm extends React.Component{
                         {this.checkIn()}<br />
                         {this.value()}
                         {errors}
-                        <button>{this.props.formType} Review</button>
-                        <input type="button" value="Clear" onClick={this.clearFields} />
+                        <button className='fancy-btn'>{this.props.formType} Review</button>
+                        <input type="button" className='fancy-btn cancel-btn' value="Clear" onClick={this.clearFields} />
                 </form>
             </>
         )

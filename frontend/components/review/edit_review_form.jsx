@@ -225,8 +225,8 @@ export default class ReviewForm extends React.Component{
                         {this.checkIn()}<br />
                         {this.value()}
                         {errors}
-                        <button>{this.props.formType} Review</button>
-                        <input type="button" value="Cancel" onClick={this.toggleEdit(this.reviewId)} />
+                        <button className='fancy-btn'>{this.props.formType} Review</button>
+                        <input type="button" className='fancy-btn cancel-btn' value="Cancel" onClick={this.toggleEdit(this.reviewId)} />
                         {/* <button onClick={this.toggleEdit(this.reviewId)}>Cancel</button> */}
                 </form>
             </div>

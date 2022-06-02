@@ -1,5 +1,20 @@
+.review-form {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form textarea {
+    width: 50vw;
+}
+
 .review-form svg{
     cursor: pointer;
+    color: #C8C8C8;
+}
+
+.special-star{
+    color: #DC0E63;
 }
 
 .reviews-index{
@@ -11,6 +26,14 @@
     flex: 50%;
     overflow: hidden;
     word-wrap: break-word;
+}
+
+.review-container > div:first-child{
+    display: flex;
+}
+
+.review-container > * {
+    padding: 10px;
 }
 
 .testing-container{
@@ -25,6 +48,16 @@
 
 .review-avg > p:last-child {
     flex: 1;
+}
+
+.review-index-info{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+.profile-pic {
+    border-radius: 50%;
 }
 
 .testing{
@@ -71,4 +104,33 @@
 
 .hidden{
     display: none;
+}
+
+.fancy-btn{
+    background-color: #7986CB;
+    color: white;
+    border-radius: 15px;
+    border: #7987cbb7 solid 1px;
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+
+.cancel-btn{
+    background-color: #dc143c;
+}
+
+.fancy-btn:hover{
+    opacity: .8;
+    transform: scale(1.05);
+}
+
+.review-label{
+    display: flex;
+}
+
+.review-label > :first-child{
+    flex: 1;
+}
+.review-label > :last-child{
+    flex: 1;
 }

@@ -23,7 +23,7 @@ export default class Profile extends React.Component{
             .then(() => fetchListings().then(() => this.setState({
                 allListings: this.props.listings,
                 allBookings: this.props.bookings})))
-            .then(() => {fetchListingsByUser(userId)})
+            .then(() => fetchListingsByUser(userId))
             .then(() => fetchBookingsByUser(userId))
             .then(() => fetchReviewsByUser(userId))
             .then(() => this.setState({
@@ -79,7 +79,7 @@ export default class Profile extends React.Component{
         return Object.values(myReviews).map(review => (
             <div className='profile-review' id={`profile-review-${review.id}`} key={review.id}>
                 <Link to={`/listing/${review.listing_id}`} className='profile-link'>{allListings[review.listing_id].title}</Link>
-                <p>Overall Rating: {review.overall_rating}</p>
+                <p>Overall Rating: {Math.floor(review.overall_rating*10)/10}</p>
                 <p>Comment: {review.body}</p>
 
             </div>

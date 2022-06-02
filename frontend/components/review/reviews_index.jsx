@@ -1,5 +1,6 @@
 import React from "react";
 import EditReviewContainer from './edit_review_container';
+import { Link } from "react-router-dom";
 
 export default class ReviewsIndex extends React.Component{
     constructor(props){
@@ -33,16 +34,23 @@ export default class ReviewsIndex extends React.Component{
         const allReviews = Object.values(this.props.reviews);
         const {users} = this.props;
         let renderReviews = [];
-
+        const months = [ "January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December" ];
         if (Object.values(this.props.users).length > 0){
             renderReviews = allReviews.map(review => {
                 return (
                     <>
                         <div className='review-container' id={`review-${review.id}`} key={review.id}>
-                            <p>{users[review.guest_id].fname} {users[review.guest_id].lname}</p>
+                            <div>
+                                <Link to={`/profile/${review.guest_id}`}><img src={window.default_profile_pic} className='profile-pic' alt='user-profile'/></Link>
+                                <div className='review-index-info'>
+                                    <p><b>{users[review.guest_id].fname} {users[review.guest_id].lname}</b></p>
+                                    <p>{months[review.created_at_month]} {review.created_at_year}</p>
+                                </div>
+                            </div>
                             <p>{review.body}</p>
                             {this.props.currentUserId === review.listing_id ? 
-                            <><button onClick={this.toggleEdit(review.id)}>Edit</button><button onClick={this.handleDelete(review.id)}>Delete</button> </>:
+                            <><button className='fancy-btn' onClick={this.toggleEdit(review.id)}>Edit</button><button className='fancy-btn cancel-btn' onClick={this.handleDelete(review.id)}>Delete</button> </>:
                              <></>}
                         </div>
                         {this.renderEditReviewForm(review.id)}
