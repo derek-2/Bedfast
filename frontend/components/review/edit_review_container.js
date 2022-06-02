@@ -6,7 +6,8 @@ const mapState = (state,ownProps) => {
     return {
         currentUserId: state.session.currentUserId,
         formType: 'Update',
-        review: state.entities.reviews[ownProps.reviewId]
+        review: state.entities.reviews[ownProps.reviewId],
+        errors: state.errors.review.update
     }
 }
 

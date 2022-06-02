@@ -32,7 +32,7 @@ export default class Menu extends React.Component{
                         
                         {this.props.currentUser ?
                             <>
-                            <li><Link to='/profile'>Profile</Link></li>
+                            <Link to={`/profile/${this.props.currentUser.id}`}><li>Profile</li></Link>
                             <li className="logout-btn" onClick={this.handleLogout}>Logout</li>
                             </> :
                             <>

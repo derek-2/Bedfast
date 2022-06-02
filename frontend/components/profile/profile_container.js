@@ -3,12 +3,15 @@ import Profile from "./profile";
 import { fetchListingsByUser, fetchListings } from "../../actions/listing_actions";
 import {fetchUsers} from '../../actions/user_actions';
 import {fetchBookings, fetchBookingsByUser} from '../../actions/booking_actions';
+import {fetchReviewsByUser} from '../../actions/review_actions';
 
-const mapState = state => ({
+const mapState = (state,ownProps) => ({
     currentUserId: state.session.currentUserId,
+    userId: ownProps.match.params.userId,
     users: state.entities.users,
     bookings: state.entities.bookings,
-    listings: state.entities.listings
+    listings: state.entities.listings,
+    reviews: state.entities.reviews
 })
 
 const mapDispatch = dispatch => ({
@@ -16,7 +19,8 @@ const mapDispatch = dispatch => ({
     fetchBookingsByUser: userId => dispatch(fetchBookingsByUser(userId)),
     fetchBookings: () => dispatch(fetchBookings()),
     fetchUsers: () => dispatch(fetchUsers()),
-    fetchListings: () => dispatch(fetchListings())
+    fetchListings: () => dispatch(fetchListings()),
+    fetchReviewsByUser: userId => dispatch(fetchReviewsByUser(userId))
 })
 
 export default connect(mapState, mapDispatch)(Profile);

@@ -48,3 +48,9 @@
     text-align: left;
     margin-left:0;
 }
+
+.review-container > p {
+    max-height: 30vh;
+    padding: 2px 0;
+    overflow-y: auto;
+}

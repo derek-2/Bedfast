@@ -92,8 +92,8 @@ export default class ReviewForm extends React.Component{
 
     clearFields(){
         this.setState({
-            listing_id: '',
-            guest_id: '',
+            listing_id: this.props.review.listing_id,
+            guest_id: this.props.review.guest_id,
             body: '',
             overall_rating: 0,
             cleanliness: 0,
@@ -198,12 +198,12 @@ export default class ReviewForm extends React.Component{
     }
 
     render(){
-        console.log(this.state)
+        const errors = this.props.errors.map(err => <p className='error-message'>{err}</p>);
         return (
             <>
                 <form className='review-form' onSubmit={this.handleSubmit}>
-                    <label> Comments&nbsp;
-                        <textarea onChange={this.updateBody} value={this.state.body}></textarea>
+                    <label>
+                        <textarea rows='5' cols='30' onChange={this.updateBody} value={this.state.body} placeholder='Comments'></textarea>
                     </label>
                         {this.cleanliness()}<br />
                         {this.accuracy()}<br />
@@ -211,8 +211,9 @@ export default class ReviewForm extends React.Component{
                         {this.location()}<br />
                         {this.checkIn()}<br />
                         {this.value()}
+                        {errors}
                         <button>{this.props.formType} Review</button>
-                        <button onClick={this.clearFields}>Clear</button>
+                        <input type="button" value="Clear" onClick={this.clearFields} />
                 </form>
             </>
         )

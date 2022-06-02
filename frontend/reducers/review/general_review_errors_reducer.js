@@ -1,6 +1,6 @@
-import { RECEIVE_REVIEW, RECEIVE_REVIEWS, RECEIVE_REVIEW_ERRORS } from "../actions/review_actions";
+import { RECEIVE_REVIEW, RECEIVE_REVIEWS, RECEIVE_REVIEW_ERRORS } from "../../actions/review_actions";
 
-const ReviewErrorReducer = (state=[], action) => {
+const CreateReviewErrorReducer = (state=[], action) => {
     Object.freeze(state);
 
     switch(action.type){
@@ -15,4 +15,4 @@ const ReviewErrorReducer = (state=[], action) => {
     }
 }
 
-export default ReviewErrorReducer;
+export default CreateReviewErrorReducer;

@@ -4,6 +4,7 @@ import NewBookingFormContainer from "../booking_form/new_booking_form_container"
 import NewReviewContainer from "../review/new_review_container";
 import ReviewsIndex from '../review/reviews_index';
 import {FaStar} from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 export default class Listing extends React.Component{
     constructor(props){
@@ -65,7 +66,7 @@ export default class Listing extends React.Component{
             );
             return (
                 <div className='container'>
-                    <p>{title} by {host_name}</p>
+                    <p>{title} by <Link className='profile-link' to={`/profile/${host_id}`}>{host_name}</Link></p>
                     <p>{city},{state}</p>
                     {allPhotos}
                     <div className='listing-show-container'>

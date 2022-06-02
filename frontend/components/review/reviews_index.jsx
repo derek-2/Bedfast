@@ -17,9 +17,10 @@ export default class ReviewsIndex extends React.Component{
         return e => {
             e.preventDefault();
             document.getElementById(`edit-review-wrap-${num}`).classList.toggle('hidden');
+            document.getElementById(`review-${num}`).classList.toggle('hidden');
         }
     }
-
+    
     handleDelete(num){
         return e => {
             e.preventDefault();
@@ -35,7 +36,6 @@ export default class ReviewsIndex extends React.Component{
 
         if (Object.values(this.props.users).length > 0){
             renderReviews = allReviews.map(review => {
-                debugger
                 return (
                     <>
                         <div className='review-container' id={`review-${review.id}`} key={review.id}>

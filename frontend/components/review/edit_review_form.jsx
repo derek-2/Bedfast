@@ -9,6 +9,8 @@ export default class ReviewForm extends React.Component{
         this.reviewId = this.props.review.id;
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggleEdit = this.toggleEdit.bind(this);
+
         this.updateBody = this.updateBody.bind(this);
         this.cleanliness = this.cleanliness.bind(this);
         this.accuracy = this.accuracy.bind(this);
@@ -64,9 +66,11 @@ export default class ReviewForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         console.log({review:this.state});
-        this.props.submitForm({review:this.state}).then(() =>{
-            document.getElementById(`edit-review-wrap-${this.reviewId}`).classList.add('hidden');
-        });
+        // debugger
+        this.props.submitForm({review:this.state})
+        if (this.state.body.length > 0){
+            this.toggleEdit(this.reviewId)();
+        }
     }
 
     updateScore(field, num){
@@ -90,6 +94,13 @@ export default class ReviewForm extends React.Component{
     updateBody(e){
         e.preventDefault();
         this.setState({body:e.target.value})
+    }
+
+    toggleEdit(num){
+        return () => {
+            document.getElementById(`edit-review-wrap-${num}`).classList.toggle('hidden');
+            document.getElementById(`review-${num}`).classList.toggle('hidden');
+        }
     }
 
     clearFields(){
@@ -200,11 +211,12 @@ export default class ReviewForm extends React.Component{
     }
 
     render(){
+        const errors = this.props.errors.map(err => <p className='error-message'>{err}</p>);
         return (
             <div className='edit-review-wrap hidden' id={`edit-review-wrap-${this.reviewId}`}>
                 <form className='review-form' onSubmit={this.handleSubmit}>
-                    <label> Comments&nbsp;
-                        <textarea onChange={this.updateBody} value={this.state.body}></textarea>
+                    <label>
+                        <textarea rows='5' cols='30' onChange={this.updateBody} value={this.state.body} placeholder='Comments'></textarea>
                     </label>
                         {this.cleanliness()}<br />
                         {this.accuracy()}<br />
@@ -212,7 +224,10 @@ export default class ReviewForm extends React.Component{
                         {this.location()}<br />
                         {this.checkIn()}<br />
                         {this.value()}
+                        {errors}
                         <button>{this.props.formType} Review</button>
+                        <input type="button" value="Cancel" onClick={this.toggleEdit(this.reviewId)} />
+                        {/* <button onClick={this.toggleEdit(this.reviewId)}>Cancel</button> */}
                 </form>
             </div>
         )

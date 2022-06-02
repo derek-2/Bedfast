@@ -41,7 +41,7 @@ const App = (props) => {
             <Route exact path="/listings/search/:city/:guests" component={ListingsIndexContainer}></Route>
             <Route exact path='/listings/:listingId/edit' component={EditListingContainer}></Route>
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>
-            <Route exact path='/profile' component={ProfileContainer}></Route>
+            <Route exact path='/profile/:userId' component={ProfileContainer}></Route>
         </Switch>
 
         {/* <Route exact path='/listings/show/:listingId' component={<ListingShowContainer />}></Route> */}
