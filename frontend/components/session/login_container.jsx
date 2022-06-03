@@ -4,7 +4,7 @@ import {fetchUsers} from '../../actions/user_actions';
 import LoginModal from './login';
 
 const mapState = state => ({
-  errors: state.errors.session,
+  errors: state.errors.session.login,
   formType: 'Login',
   users: state.entities.users,
   session: state.session
