@@ -37,6 +37,7 @@ export default class ReviewsIndex extends React.Component{
         let renderReviews = [];
         const months = [ "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December" ];
+
         if (Object.values(this.props.users).length > 0){
             renderReviews = allReviews.map(review => {
                 return (
@@ -78,7 +79,7 @@ export default class ReviewsIndex extends React.Component{
         const avgLocation = Math.round(10*location/allReviews.length)/10;
         const avgValue = Math.round(10*value/allReviews.length)/10;
 
-        if (avgCleanliness){
+        if (avgCleanliness || avgCleanliness === 0){
             debugger
             return (
                 <div className='review-index-container'>

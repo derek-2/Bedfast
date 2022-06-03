@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { fetchBookings } from "../../util/booking_util";
 import BookingItem from './booking_item';
 
 export default class Profile extends React.Component{
@@ -43,18 +42,25 @@ export default class Profile extends React.Component{
         //     .then(() => this.setState({myBookings: this.props.bookings}))
     }
 
+    componentDidUpdate(prevProps){
+        const {listings, bookings, reviews} = this.props;
+        if (this.state.myListings !== listings || this.state.myBookings !== bookings || this.state.myReviews !== reviews){
+            this.setState({
+                myListings: this.props.listings,
+                myBookings: this.props.bookings,
+                myReviews: this.props.reviews})
+        }
+    }
+
     toggleReservations(listingId){
-        // debugger
         Array.from(document.getElementsByClassName(`listing-${listingId}-reservations`)).forEach(el => el.classList.toggle('hidden'));
     }
 
     deleteListing(listingId){
-        console.log(`about to delete listing ${listingId}`)
         this.props.deleteListing(listingId);
     }
 
     deleteBooking(bookingId){
-        console.log(`about to delete booking ${bookingId}`)
         this.props.deleteBooking(bookingId);
     }
 
@@ -62,6 +68,7 @@ export default class Profile extends React.Component{
         // currently it is checking the props from container, probably should change it to check this.state.mybookings --> same with listings
         const {myBookings} = this.state;
         const listings = this.state.allListings;
+        // debugger
         return Object.values(myBookings).map((booking,idx) => (
             <div className={`my-booking-${idx} my-booking-item`} key={booking.id}>
                 <Link className='profile-link' to={`/listings/${booking.listing_id}`}>{listings[booking.listing_id].title}</Link>

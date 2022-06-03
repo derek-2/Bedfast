@@ -5,6 +5,7 @@ import {fetchUsers} from '../../actions/user_actions';
 import Listing from './listing';
 
 const mapState = (state, ownProps) => {
+    debugger
     return {
         listing: state.entities.listings[ownProps.match.params.listingId],
         reviews: state.entities.reviews,

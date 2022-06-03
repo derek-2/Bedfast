@@ -5,14 +5,16 @@ import {fetchUsers} from '../../actions/user_actions';
 import {fetchBookings, fetchBookingsByUser, deleteBooking} from '../../actions/booking_actions';
 import {fetchReviewsByUser} from '../../actions/review_actions';
 
-const mapState = (state,ownProps) => ({
+const mapState = (state,ownProps) => {
+    // debugger
+    return {
     currentUserId: state.session.currentUserId,
     userId: ownProps.match.params.userId,
     users: state.entities.users,
     bookings: state.entities.bookings,
     listings: state.entities.listings,
     reviews: state.entities.reviews
-})
+}}
 
 const mapDispatch = dispatch => ({
     fetchListingsByUser: (userId) => dispatch(fetchListingsByUser(userId)),
