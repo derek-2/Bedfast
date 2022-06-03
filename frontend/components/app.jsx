@@ -11,7 +11,6 @@ import ListingsIndexContainer from './listings_index/listing_index_container';
 import ListingContainer from './listing_show/listing_container';
 import ProfileContainer from './profile/profile_container';
 import EditListingContainer from './listings_form/edit_listing_container';
-import HomePage from './homepage/homepage';
 
 const App = (props) => {
     const hideModal = () => {
@@ -25,10 +24,10 @@ const App = (props) => {
         <Route component={NavBarContainer}></Route>
         <Switch>
             <Route exact path='/' component={HomePageContainer}></Route>
-            <Route exact path='/listings/new' component={NewListingContainer}></Route>
+            <ProtectedRoute exact path='/listings/new' component={NewListingContainer}></ProtectedRoute>
             <Route exact path="/listings/search/:city/:guests" component={ListingsIndexContainer}></Route>
             <Route exact path='/listings/search/:guests' component={ListingsIndexContainer}></Route>
-            <Route exact path='/listings/:listingId/edit' component={EditListingContainer}></Route>
+            <ProtectedRoute exact path='/listings/:listingId/edit' component={EditListingContainer}></ProtectedRoute>
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>
             <Route exact path='/profile/:userId' component={ProfileContainer}></Route>
         </Switch>
