@@ -43,6 +43,14 @@
 .listings-index-container{
     display: flex;
 }
+
+.listings-index-container > :first-child{
+    flex: 5;
+}
+.listings-index-container > :last-child{
+    flex: 6;
+}
+
 .listing-form label{
     display: flex;
     flex-direction: column;
@@ -62,6 +70,7 @@
     overflow: hidden;
     position: relative;
     width: 50%;
+    justify-content: space-evenly;
 }
 
 .listings-index-text-container p {
@@ -69,12 +78,16 @@
     // color: blue;
 }
 
+.listings-index-text-container > div:last-child{
+    display: flex;
+}
+
 .listing-index-item{
-    border-top: 1px solid rgb(211, 211, 211);
     margin: 0 20px 0 20px;
-    padding: 20px 0 20px 0;
+    padding: 20px 5px;
     display: flex;
     min-width: 600px;
+    border-radius: 15px;
 }
 
 .listings-index-items-container > p:first-child{
@@ -97,20 +110,17 @@
     font-size:20px;
 }
 //350x180
-.price{
+.price, .reviews{
     display: flex;
-    position: absolute;
+    flex: 1;
+    // position: absolute;
     right: 0;
-    bottom: 1vh;
-
+    bottom: 0;
 }
 
 .reviews{
-    display: flex;
-    position: absolute;
     left: 0;
-    bottom: 1vh;
-
+    flex: 2;
 }
 
 .separator{

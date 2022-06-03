@@ -37,15 +37,12 @@ label {
         margin: 4px 2px;
   }
 
-
 .session-container{
-    display: none;
     width: 100%;
     height: 100%;
   }
   
   .session-modal-container{
-    display: none;
     position: fixed;
     top:0;
     left:0;
@@ -53,14 +50,6 @@ label {
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.2);
     z-index: 4;
-}
-
-.unhide{
-    display: flex;
-}
-
-.hide{
-    display: none;
 }
 
 .session-modal-header h2{

@@ -1,11 +1,13 @@
 .flex-form {
     display: flex;
     height: 50px;
+    border-radius: 100px;
 }
 
-.flex-form input{
-    border: none;
+.flex-form:hover{
+    box-shadow:  0 6px 5px rgb(221,221,221, .5);
 }
+
 .search-bar-container{
     border-radius: 50%;
 }
@@ -17,7 +19,6 @@
     font-size: 20px;
     border-radius: 0;
     background: #fff;
-    margin-left: 1px;
 }
 
 .flex-form a {
@@ -45,7 +46,6 @@
     justify-content: center;
     border-top-right-radius:100px;
     border-bottom-right-radius:100px;
-    height: 30px;
     width: 40px;
 }
 
@@ -56,6 +56,7 @@
 
 .flex-form svg {
     background-color: #f05;
+    color: white;
     padding: 5px;
     height: 12px;
     width: 12px;
@@ -70,4 +71,9 @@
 .flex-form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.flex-form * {
+    outline: none;
+    border: 1px solid rgb(221,221,221);
 }

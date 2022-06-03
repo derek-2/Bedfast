@@ -83,10 +83,10 @@ export default class ReviewForm extends React.Component{
 
             const allStars = document.getElementsByClassName(`${field}-stars-${this.reviewId}`);
             for (let i = 0; i <= num; i++){
-                allStars[i].style.color = 'yellow';
+                allStars[i].style.color = '#dc0e63';
             }
             for (let i = num+1; i < 5; i++){
-                allStars[i].style.color = 'black';
+                allStars[i].style.color = '#C8C8C8';
             }
         }
     }
@@ -122,7 +122,7 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.cleanliness){
-                arr.push(<FaStar color='yellow' className={`cleanliness-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
+                arr.push(<FaStar color='#dc0e63' className={`cleanliness-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
             } else {
                 arr.push(<FaStar className={`cleanliness-stars-${this.reviewId}`} id={`star-${i-1}`}/>)
             }
@@ -138,7 +138,7 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.accuracy){
-                arr.push(<FaStar color='yellow' className={`accuracy-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
+                arr.push(<FaStar color='#dc0e63' className={`accuracy-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
             } else {
                 arr.push(<FaStar className={`accuracy-stars-${this.reviewId}`} id={`star-${i-1}`}/>)
             }
@@ -153,7 +153,7 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.communication){
-                arr.push(<FaStar color='yellow' className={`communication-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
+                arr.push(<FaStar color='#dc0e63' className={`communication-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
             } else {
                 arr.push(<FaStar className={`communication-stars-${this.reviewId}`} id={`star-${i-1}`}/>)
             }
@@ -168,7 +168,7 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.location){
-                arr.push(<FaStar color='yellow' className={`location-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
+                arr.push(<FaStar color='#dc0e63' className={`location-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
             } else {
                 arr.push(<FaStar className={`location-stars-${this.reviewId}`} id={`star-${i-1}`}/>)
             }
@@ -183,7 +183,7 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.check_in){
-                arr.push(<FaStar color='yellow' className={`check-in-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
+                arr.push(<FaStar color='#dc0e63' className={`check-in-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
             } else {
                 arr.push(<FaStar className={`check-in-stars-${this.reviewId}`} id={`star-${i-1}`}/>)
             }
@@ -198,7 +198,7 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.value){
-                arr.push(<FaStar color='yellow' className={`value-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
+                arr.push(<FaStar color='#dc0e63' className={`value-stars-${this.reviewId}`} id={`star-${i-1}`}/>);
             } else {
                 arr.push(<FaStar className={`value-stars-${this.reviewId}`} id={`star-${i-1}`}/>)
             }

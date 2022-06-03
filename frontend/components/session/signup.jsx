@@ -19,10 +19,11 @@ export default class SignUpModal extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    const menu = document.getElementById('top-right-menu');
-    menu.classList.remove('show');
-    // debugger;
-    this.props.submitForm(this.state);
+    this.props.submitForm(this.state)
+      .then(() => {
+        document.getElementById('signup-modal').classList.toggle('hidden');
+        document.getElementById('session-modal-container').classList.toggle('hidden');
+      })
     // this.props.submitForm(this.state).then(() => {
     //   const menu = document.getElementById('top-right-menu');
     //   menu.classList.remove('show');
@@ -33,24 +34,21 @@ export default class SignUpModal extends React.Component{
 
   demoLogin(e) {
     e.preventDefault();
-    const menu = document.getElementById('top-right-menu');
-    menu.classList.remove('show');
     this.props.login({
       email: 'Demo',
       fname: 'Demo',
       lname: 'Demo',
       password: 'password'
     })
-    document.getElementById('login-modal').classList.remove('unhide');
-    document.getElementById('signup-modal').classList.remove('unhide');
-    document.getElementById('session-modal-container').classList.remove('unhide');
-    document.getElementById('session-modal-container').classList.add('hide');
+    document.getElementById('signup-modal').classList.toggle('hidden');
+    document.getElementById('session-modal-container').classList.toggle('hidden');
+
     // this.props.history.push('/');
   }
 
   render() {
     return (
-      <div id="signup-modal" className="session-container">
+      <div id="signup-modal" className="session-container hidden">
         <div className='session-modal'>
           <form onSubmit={this.handleSubmit}>
           <div className="session-modal-header">

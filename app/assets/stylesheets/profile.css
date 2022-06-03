@@ -57,5 +57,26 @@
 }
 
 .profile-link{
-    text-decoration: underline;
+    color: inherit;
+	text-decoration: none;
+	box-shadow: inset 0 -.125em 0 0 #ddd;
+	transition-duration: .25s;
+}
+
+.profile-link:hover{
+    color: #ccc;
+}
+
+.my-reviews{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.my-reviews > div {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
 }

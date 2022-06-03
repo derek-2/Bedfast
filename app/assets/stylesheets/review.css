@@ -1,11 +1,13 @@
 .review-form {
-    width: 50vw;
+    width: 40vw;
     display: flex;
     flex-direction: column;
 }
 
 .review-form textarea {
-    width: 50vw;
+    width: 40vw;
+    border-color:rgb(221, 221, 221);
+    margin-bottom: 10px;
 }
 
 .review-form svg{
@@ -20,12 +22,16 @@
 .reviews-index{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    /* flex-direction: column; */
 }
 
-.review-container{
-    flex: 50%;
-    overflow: hidden;
-    word-wrap: break-word;
+.reviews-index > div {
+    width: 35vw;
+}
+
+.review-container > button {
+    margin: 10px 10px 10px 0;
 }
 
 .review-container > div:first-child{
@@ -33,21 +39,13 @@
 }
 
 .review-container > * {
-    padding: 10px;
+    padding-top: 10px;
 }
 
 .testing-container{
     flex: 5;
     height: 15px;
     position: relative;
-}
-
-.review-avg > p:first-child {
-    flex: 5;
-}
-
-.review-avg > p:last-child {
-    flex: 1;
 }
 
 .review-index-info{
@@ -84,6 +82,7 @@
 
 .review-avg-container{
     display: flex;
+    margin: 1vh 0 2vh 0;
     /* flex-direction: column; */
 }
 
@@ -92,14 +91,26 @@
     width: 100%;
 }
 
+.review-avg > :nth-child(1){
+    flex: 2;
+}
+
+.review-avg > :nth-child(2){
+    flex: 3;
+}
+
+.review-avg > :nth-child(3){
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 5px;
+}
+
 .review-half{
     display: flex;
     flex-direction: column;
     width: 50%;
-}
-
-.edit-review-wrap{
-    flex: 50%;
 }
 
 .hidden{
@@ -113,6 +124,7 @@
     border: #7987cbb7 solid 1px;
     padding: 8px 15px;
     margin-top: 10px;
+    max-width: 40vw;
 }
 
 .cancel-btn{

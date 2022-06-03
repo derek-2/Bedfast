@@ -31,12 +31,12 @@ export default class Listing extends React.Component{
     }
 
     overallRating(){
-        let total = 0;
+        this.total_rating = 0;
         const reviews = Object.values(this.props.reviews);
-        reviews.forEach(review => total+=review.overall_rating);
+        reviews.forEach(review => this.total_rating+=review.overall_rating);
         return (
             <>
-             <FaStar className="special-star" /> {Math.round(total*100/reviews.length)/100} · {reviews.length} reviews
+             <FaStar className="special-star" /> {Math.round(this.total_rating*100/reviews.length)/100} · {reviews.length} reviews
             </>
         )
     }
@@ -65,8 +65,8 @@ export default class Listing extends React.Component{
             );
             return (
                 <div className='container'>
-                    <p className='biggest-font'><b>{title}</b></p>
-                    <p><b>{this.overallRating()} {city},{state}</b></p>
+                    <h1 className='biggest-font'><b>{title}</b></h1>
+                    <p className='medium-font'><b>{this.overallRating()} {city},{state}</b></p>
                     {allPhotos}
                     <div className='listing-show-container'>
                         <div className='listing-info'>
@@ -113,19 +113,18 @@ export default class Listing extends React.Component{
 
 
                             {/* <p>&lt;Booking Form&gt;</p> */}
-                        </div>
-                            <NewBookingFormContainer listingId={id} price={price_per_night}/>
-                        </div>
-                    <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} deleteReview={this.props.deleteReview} />
-                    <br />
-                    <br />
-                    <NewReviewContainer match={this.props.match}/>
-                    <br />
-                    <br />
-                    <p>Where you'll be</p>
-                    <hr className='listing-show-separator' />
-                    <Map listings={[this.props.listing]}/>
-                </div>
+                        </div><NewBookingFormContainer listingId={id} price={price_per_night}/></div>
+                        <hr className='separator biggest-separator' />
+                        <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} deleteReview={this.props.deleteReview} avg_rating={this.total_rating/Object.values(this.props.reviews).length} />
+                        <br />
+                        <br />
+                        <NewReviewContainer match={this.props.match}/>
+                        <br />
+                        <br />
+                        <p>Where you'll be</p>
+                        <hr className='listing-show-separator' />
+                        <Map listings={[this.props.listing]}/>
+                    </div>
         )}
         else {
             return(<></>)

@@ -10,12 +10,14 @@ export default class NewBookingForm extends React.Component{
 
         const today = (year + '-' + month + '-' + day);
         this.state = {
-            guest_id: this.props.currentUserId,
+            guest_id: null,
             listing_id: this.props.listingId,
             check_in_date: today,
             check_out_date: today,
             num_guests: 0,
-            total_price: 0
+            total_price: 0,
+            errors: [],
+            successMessage: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateDate = this.updateDate.bind(this);
@@ -33,10 +35,15 @@ export default class NewBookingForm extends React.Component{
     }
 
     handleSubmit(){
-        console.log('hit submit!');
-        console.log(this.state);
-        this.props.createBooking(this.state)
-        // .then(() => this.props.history.push('/')) push to profile page
+        console.log(this.props.currentUser)
+        if (this.props.currentUser){
+            this.setState({guest_id: this.props.currentUser.id}, () => {
+                this.props.createBooking(this.state)
+                    .then(() => this.setState({successMessage: 'Booking successfully reserved!'}))
+            })                
+        } else {
+            this.setState({errors: ['Must be logged in to reserve a booking!']});
+        }
     }
 
     updateDate(field,price_per_night){
@@ -60,11 +67,15 @@ export default class NewBookingForm extends React.Component{
     }
     
     render(){
-        const {price} = this.props; // this is passed down from listing show page
-        console.log(this.state);
+        const {price, errors} = this.props; // this is passed down from listing show page
+
         const start = new Date(this.state.check_in_date);
         const end = new Date(this.state.check_out_date);
         const num_days = (end - start) / (1000 * 60 * 60 * 24)
+
+        const allErrors = [];
+        errors.length > 0 ? errors.forEach((err,idx) => allErrors.push(<p className='error-message' key={idx}>{err}</p>)) : <></>;
+        this.state.errors.length > 0 ? this.state.errors.forEach((err,idx) => allErrors.push(<p className='error-message' key={idx}>{err}</p>)) : <></>;
 
         const pricexnights = num_days < 1 ? 
             <><b>${price}</b> x {num_days + 1} night</> : <><b>${price}</b> x {num_days + 1} nights</>;
@@ -95,6 +106,8 @@ export default class NewBookingForm extends React.Component{
                             </label>
                         </div>
                     </div>
+                    {allErrors}
+                    {this.state.successMessage ? <p className='success-message'>{this.state.successMessage}</p> : <></>}
                     <button className='session-btn reserve-btn'>Reserve</button>
                 </div>
                 <div className='booking-costs-container'>

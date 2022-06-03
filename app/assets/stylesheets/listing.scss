@@ -51,5 +51,15 @@
 
 .review-container > p {
     max-height: 30vh;
+    min-height: 3vh;
     overflow-y: auto;
+}
+
+
+.highlight-listing {
+    background-color: #E5E5E5;
+}
+
+.container > p {
+    margin: 10px 0;
 }

@@ -6,7 +6,13 @@ export default class HomePage extends React.Component{
 
         return(
             <>
-
+                <div id="main">     
+                    <div id="top-half">
+                        <div className='modals'>
+                            <img className='background' src={window.background} alt="splash" />
+                        </div>
+                    </div>
+                    <div id="bottom-half">
                 <div className="homepage-stuff">
                     <p className="homepage-text">Inspiration for your next trip</p>
                     <ul className="inspiration-container">
@@ -40,11 +46,12 @@ export default class HomePage extends React.Component{
                         </li>
                     </ul>
                     <div className="questions-container">
-                        {/* <div className="temp">yo</div> */}
                         <p>Questions about hosting?</p>
                         <button className="question-btn">Ask a supervisor</button>
                         <img src={window.questions} alt="questions?" />
                     </div>
+                    </div>
+                </div>
                 </div>
             </>
         )

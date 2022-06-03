@@ -32,6 +32,20 @@ img{
   font-weight: bolder;
 }
 
+.success-message{
+  color: rgb(80, 255, 80);
+  font-weight: bolder;
+}
+
+.biggest-separator{
+  width: 100%;
+}
+
+.bigger-separator{
+  width: 90%;
+  min-width: 610px;
+}
+
 textarea{
   resize: vertical;
   padding: 10px;
@@ -63,4 +77,8 @@ textarea:focus {
 
 .biggest-font{
   font-size: 26px;
+}
+
+.medium-font{
+  font-size: 18px;
 }

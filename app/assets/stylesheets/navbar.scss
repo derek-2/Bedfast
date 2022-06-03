@@ -25,17 +25,13 @@
   z-index: 3;
 }
 
-#top-nav.scrolled{
-  background-color: yellow !important;
-  transition: background-color 200ms linear;
-}
-
 #right-nav{
   display: flex;
   background-color: white;
   padding: 10px;
   border-radius: 25px;
   height: 30px;
+  border: 1px solid rgb(221,221,221);
 }
 
 #right-nav img {
@@ -47,4 +43,10 @@
 #airbnblogo{
   width: 3vw;
   height: 50px;
+}
+
+.not-top{
+  background-color: rgb(245, 245, 245) !important;
+  color: black !important;
+  border-bottom: 1px solid rgb(221,221,221);
 }

@@ -20,33 +20,29 @@ export default class LoginModal extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state).then(() => {
-      const menu = document.getElementById('top-right-menu');
-      menu.classList.remove('show');
+      document.getElementById('login-modal').classList.toggle('hidden');
+      document.getElementById('session-modal-container').classList.toggle('hidden');
     });
-    // this.props.history.push('/');
+
   }
 
   demoLogin(e) {
     e.preventDefault();
-    const menu = document.getElementById('top-right-menu');
-    menu.classList.remove('show');
     this.props.login({
       email: 'Demo',
       fname: 'Demo',
       lname: 'Demo',
       password: 'password'
     })
-    document.getElementById('login-modal').classList.remove('unhide');
-    document.getElementById('signup-modal').classList.remove('unhide');
-    document.getElementById('session-modal-container').classList.remove('unhide');
-    document.getElementById('session-modal-container').classList.add('hide');
+    document.getElementById('login-modal').classList.toggle('hidden');
+    document.getElementById('session-modal-container').classList.toggle('hidden');
 
     // this.props.history.push('/');
   }
 
   render() {
     return (
-      <div id="login-modal" className="session-container">
+      <div id="login-modal" className="session-container hidden">
         <div className='session-modal'>
           <form onSubmit={this.handleSubmit}>
             <div className="session-modal-header">

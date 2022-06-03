@@ -9,25 +9,23 @@ export default class Menu extends React.Component{
     }
 
     handleLogout(){
-        this.props.logout();
+        this.props.logout()
+        .then(() => document.getElementById('top-right-menu').classList.toggle('hidden'))
     }
 
     showModal(field){
-
         return () => {
-            const modal = document.getElementById(`${field}-modal`);
-            const modal2 = document.getElementById('session-modal-container');
-            modal.classList.add('unhide');
-            modal2.classList.add('unhide');
-            modal2.classList.remove('hide');
+            document.getElementById(`${field}-modal`).classList.toggle('hidden');
+            document.getElementById('session-modal-container').classList.toggle('hidden');
+            document.getElementById('top-right-menu').classList.toggle('hidden');
         }
-      }
+    }
 
     render(){
 
         return(
             <>
-                <div className='top-right-menu' id='top-right-menu'>
+                <div className='top-right-menu hidden' id='top-right-menu'>
                     <ul>
                         
                         {this.props.currentUser ?

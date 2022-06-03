@@ -77,7 +77,7 @@ export default class ReviewForm extends React.Component{
 
             const allStars = document.getElementsByClassName(`${field}-stars`);
             for (let i = 0; i <= num; i++){
-                allStars[i].style.color = '#F4D03F';
+                allStars[i].style.color = '#dc0e63';
             }
             for (let i = num+1; i < 5; i++){
                 allStars[i].style.color = '#C8C8C8';

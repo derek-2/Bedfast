@@ -27,6 +27,21 @@ export default class NavBar extends React.Component {
     this.toggleMenu=this.toggleMenu.bind(this);
   }
 
+  componentDidMount(){
+    const topnav = document.getElementById('top-nav');
+    function check() {
+      if (window.scrollY === 0) {
+        topnav.classList.remove("not-top");
+        document.getElementById('airbnblogo').src=window.logo;
+      } else {
+        topnav.classList.add("not-top");
+        document.getElementById('airbnblogo').src=window.inverted_logo;
+      }
+    }
+    window.addEventListener("scroll", check);
+    window.addEventListener("load", check);
+  }
+
   handleLogout(){
     const menu = document.getElementById('top-right-menu');
     menu.classList.remove('show');
@@ -35,8 +50,7 @@ export default class NavBar extends React.Component {
   }
 
   toggleMenu(){
-    const menu = document.getElementById('top-right-menu');
-    menu.classList.toggle('show');
+    document.getElementById('top-right-menu').classList.toggle('hidden');
   }
 
   render(){

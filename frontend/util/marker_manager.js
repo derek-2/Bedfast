@@ -21,6 +21,13 @@ export default class MarkerManager{
                     })
                 })
 
+                this.markers[listing.id].addListener('mouseover', () => {
+                    document.getElementById(`listing-${listing.id}`).classList.toggle('highlight-listing')
+                })
+                this.markers[listing.id].addListener('mouseout', () => {
+                    document.getElementById(`listing-${listing.id}`).classList.toggle('highlight-listing')
+                })
+
                 // ---
                 const iwOuter = $('.gm-style-iw');
                 const iwBackground = iwOuter.prev();

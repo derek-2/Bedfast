@@ -11,34 +11,23 @@ import ListingsIndexContainer from './listings_index/listing_index_container';
 import ListingContainer from './listing_show/listing_container';
 import ProfileContainer from './profile/profile_container';
 import EditListingContainer from './listings_form/edit_listing_container';
+import HomePage from './homepage/homepage';
 
 const App = (props) => {
     const hideModal = () => {
-        document.getElementById('session-modal-container').classList.add('hide');
-        document.getElementById(`login-modal`).classList.remove('unhide');
-        document.getElementById(`signup-modal`).classList.remove('unhide');
+        document.getElementById('session-modal-container').classList.toggle('hidden');
+        document.getElementById('login-modal').classList.add('hidden');
+        document.getElementById('signup-modal').classList.add('hidden');
     }
 
     return (
     <main>
         <Route component={NavBarContainer}></Route>
         <Switch>
-            <Route exact path='/'>
-                <div id="main">
-                    <div id="top-half">
-                        <div className='modals'>
-                            <img className='background' src={window.background} alt="splash" />
-                        </div>
-                    </div>
-                    <div id="bottom-half">
-                <HomePageContainer />
-                    </div>
-                </div>
-            </Route>
-
-                
+            <Route exact path='/' component={HomePageContainer}></Route>
             <Route exact path='/listings/new' component={NewListingContainer}></Route>
             <Route exact path="/listings/search/:city/:guests" component={ListingsIndexContainer}></Route>
+            <Route exact path='/listings/search/:guests' component={ListingsIndexContainer}></Route>
             <Route exact path='/listings/:listingId/edit' component={EditListingContainer}></Route>
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>
             <Route exact path='/profile/:userId' component={ProfileContainer}></Route>
@@ -49,7 +38,7 @@ const App = (props) => {
             {/* show page for a single listing */}
         
         <Footer />
-        <div onClick={hideModal} id="session-modal-container" className="session-modal-container"></div>
+        <div onClick={hideModal} id="session-modal-container" className="session-modal-container hidden"></div>
         <SignUpModal />
         <LoginModal />
     </main>

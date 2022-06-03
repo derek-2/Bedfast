@@ -101,6 +101,10 @@ b{
     flex-direction: column;
 }
 
+.listing-info > div > a {
+    margin-right: 10px;
+}
+
 .listing-info > div:first-child {
     justify-content: space-between;
     align-items: center;
@@ -134,4 +138,8 @@ b{
 
 .reserve-btn{
     width: 100%;
+}
+
+.reserve-btn:hover{
+    background: rgb(255, 36, 87);
 }

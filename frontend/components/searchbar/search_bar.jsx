@@ -16,8 +16,12 @@ export default class SearchBar extends React.Component{
         e.preventDefault();
         console.log(this.state);
         const {searchParams, guests} = this.state;
-        this.props.history.push(`/listings/search/${searchParams}/${guests}`)
-        this.clearFields()
+        if (searchParams.trim()){
+            this.props.history.push(`/listings/search/${searchParams}/${guests}`);
+        } else {
+            this.props.history.push(`/listings/search/${guests}`);
+        }
+        this.clearFields();
     }
 
     clearFields(e){
