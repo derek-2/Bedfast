@@ -33,6 +33,7 @@ class Api::ListingsController < ApplicationController
     
     def create
         @listing = Listing.new(listing_params)
+
         if @listing.save
             render :show
         else
@@ -43,7 +44,7 @@ class Api::ListingsController < ApplicationController
     def update
         @listing = Listing.find_by(id: params[:id])
 
-        if @listing
+        if @listing.update(listing_params)
             render :show
         else
             render json: @listing.errors.full_messages, status: 422

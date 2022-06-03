@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .listing-form{
-    position: relative;
-    // top: 10vh;
-    // left: 35vw;
+    font-size:20px;
     display: flex;
     width: 45vw;
     flex-direction: column;
-    background-color: pink;
-    padding: 10px;
+    background-color: #EAEFF4;
+    padding: 25px 50px;
+    border-radius: 15px;
+    margin: 20px;
 }
 
 #listing-form-container{
@@ -22,22 +22,52 @@
 .listing-form > * {
     margin: 5px;
     max-width: 100%;
-    // max-height:100%; max-width:100%;
-}
-
-.listing-form{
-    font-size:20px;
 }
 
 .listing-form label > * {
     font-size: 20px;
-    // color:blue;
-    // background-color: #0bda51;
-    border-radius: 5px;
-    border: 0px;
+    border-radius: 15px;
+    border: 5px solid rgba(0, 0, 0, 0.3);
     resize: none;
-    margin-top: 5px;
-    padding: 3px;
+    margin: 10px 10px 10px 0;
+    padding-right: 3px;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 30%);
+}
+
+.listing-form input[type='submit']{
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    text-transform: uppercase;
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 45px;
+    transition: all 0.4s;
+    color: #4A5568;
+}
+
+.listing-form input:focus,
+.listing-form textarea:focus{
+    border: 5px solid #ffffff;
+    outline: none;
+    transition: all 0.5s;
+}
+
+.listing-form input[type="submit"]:hover {
+    border: 5px solid rgba(255, 255, 255, 1);
+    transition: all 0.4s;
+}
+
+.upload-images:hover {
+    background-color: #eaeff4;
+    border: 2px solid rgba(255, 255, 255, 1);
+    transition: all 0.4s;
 }
 
 .listings-index-container{
@@ -75,7 +105,6 @@
 
 .listings-index-text-container > * {
     margin: 10px 0 0 0;
-    // color: blue;
 }
 
 .listings-index-text-container > div:last-child{
@@ -91,15 +120,9 @@
 }
 
 .listings-index-items-container > p:first-child{
-    // color: purple;
     margin: 0 20px 0 20px;
     padding: 20px 0 20px 0;
 }
-
-// .listing-index-item img{
-//     width: 50%;
-//     height:100%;
-// }
 
 .item-details{
     display: flex;
@@ -109,11 +132,10 @@
     font-weight: bolder;
     font-size:20px;
 }
-//350x180
+
 .price, .reviews{
     display: flex;
     flex: 1;
-    // position: absolute;
     right: 0;
     bottom: 0;
 }
@@ -131,7 +153,6 @@
 
 .preview-container{
     display: flex;
-    // flex-direction: column;
     flex-wrap: wrap;
 
 }
@@ -139,8 +160,8 @@
 .individual-preview-photo{
     display: flex;
     flex-basis:30%;
-    // justify-content: space-between;
     margin: 3px;
+    cursor: pointer;
 }
 
 .trash-btn{
@@ -170,14 +191,17 @@
 }
 
 .some-labels{
-    max-width: 50%;
+    margin: 5px 0;
 }
 
 .listing-number-container{
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
-    // align-items: center;
+    flex-wrap: wrap;
+}
+
+.listing-number-container > *{
+    flex: 40%;
 }
 
 .listing-images{
@@ -191,24 +215,18 @@
 }
 
 .upload-images{
-    background-color: #ffb6c1;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    border: 1px solid #f7ced7ff;
-    // color: gray;
     width: 10vw;
-    font-size: 2vmin;
     flex-direction: column;
-}
-
-.upload-images:hover{
-    background-color: #ff8a9e;
-    // box-shadow: 10px 10px #ffccd5;
-    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    color: #4A5568;
+    border: 2px solid gray;
+    padding: 8px 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .error-message{

@@ -10,7 +10,8 @@ const mapState = (state,ownProps) => {
             errors: []
         } : null,
         formType: 'Update',
-        listings: state.entities.listings
+        listings: state.entities.listings,
+        errors: state.errors.listing,
     }
 }
 

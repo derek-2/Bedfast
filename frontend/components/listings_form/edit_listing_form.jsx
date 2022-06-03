@@ -46,35 +46,27 @@ export default class EditListingForm extends React.Component{
         e.preventDefault();
         const formData = new FormData();
         // debugger
-        if (this.state.title === '' || this.state.description === '' || this.state.address === '' || this.state.city === '' || this.state.state === '' || this.state.zipcode==='' || this.state.max_num_guests === '' || this.state.num_beds === '' || this.state.num_baths === '' || this.state.price_per_night ===''){
-            this.setState({errors: 'fill out all fields bruh'});
-        }
-        else if(this.props.currentUser === undefined) {
-            this.setState({errors: 'must be logged in to create new listing'});
-        }
-        else {
-            formData.append('listing[id]', this.state.id);
-            formData.append('listing[title]', this.state.title);
-            formData.append('listing[description]', this.state.description);
-            formData.append('listing[address]', this.state.address);
-            formData.append('listing[host_id]', this.props.currentUser.id);
-            formData.append('listing[city]', this.state.city);
-            formData.append('listing[state]', this.state.state);
-            formData.append('listing[zipcode]', this.state.zipcode);
-            formData.append('listing[latitude]', this.state.latitude);
-            formData.append('listing[longitude]', this.state.longitude);
-            formData.append('listing[max_num_guests]', this.state.max_num_guests);
-            formData.append('listing[num_beds]', this.state.num_beds);
-            formData.append('listing[num_baths]', this.state.num_baths);
-            formData.append('listing[price_per_night]', this.state.price_per_night);
-    
-            // for (let i = 0; i < this.state.photoUrls.length; i++) {
-            //     formData.append("listing[photos][]", this.state.photoUrls[i]);
-            // }
-            console.log(this.state)
-            this.props.submitForm(formData).then(() => this.props.history.push('/listings/search/NY/0'))
-            
-        };
+        formData.append('listing[id]', this.state.id);
+        formData.append('listing[title]', this.state.title);
+        formData.append('listing[description]', this.state.description);
+        formData.append('listing[address]', this.state.address);
+        formData.append('listing[host_id]', this.props.currentUser.id);
+        formData.append('listing[city]', this.state.city);
+        formData.append('listing[state]', this.state.state);
+        formData.append('listing[zipcode]', this.state.zipcode);
+        formData.append('listing[latitude]', this.state.latitude);
+        formData.append('listing[longitude]', this.state.longitude);
+        formData.append('listing[max_num_guests]', this.state.max_num_guests);
+        formData.append('listing[num_beds]', this.state.num_beds);
+        formData.append('listing[num_baths]', this.state.num_baths);
+        formData.append('listing[price_per_night]', this.state.price_per_night);
+
+        // for (let i = 0; i < this.state.photoUrls.length; i++) {
+        //     formData.append("listing[photos][]", this.state.photoUrls[i]);
+        // }
+        console.log(this.state)
+        this.props.submitForm(formData).then(() => this.props.history.push('/listings/search/NY/0'))
+
     }
 
     update(field){
@@ -84,6 +76,8 @@ export default class EditListingForm extends React.Component{
     render(){
         if (this.state){
             const {title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night} = this.state;
+            const {errors} = this.props;
+            const allErrors = errors.length>0 ? errors.map((err,idx) => <><p className='error-message' key={idx}>{err}</p></>) : null;
             console.log(this.state)
             return (
                 <div id="listing-form-container" onSubmit={this.handleSubmit}>
@@ -121,6 +115,7 @@ export default class EditListingForm extends React.Component{
                                 </label>
                                 {/* {this.prevPhotos()} */}
                             </div>
+                            {allErrors}
                             <input type="submit" value={`${this.props.formType} Listing`} />
                         </form>
                     </div>

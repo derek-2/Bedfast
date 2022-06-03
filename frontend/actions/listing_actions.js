@@ -31,9 +31,7 @@ const emptyListings = () => ({
 })
 
 export const createListing = listing => dispatch => {
-    return ListingsApiUtil.createListing(listing).then(listing => {
-        // debugger;
-        return dispatch(receiveListing(listing)), err => dispatch(receiveListingErrors(err.responseJSON))})
+    return ListingsApiUtil.createListing(listing).then(listing => dispatch(receiveListing(listing)), err => dispatch(receiveListingErrors(err.responseJSON)))
 }
 
 export const editListing = listing => dispatch => {

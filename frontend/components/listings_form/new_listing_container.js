@@ -7,7 +7,7 @@ const mapState = state => {
     const longitude = (Math.random()*(-73.933641+74.017313))-74.017313;
     return {
         currentUser: state.entities.users[state.session.currentUserId],
-        errors: state.errors,
+        errors: state.errors.listing,
         formType: 'Create',
         listings: state.entities.listings,
         listing: {
