@@ -65,6 +65,11 @@
 
 .profile-link:hover{
     color: #ccc;
+    cursor: pointer;
+}
+
+.pointer:hover{
+    cursor: pointer;
 }
 
 .my-reviews{

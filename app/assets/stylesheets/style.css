@@ -19,14 +19,6 @@ img{
   border-radius: 15px;
 }
 
-.container{
-  margin: 15px 10vw 10px 10vw;
-}
-
-.listing-show-map{
-  width: 100vw;
-}
-
 .error-message{
   color: red;
   font-weight: bolder;
@@ -39,6 +31,7 @@ img{
 
 .biggest-separator{
   width: 100%;
+  margin: 20px 0;
 }
 
 .bigger-separator{
@@ -76,9 +69,9 @@ textarea:focus {
 }
 
 .biggest-font{
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .medium-font{
-  font-size: 18px;
+  font-size: 22px;
 }

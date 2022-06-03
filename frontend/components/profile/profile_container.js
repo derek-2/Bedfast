@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import Profile from "./profile";
-import { fetchListingsByUser, fetchListings } from "../../actions/listing_actions";
+import { fetchListingsByUser, fetchListings, deleteListing } from "../../actions/listing_actions";
 import {fetchUsers} from '../../actions/user_actions';
-import {fetchBookings, fetchBookingsByUser} from '../../actions/booking_actions';
+import {fetchBookings, fetchBookingsByUser, deleteBooking} from '../../actions/booking_actions';
 import {fetchReviewsByUser} from '../../actions/review_actions';
 
 const mapState = (state,ownProps) => ({
@@ -20,7 +20,9 @@ const mapDispatch = dispatch => ({
     fetchBookings: () => dispatch(fetchBookings()),
     fetchUsers: () => dispatch(fetchUsers()),
     fetchListings: () => dispatch(fetchListings()),
-    fetchReviewsByUser: userId => dispatch(fetchReviewsByUser(userId))
+    fetchReviewsByUser: userId => dispatch(fetchReviewsByUser(userId)),
+    deleteListing: listingId => dispatch(deleteListing(listingId)),
+    deleteBooking: bookingId => dispatch(deleteBooking(bookingId))
 })
 
 export default connect(mapState, mapDispatch)(Profile);

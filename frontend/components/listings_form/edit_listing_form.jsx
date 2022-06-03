@@ -65,7 +65,7 @@ export default class EditListingForm extends React.Component{
         //     formData.append("listing[photos][]", this.state.photoUrls[i]);
         // }
         console.log(this.state)
-        this.props.submitForm(formData).then(() => this.props.history.push('/listings/search/NY/0'))
+        this.props.submitForm(formData).then(() => this.props.history.push(`/listings/${this.state.id}`))
 
     }
 

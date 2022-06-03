@@ -8,17 +8,19 @@ class Listing < ApplicationRecord
         foreign_key: :host_id,
         class_name: :User
 
-    has_many_attached :photos
+    has_many_attached :photos, dependent: :destroy
 
     has_many :bookings,
         primary_key: :id,
         foreign_key: :listing_id,
-        class_name: :Booking
+        class_name: :Booking,
+        dependent: :destroy
 
     has_many :reviews,
         primary_key: :id,
         foreign_key: :listing_id,
-        class_name: :Review
+        class_name: :Review,
+        dependent: :destroy
 
     private
     def validate_photos

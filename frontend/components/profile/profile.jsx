@@ -13,6 +13,9 @@ export default class Profile extends React.Component{
             allBookings: [],
             allListings: []
         };
+        this.toggleReservations = this.toggleReservations.bind(this);
+        this.deleteListing = this.deleteListing.bind(this);
+        this.deleteBooking = this.deleteBooking.bind(this);
     }
 
     componentDidMount(){
@@ -40,6 +43,21 @@ export default class Profile extends React.Component{
         //     .then(() => this.setState({myBookings: this.props.bookings}))
     }
 
+    toggleReservations(listingId){
+        // debugger
+        Array.from(document.getElementsByClassName(`listing-${listingId}-reservations`)).forEach(el => el.classList.toggle('hidden'));
+    }
+
+    deleteListing(listingId){
+        console.log(`about to delete listing ${listingId}`)
+        this.props.deleteListing(listingId);
+    }
+
+    deleteBooking(bookingId){
+        console.log(`about to delete booking ${bookingId}`)
+        this.props.deleteBooking(bookingId);
+    }
+
     bookings(){
         // currently it is checking the props from container, probably should change it to check this.state.mybookings --> same with listings
         const {myBookings} = this.state;
@@ -48,13 +66,15 @@ export default class Profile extends React.Component{
             <div className={`my-booking-${idx} my-booking-item`} key={booking.id}>
                 <Link className='profile-link' to={`/listings/${booking.listing_id}`}>{listings[booking.listing_id].title}</Link>
                 <p>guest id: {booking.guest_id}</p>
+                <p>booking: {booking.id}</p>
                 <p>From {booking.check_in_date} to {booking.check_out_date}</p>
+                <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteBooking(booking.id)}>Delete Booking</button>
             </div>
         ))
     }
 
     listings(){
-        const {users} = this.props;
+        const {users, currentUserId} = this.props;
         const bookings = this.state.allBookings;
         const {myListings} = this.state;
         // debugger
@@ -67,9 +87,11 @@ export default class Profile extends React.Component{
                     <p>{listing.address} {listing.city}, {listing.state} {listing.zipcode}</p>
                     <p>{listing.created_at}</p>
                     <p>{listing.updated_at}</p>
-                    <p>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p>
                     <p>{listing.reviews.length} {listing.reviews.length !== 1 ?'reviews' : 'review'}</p>
-                    {listing.bookings.map(bookingId => <BookingItem key={bookingId} users={users} bookingId={bookingId} bookings={bookings} listings={myListings}/>)}
+                    {currentUserId === listing.host_id ? <p className='profile-link' onClick={() => this.toggleReservations(listing.id)}>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p> : <p>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p>}
+                    {listing.bookings.map(bookingId => <BookingItem key={bookingId} users={users} bookingId={bookingId} bookings={bookings} listing={listing} listings={myListings}/>)}
+                    <Link to={`/listings/${listing.id}/edit`} className='fancy-btn'>Edit Listing</Link>
+                    <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteListing(listing.id)}>Delete Listing</button>
             </div>
         ))
     }
@@ -78,7 +100,7 @@ export default class Profile extends React.Component{
         const {myReviews, allListings} = this.state;
         return Object.values(myReviews).map(review => (
             <div className='profile-review' id={`profile-review-${review.id}`} key={review.id}>
-                <Link to={`/listing/${review.listing_id}`} className='profile-link'>{allListings[review.listing_id].title}</Link>
+                <Link to={`/listings/${review.listing_id}`} className='profile-link'>{allListings[review.listing_id].title}</Link>
                 <p>Overall Rating: {Math.floor(review.overall_rating*10)/10}</p>
                 <p>Comment: {review.body}</p>
 

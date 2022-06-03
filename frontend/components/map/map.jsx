@@ -56,7 +56,7 @@ export default class Map extends React.Component{
     
     render() {
       return (
-        <div id='map-container' ref={map => this.mapNode = map}> 
+        <div id={this.props.type === 'listing map' ? 'map-container2' : 'map-container'} ref={map => this.mapNode = map}> 
           </div>
       )
     }

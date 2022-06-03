@@ -8,6 +8,12 @@
     right: 0;
 }
 
+#map-container2{
+    width: 100%;
+    height: 100vh;
+    position: sticky !important;
+}
+
 .info-window{
     width:200px;
     display: flex;

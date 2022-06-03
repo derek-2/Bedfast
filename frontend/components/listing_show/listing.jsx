@@ -34,16 +34,25 @@ export default class Listing extends React.Component{
         this.total_rating = 0;
         const reviews = Object.values(this.props.reviews);
         reviews.forEach(review => this.total_rating+=review.overall_rating);
-        return (
-            <>
-             <FaStar className="special-star" /> {Math.round(this.total_rating*100/reviews.length)/100} · {reviews.length} reviews
-            </>
-        )
+        if (this.total_rating) {
+            return (
+                <>
+                 <FaStar className="special-star" /> {Math.round(this.total_rating*100/reviews.length)/100} · {reviews.length} reviews ·
+                </>
+            )
+        } else {
+            return (
+                <>
+                 <FaStar className="special-star" /> 0 · {reviews.length} reviews ·
+                </>
+            )
+        }
     }
 
     render(){
         console.log(this.props.listing)
         console.log(this.props.reviews)
+
         if (this.props.listing && Object.values(this.props.listing).length > 0){ 
             const {host_name, address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
             const allPhotos = (
@@ -116,14 +125,19 @@ export default class Listing extends React.Component{
                         </div><NewBookingFormContainer listingId={id} price={price_per_night}/></div>
                         <hr className='separator biggest-separator' />
                         <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} deleteReview={this.props.deleteReview} avg_rating={this.total_rating/Object.values(this.props.reviews).length} />
-                        <br />
-                        <br />
+
+                        <hr className='separator biggest-separator' />
                         <NewReviewContainer match={this.props.match}/>
-                        <br />
-                        <br />
-                        <p>Where you'll be</p>
+
+                        <p className='medium-font'>Where you'll be</p>
                         <hr className='listing-show-separator' />
-                        <Map listings={[this.props.listing]}/>
+                        <Map type='listing map' listings={[this.props.listing]}/>
+                        <div>
+                        </div>
+                        <div>
+                            {host_id === this.props.currentUserId ?<Link to={`/listings/${this.props.match.params.listingId}/edit`} className='fancy-btn'>Edit this Listing</Link> : <></> }
+                        </div>
+                        
                     </div>
         )}
         else {

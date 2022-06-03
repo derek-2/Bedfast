@@ -1,4 +1,4 @@
-import { RECEIVE_BOOKING, RECEIVE_BOOKINGS} from "../actions/booking_actions";
+import { RECEIVE_BOOKING, RECEIVE_BOOKINGS, REMOVE_BOOKING} from "../actions/booking_actions";
 
 const BookingReducer = (state={}, action) => {
     Object.freeze(state);
@@ -11,6 +11,9 @@ const BookingReducer = (state={}, action) => {
             return newState;
         case RECEIVE_BOOKING:
             nextState[action.booking.id] = action.booking
+            return nextState;
+        case REMOVE_BOOKING:
+            delete nextState[action.bookingId]
             return nextState;
         default:
             return state;

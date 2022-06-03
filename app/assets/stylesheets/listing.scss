@@ -60,6 +60,16 @@
     background-color: #E5E5E5;
 }
 
+.container{
+    margin: 15px 10vw 10px 10vw;
+}
+
 .container > p {
     margin: 10px 0;
+}
+
+.container > div:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

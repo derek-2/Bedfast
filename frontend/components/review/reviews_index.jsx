@@ -59,6 +59,7 @@ export default class ReviewsIndex extends React.Component{
                 )
             })
         }
+
         let cleanliness, communication, check_in, accuracy, location, value;
         cleanliness = communication = check_in = accuracy = location = value = 0;
         allReviews.forEach(review => {
@@ -76,7 +77,9 @@ export default class ReviewsIndex extends React.Component{
         const avgAccuracy = Math.round(10*accuracy/allReviews.length)/10;
         const avgLocation = Math.round(10*location/allReviews.length)/10;
         const avgValue = Math.round(10*value/allReviews.length)/10;
+
         if (avgCleanliness){
+            debugger
             return (
                 <div className='review-index-container'>
                 <h2 className='medium-font'><b><FaStar className="special-star" /> {Math.floor(this.props.avg_rating*100)/100} ({allReviews.length} reviews)</b></h2>
