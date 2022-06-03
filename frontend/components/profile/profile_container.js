@@ -6,7 +6,6 @@ import {fetchBookings, fetchBookingsByUser, deleteBooking} from '../../actions/b
 import {fetchReviewsByUser} from '../../actions/review_actions';
 
 const mapState = (state,ownProps) => {
-    // debugger
     return {
     currentUserId: state.session.currentUserId,
     userId: ownProps.match.params.userId,

@@ -42,13 +42,18 @@ export default class Profile extends React.Component{
         //     .then(() => this.setState({myBookings: this.props.bookings}))
     }
 
-    componentDidUpdate(prevProps){
-        const {listings, bookings, reviews} = this.props;
-        if (this.state.myListings !== listings || this.state.myBookings !== bookings || this.state.myReviews !== reviews){
-            this.setState({
-                myListings: this.props.listings,
-                myBookings: this.props.bookings,
-                myReviews: this.props.reviews})
+    componentDidUpdate(prevProps, prevState){
+        const {listings, bookings, reviews, currentUserId} = this.props;
+
+        const myListings = Object.values(listings).filter(listing => listing.host_id === currentUserId);
+        const myBookings = Object.values(bookings).filter(booking => booking.guest_id === currentUserId);
+        const myReviews = Object.values(reviews).filter(review => review.guest_id === currentUserId);
+        if (Object.values(prevState.myListings).length !== myListings.length && prevState.myListings.length !== 0){
+            this.setState({myListings: this.props.listings});
+        } else if (Object.values(prevState.myBookings).length !== myBookings.length && prevState.myBookings.length !== 0){
+            this.setState({myBookings: this.props.bookings});
+        } else if (Object.values(prevState.myReviews).length !== myReviews.length && prevState.myReviews.length !== 0){
+            this.setState({myReviews: this.props.reviews})
         }
     }
 
@@ -118,8 +123,8 @@ export default class Profile extends React.Component{
     
     render(){
         const {userId, users, currentUserId} = this.props;
-        console.log(this.state);
-
+        // console.log(this.state);
+        console.log(this.props.listings)
         // debugger
         if (users[userId]){
             return (

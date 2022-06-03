@@ -37,7 +37,7 @@ export default class ReviewsIndex extends React.Component{
         let renderReviews = [];
         const months = [ "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December" ];
-
+        debugger
         if (Object.values(this.props.users).length > 0){
             renderReviews = allReviews.map(review => {
                 return (
