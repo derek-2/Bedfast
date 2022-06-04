@@ -1,4 +1,5 @@
 import React from 'react';
+import Calendar from 'react-calendar'
 
 export default class NewBookingForm extends React.Component{
     constructor(props){
@@ -17,7 +18,8 @@ export default class NewBookingForm extends React.Component{
             num_guests: 0,
             total_price: 0,
             errors: [],
-            successMessage: ''
+            successMessage: '',
+            reservedDates: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateDate = this.updateDate.bind(this);
@@ -25,6 +27,31 @@ export default class NewBookingForm extends React.Component{
 
     componentDidMount(){
         this.setState({ total_price: this.props.price });
+        function getDatesInRange(startDate, endDate) {
+            const date = new Date(startDate.getTime());
+          
+            const dates = [];
+          
+            while (date <= endDate) {
+              dates.push(new Date(date));
+              date.setDate(date.getDate() + 1);
+            }
+          
+            return dates;
+          }
+        $.ajax({
+            url: `/api/listings/${this.props.match.params.listingId}/bookings`
+        }).then(res => {
+            let arr = [];
+            Object.values(res).forEach(booking => {
+                const check_in = booking.check_in_date;
+                const check_out = booking.check_out_date;
+                const startDate = new Date(parseInt(check_in.slice(0,4)), parseInt(check_in.slice(5,7)), parseInt(check_in.slice(8,10)))
+                const endDate = new Date(parseInt(check_out.slice(0,4)), parseInt(check_out.slice(5,7)), parseInt(check_out.slice(8,10)))
+                arr = arr.concat(getDatesInRange(startDate, endDate));
+            })
+            this.setState({reservedDates:this.state.reservedDates.concat(arr)})}
+        )
     }
 
     update(field){
@@ -69,7 +96,8 @@ export default class NewBookingForm extends React.Component{
     
     render(){
         const {price, errors} = this.props; // this is passed down from listing show page
-
+        // console.log(this.state.reservedDates);
+        // console.log(Object.values(this.state.reservedDates).length)
         const start = new Date(this.state.check_in_date);
         const end = new Date(this.state.check_out_date);
         const num_days = (end - start) / (1000 * 60 * 60 * 24)
@@ -106,6 +134,19 @@ export default class NewBookingForm extends React.Component{
                                 <input type="number" value={this.state.num_guests} min='0' onChange={this.update('num_guests')} />
                             </label>
                         </div>
+                        <Calendar 
+                            tileClassName={({ date}) => {
+        // const reservedDates = [new Date(2022,5,4),new Date(2022,5,3),new Date(2022,5,2),new Date(2022,5,1) ]                     
+                                let any = false;
+                                this.state.reservedDates.forEach(el => {
+                                    if (el - date === 0){
+                                        any = true;
+                                        return;
+                                    }
+                                })
+                                return any ? 'highlight' : null;
+                              }}
+                        />
                     </div>
                     {allErrors}
                     {this.state.successMessage ? <p className='success-message'>{this.state.successMessage}</p> : <></>}

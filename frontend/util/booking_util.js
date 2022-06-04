@@ -41,3 +41,9 @@ export const updateBooking = booking => {
         data: {booking}
     })
 }
+
+export const fetchBookingsForListing = listingId => {
+    return $.ajax({
+        url: `/api/listings/${listingId}/bookings`
+    })
+}

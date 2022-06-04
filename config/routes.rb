@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
     resources :listings, only: [:create, :update, :destroy, :index, :show]
     get 'users/:id/listings', :to => 'listings#user_listings'
-
+    
     resources :bookings
     get 'users/:id/bookings', :to => 'bookings#user_bookings'
+    get 'listings/:id/bookings', :to => 'bookings#listing_bookings'
 
     resources :reviews
     get 'users/:id/reviews', :to => 'reviews#user_reviews'
