@@ -22,6 +22,10 @@ class Listing < ApplicationRecord
         class_name: :Review,
         dependent: :destroy
 
+    # scope :overlapping, ->(period_start, period_end) do
+        
+    # end
+    
     private
     def validate_photos
         if photos.length != 5

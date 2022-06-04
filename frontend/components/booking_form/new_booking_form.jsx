@@ -34,7 +34,8 @@ export default class NewBookingForm extends React.Component{
         }
     }
 
-    handleSubmit(){
+    handleSubmit(e){
+        e.preventDefault();
         console.log(this.props.currentUser)
         if (this.props.currentUser){
             this.setState({guest_id: this.props.currentUser.id}, () => {
