@@ -14,7 +14,7 @@ class Booking < ApplicationRecord
         
     private
     def overlapping
-        errors[:booking_time] << 'is already reserved by another user' if Booking.all.any? do |booking|
+        errors[:booking_time] << 'is already reserved by another user' if Listing.find(listing_id).bookings.any? do |booking|
             (check_in_date >= booking.check_in_date && check_in_date <= booking.check_out_date) || (check_out_date <= booking.check_out_date && check_out_date >= booking.check_in_date)
         end
     end

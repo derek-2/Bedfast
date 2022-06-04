@@ -46,8 +46,8 @@ export default class NewBookingForm extends React.Component{
             Object.values(res).forEach(booking => {
                 const check_in = booking.check_in_date;
                 const check_out = booking.check_out_date;
-                const startDate = new Date(parseInt(check_in.slice(0,4)), parseInt(check_in.slice(5,7)), parseInt(check_in.slice(8,10)))
-                const endDate = new Date(parseInt(check_out.slice(0,4)), parseInt(check_out.slice(5,7)), parseInt(check_out.slice(8,10)))
+                const startDate = new Date(parseInt(check_in.slice(0,4)), parseInt(check_in.slice(5,7))-1, parseInt(check_in.slice(8,10)))
+                const endDate = new Date(parseInt(check_out.slice(0,4)), parseInt(check_out.slice(5,7))-1, parseInt(check_out.slice(8,10)))
                 arr = arr.concat(getDatesInRange(startDate, endDate));
             })
             this.setState({reservedDates:this.state.reservedDates.concat(arr)})}
@@ -96,8 +96,7 @@ export default class NewBookingForm extends React.Component{
     
     render(){
         const {price, errors} = this.props; // this is passed down from listing show page
-        // console.log(this.state.reservedDates);
-        // console.log(Object.values(this.state.reservedDates).length)
+        console.log(this.state.reservedDates);
         const start = new Date(this.state.check_in_date);
         const end = new Date(this.state.check_out_date);
         const num_days = (end - start) / (1000 * 60 * 60 * 24)
