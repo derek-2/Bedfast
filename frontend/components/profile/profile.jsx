@@ -10,11 +10,16 @@ export default class Profile extends React.Component{
             myListings: [],
             myReviews: [],
             allBookings: [],
-            allListings: []
+            allListings: [],
+            currentProfile:{},
         };
         this.toggleReservations = this.toggleReservations.bind(this);
         this.deleteListing = this.deleteListing.bind(this);
         this.deleteBooking = this.deleteBooking.bind(this);
+
+        this.updateAboutMeField = this.updateAboutMeField.bind(this);
+        this.handleAboutMe = this.handleAboutMe.bind(this);
+        this.handleProfilePic = this.handleProfilePic.bind(this);
     }
 
     componentDidMount(){
@@ -22,9 +27,13 @@ export default class Profile extends React.Component{
 
         fetchUsers()
             .then(() => fetchBookings())
-            .then(() => fetchListings().then(() => this.setState({
-                allListings: this.props.listings,
-                allBookings: this.props.bookings})))
+            .then(() => fetchListings().then((res) => {
+                this.setState({
+                    allListings: this.props.listings,
+                    allBookings: this.props.bookings,
+                    currentProfile: this.props.users[this.props.match.params.userId]
+                })
+            }))
             .then(() => fetchListingsByUser(userId))
             .then(() => fetchBookingsByUser(userId))
             .then(() => fetchReviewsByUser(userId))
@@ -42,31 +51,34 @@ export default class Profile extends React.Component{
         //     .then(() => this.setState({myBookings: this.props.bookings}))
     }
 
-    componentDidUpdate(prevProps, prevState){
-        const {listings, bookings, reviews, currentUserId} = this.props;
+    // componentDidUpdate(prevProps, prevState){
+        // const {listings, bookings, reviews, currentUserId} = this.props;
 
-        const myListings = Object.values(listings).filter(listing => listing.host_id === currentUserId);
-        const myBookings = Object.values(bookings).filter(booking => booking.guest_id === currentUserId);
-        const myReviews = Object.values(reviews).filter(review => review.guest_id === currentUserId);
-        if (Object.values(prevState.myListings).length !== myListings.length && prevState.myListings.length !== 0){
-            this.setState({myListings: this.props.listings});
-        } else if (Object.values(prevState.myBookings).length !== myBookings.length && prevState.myBookings.length !== 0){
-            this.setState({myBookings: this.props.bookings});
-        } else if (Object.values(prevState.myReviews).length !== myReviews.length && prevState.myReviews.length !== 0){
-            this.setState({myReviews: this.props.reviews})
-        }
-    }
+        // const myListings = Object.values(listings).filter(listing => listing.host_id === currentUserId);
+        // const myBookings = Object.values(bookings).filter(booking => booking.guest_id === currentUserId);
+        // const myReviews = Object.values(reviews).filter(review => review.guest_id === currentUserId);
+        // if (Object.values(prevState.myListings).length !== myListings.length && prevState.myListings.length !== 0){
+        //     debugger
+        //     this.setState({myListings: this.props.listings});
+        // } else if (Object.values(prevState.myBookings).length !== myBookings.length && prevState.myBookings.length !== 0){
+        //     debugger
+        //     this.setState({myBookings: this.props.bookings});
+        // } else if (Object.values(prevState.myReviews).length !== myReviews.length && prevState.myReviews.length !== 0){
+        //     debugger
+        //     this.setState({myReviews: this.props.reviews})
+        // }
+    // }
 
     toggleReservations(listingId){
         Array.from(document.getElementsByClassName(`listing-${listingId}-reservations`)).forEach(el => el.classList.toggle('hidden'));
     }
 
     deleteListing(listingId){
-        this.props.deleteListing(listingId);
+        this.props.deleteListing(listingId).then(() => this.setState({myListings: this.props.listings}));
     }
 
     deleteBooking(bookingId){
-        this.props.deleteBooking(bookingId);
+        this.props.deleteBooking(bookingId).then(() => this.setState({myBookings: this.props.bookings}));
     }
 
     bookings(){
@@ -102,8 +114,8 @@ export default class Profile extends React.Component{
                     <p>{listing.reviews.length} {listing.reviews.length !== 1 ?'reviews' : 'review'}</p>
                     {currentUserId === listing.host_id ? <p className='profile-link' onClick={() => this.toggleReservations(listing.id)}>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p> : <p>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p>}
                     {listing.bookings.map(bookingId => <BookingItem key={bookingId} users={users} bookingId={bookingId} bookings={bookings} listing={listing} listings={myListings}/>)}
-                    <Link to={`/listings/${listing.id}/edit`} className='fancy-btn'>Edit Listing</Link>
-                    <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteListing(listing.id)}>Delete Listing</button>
+                    {currentUserId === listing.host_id ? <><Link to={`/listings/${listing.id}/edit`} className='fancy-btn'>Edit Listing</Link>
+                    <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteListing(listing.id)}>Delete Listing</button></> : <></>}
             </div>
         ))
     }
@@ -115,24 +127,87 @@ export default class Profile extends React.Component{
                 <Link to={`/listings/${review.listing_id}`} className='profile-link'>{allListings[review.listing_id].title}</Link>
                 <p>Overall Rating: {Math.floor(review.overall_rating*10)/10}</p>
                 <p>Comment: {review.body}</p>
-
             </div>
         ))
 
     }
-    
+
+    ProfilePicForm(){
+        return (
+            <>
+                <form>
+                    <label className='upload-images'>
+                        Update Profile Picture
+                        <input type="file" onChange={e => this.handleProfilePic(e)}/>
+                    </label>
+                </form>
+            </>
+        )
+    }
+
+    AboutMeForm(){
+        return (
+            <>
+                <form onSubmit={this.handleAboutMe}>
+                    <textarea value={this.state.currentProfile.about_me} onChange={e => this.updateAboutMeField(e)} cols="30" rows="2"></textarea>
+                    <button className='fancy-btn'>Submit</button>
+                </form>
+            </>
+        )
+    }
+
+    updateAboutMeField(e){
+        e.preventDefault()
+        this.setState({
+            currentProfile: {
+                ...this.state.currentProfile,
+                about_me: e.target.value
+            }
+        })
+    }
+
+    handleProfilePic(e){
+        e.preventDefault();
+        const formData = new FormData();
+        const {id} = this.state.currentProfile;
+        formData.append('user[id]', id);
+        formData.append('user[photo]', e.target.files[0]);
+        // console.log(...formData);
+        this.props.updateUser(formData);
+    }
+
+    handleAboutMe(e){
+        e.preventDefault();
+        const formData = new FormData();
+        const {id, about_me} = this.state.currentProfile;
+        formData.append('user[id]', id);
+        formData.append('user[about_me]', about_me);
+        // console.log(...formData);
+        this.props.updateUser(formData);
+    }
+
     render(){
         const {userId, users, currentUserId} = this.props;
+        const currentProfile = users[userId];
         // console.log(this.state);
-        console.log(this.props.listings)
+        console.log(this.props.bookings)
+        console.log(this.state)
         // debugger
         if (users[userId]){
             return (
-                <div>
-                    <p>Hi, {users[userId].fname}!</p>
-                    <p>Joined in {users[userId].created_at} </p>
-                    
-                    <p>we in da profile component</p>
+                <div className='profile-container'>
+                    <div className='user-profile-info'>
+                        <img className='profile-picture' src={currentProfile.profile_pic ? currentProfile.profile_pic : `${window.default_profile_pic}`} alt="you found me!" />
+                        {this.ProfilePicForm()}
+                        <button className='fancy-btn'>Edit Profile</button>
+                        About
+                        <p>{currentProfile.about_me ? currentProfile.about_me : `We don\'t know much about them, but we\'re sure ${currentProfile.fname} is great.`}</p>
+                        {this.AboutMeForm()}
+                        <p>Hi, {currentProfile.fname}!</p>
+                        <p>Joined in {currentProfile.created_at} </p>
+                        
+                        <p>we in da profile component</p>
+                    </div>
                     <div className='my-listings'>
                         <h1>My Listings:</h1>
                         {this.listings()}

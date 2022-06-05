@@ -81,7 +81,8 @@ export default class ReviewsIndex extends React.Component{
 
         if (avgCleanliness || avgCleanliness === 0){
             debugger
-            return (
+            return (<>
+                <hr className='separator biggest-separator' />
                 <div className='review-index-container'>
                 <h2 className='medium-font'><b><FaStar className="special-star" /> {Math.floor(this.props.avg_rating*100)/100} ({allReviews.length} reviews)</b></h2>
                 <div className='review-avg-container'>
@@ -151,7 +152,7 @@ export default class ReviewsIndex extends React.Component{
                     <div className='reviews-index'>
                         {renderReviews}
                     </div>
-                </div>
+                </div></>
             )
         } else { return null}
     }

@@ -25,6 +25,20 @@ export default class NewBookingForm extends React.Component{
         this.updateDate = this.updateDate.bind(this);
     }
 
+    getDatesInRange(startDate, endDate) {
+        const date = new Date(startDate.getTime());
+      
+        const dates = [];
+      
+        while (date <= endDate) {
+          dates.push(new Date(date));
+          date.setDate(date.getDate() + 1);
+        }
+      
+        return dates;
+      }
+
+
     componentDidMount(){
         this.setState({ total_price: this.props.price });
         function getDatesInRange(startDate, endDate) {
@@ -67,7 +81,16 @@ export default class NewBookingForm extends React.Component{
         if (this.props.currentUser){
             this.setState({guest_id: this.props.currentUser.id}, () => {
                 this.props.createBooking(this.state)
-                    .then(() => this.setState({successMessage: 'Booking successfully reserved!'}))
+                    .then(() => {
+                        let arr = [];
+                        Object.values(this.props.bookings).forEach(booking => {
+                            const check_in = booking.check_in_date;
+                            const check_out = booking.check_out_date;
+                            const startDate = new Date(parseInt(check_in.slice(0,4)), parseInt(check_in.slice(5,7))-1, parseInt(check_in.slice(8,10)))
+                            const endDate = new Date(parseInt(check_out.slice(0,4)), parseInt(check_out.slice(5,7))-1, parseInt(check_out.slice(8,10)))
+                            arr = arr.concat(this.getDatesInRange(startDate, endDate));
+                        })
+                        this.setState({successMessage: 'Booking successfully reserved!',reservedDates: arr })})
             })                
         } else {
             this.setState({errors: ['Must be logged in to reserve a booking!']});

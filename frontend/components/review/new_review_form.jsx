@@ -201,6 +201,7 @@ export default class ReviewForm extends React.Component{
         const errors = this.props.errors.map(err => <p className='error-message'>{err}</p>);
         return (
             <>
+                <hr className='separator biggest-separator tehe' />
                 <h2 className='medium-font'><b>Leave a review</b></h2><br />
                 <form className='review-form' onSubmit={this.handleSubmit}>
                     <label>

@@ -30,7 +30,7 @@ export default class Menu extends React.Component{
                         
                         {this.props.currentUser ?
                             <>
-                            <Link to={`/profile/${this.props.currentUser.id}`}><li>Profile</li></Link>
+                            <Link to={`/profile/${this.props.currentUser.id}`} onClick={() => document.getElementById('top-right-menu').classList.toggle('hidden')}><li>Profile</li></Link>
                             <li className="logout-btn" onClick={this.handleLogout}>Logout</li>
                             </> :
                             <>

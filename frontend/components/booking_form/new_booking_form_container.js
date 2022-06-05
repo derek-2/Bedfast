@@ -6,7 +6,8 @@ import {createBooking} from '../../actions/booking_actions';
 const mapState = (state, ownProps) => {
     return {
         currentUser: state.entities.users[state.session.currentUserId],
-        errors: state.errors.booking
+        errors: state.errors.booking,
+        bookings: state.entities.bookings
     }
 }
 

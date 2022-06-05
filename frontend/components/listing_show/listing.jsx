@@ -123,10 +123,9 @@ export default class Listing extends React.Component{
 
                             {/* <p>&lt;Booking Form&gt;</p> */}
                         </div><NewBookingFormContainer listingId={id} price={price_per_night}/></div>
-                        <hr className='separator biggest-separator' />
+
                         <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} deleteReview={this.props.deleteReview} avg_rating={this.total_rating/Object.values(this.props.reviews).length} />
 
-                        <hr className='separator biggest-separator' />
                         <NewReviewContainer match={this.props.match}/>
 
                         <p className='medium-font'>Where you'll be</p>

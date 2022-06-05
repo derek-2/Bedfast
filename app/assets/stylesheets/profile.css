@@ -1,28 +1,9 @@
 /* LISTINGS CSS */
-.my-listings{
-    border: 1px black solid;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 .hi{
     width: 50vw;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-
-.my-listing-item{
-    border: 1px solid blue;
-    width: 50vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .one-reservation{
@@ -48,12 +29,10 @@
     flex-direction: column;
 }
 
-.my-booking-item{
-    border: 1px solid green;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.profile-picture{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 .profile-link{
@@ -88,4 +67,30 @@
 
 .highlight {
     color: red;
+}
+
+.profile-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile-container > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.my-booking-item{
+    border: 1px solid green;
+}
+.my-listings{
+    border: 1px black solid;
+    margin: 5px;
+}
+.my-listing-item{
+    border: 1px solid blue;
+    width: 50vw;
 }
