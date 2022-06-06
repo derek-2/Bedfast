@@ -73,8 +73,8 @@ export default class NewListing extends React.Component{
         console.log(this.state);
         const preview = this.state ?
             this.state.previewPhotos.map((preview,idx) => 
-            <div className='individual-preview-photo'>
-                <img className='preview-photos' key={idx} src={preview} alt='preview' onClick={() => this.removePhoto(idx)}/>
+            <div className='individual-preview-photo' key={idx}>
+                <img className='preview-photos' src={preview} alt='preview' onClick={() => this.removePhoto(idx)}/>
             </div>) :
             <></>
         const {errors} = this.props;

@@ -3,8 +3,7 @@ import {connect} from 'react-redux';
 import { Redirect, Route, withRouter } from 'react-router-dom';
 
 const mapState = state => ({
-    loggedIn: Boolean(state.session.currentUserId),
-    currentUserId: state.session.currentUserId
+    loggedIn: Boolean(state.session.currentUserId)
 })
 
 const Auth = ({loggedIn, path, component: Component}) => (
