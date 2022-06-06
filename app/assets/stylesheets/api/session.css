@@ -6,9 +6,9 @@
   outline: solid 1px black;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px;
   position: fixed;
-  left: 42%;
+  left: 37.5%;
   top: 70px;
   background-color: white;
   border-radius: 15px;
@@ -61,6 +61,7 @@ label {
 
 .session-form {
   display: flex; flex-direction: column;
+  width: 100%;
 }
 
 .session-formType{
@@ -109,6 +110,7 @@ label {
   opacity: 1;
   top: 0;
   left: 0;
+  box-sizing: border-box;
 }
 
 .floating-label {
