@@ -20,6 +20,7 @@ export default class Profile extends React.Component{
         this.updateAboutMeField = this.updateAboutMeField.bind(this);
         this.handleAboutMe = this.handleAboutMe.bind(this);
         this.handleProfilePic = this.handleProfilePic.bind(this);
+        this.toggleAboutMeForm = this.toggleAboutMeForm.bind(this);
     }
 
     componentDidMount(){
@@ -89,8 +90,8 @@ export default class Profile extends React.Component{
         return Object.values(myBookings).map((booking,idx) => (
             <div className={`my-booking-${idx} my-booking-item`} key={booking.id}>
                 <Link className='profile-link' to={`/listings/${booking.listing_id}`}>{listings[booking.listing_id].title}</Link>
-                <p>guest id: {booking.guest_id}</p>
-                <p>booking: {booking.id}</p>
+                {/* <p>guest id: {booking.guest_id}</p> */}
+                {/* <p>booking: {booking.id}</p> */}
                 <p>From {booking.check_in_date} to {booking.check_out_date}</p>
                 <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteBooking(booking.id)}>Delete Booking</button>
             </div>
@@ -103,19 +104,27 @@ export default class Profile extends React.Component{
         const {myListings} = this.state;
         // debugger
         return Object.values(myListings).map((listing, idx) => (
-            <div className={`my-listing-${idx} my-listing-item`} key={listing.id}>
-                <Link to={`/listings/${listing.id}`}>
-                    <img src={listing.photoUrls[0]} alt={listing.description} />
-                </Link>
-                    <p>{listing.title}</p>
-                    <p>{listing.address} {listing.city}, {listing.state} {listing.zipcode}</p>
-                    <p>{listing.created_at}</p>
-                    <p>{listing.updated_at}</p>
-                    <p>{listing.reviews.length} {listing.reviews.length !== 1 ?'reviews' : 'review'}</p>
-                    {currentUserId === listing.host_id ? <p className='profile-link' onClick={() => this.toggleReservations(listing.id)}>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p> : <p>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p>}
-                    {listing.bookings.map(bookingId => <BookingItem key={bookingId} users={users} bookingId={bookingId} bookings={bookings} listing={listing} listings={myListings}/>)}
-                    {currentUserId === listing.host_id ? <><Link to={`/listings/${listing.id}/edit`} className='fancy-btn'>Edit Listing</Link>
-                    <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteListing(listing.id)}>Delete Listing</button></> : <></>}
+            <div className='my-listing'>
+                <div className={`my-listing-${idx} my-listing-item`} key={listing.id}>
+                    <Link to={`/listings/${listing.id}`}>
+                        <img src={listing.photoUrls[0]} alt={listing.description} />
+                    </Link>
+                    <div>
+                        <p>{listing.title}</p>
+                        <p>{listing.address} {listing.city}, {listing.state} {listing.zipcode}</p>
+                        <p>{listing.created_at}</p>
+                        <p>{listing.updated_at}</p>
+                        <p>{listing.reviews.length} {listing.reviews.length !== 1 ?'reviews' : 'review'}</p>
+                        {currentUserId === listing.host_id ? <p className='profile-link' onClick={() => this.toggleReservations(listing.id)}>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p> : <p>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p>}
+                        <div>
+                            {currentUserId === listing.host_id ? <><Link to={`/listings/${listing.id}/edit`} ><button className='fancy-btn pointer'>Edit Listing</button></Link>
+                            <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteListing(listing.id)}>Delete Listing</button></> : <></>}
+                        </div>
+                    </div>
+                </div>
+                    <div>
+                        {listing.bookings.map(bookingId => <BookingItem key={bookingId} users={users} bookingId={bookingId} bookings={bookings} listing={listing} listings={myListings}/>)} 
+                    </div>
             </div>
         ))
     }
@@ -126,7 +135,7 @@ export default class Profile extends React.Component{
             <div className='profile-review' id={`profile-review-${review.id}`} key={review.id}>
                 <Link to={`/listings/${review.listing_id}`} className='profile-link'>{allListings[review.listing_id].title}</Link>
                 <p>Overall Rating: {Math.floor(review.overall_rating*10)/10}</p>
-                <p>Comment: {review.body}</p>
+                <p>Message: {review.body}</p>
             </div>
         ))
 
@@ -137,7 +146,7 @@ export default class Profile extends React.Component{
             <>
                 <form>
                     <label className='upload-images'>
-                        Update Profile Picture
+                        Update Photo
                         <input type="file" onChange={e => this.handleProfilePic(e)}/>
                     </label>
                 </form>
@@ -148,8 +157,8 @@ export default class Profile extends React.Component{
     AboutMeForm(){
         return (
             <>
-                <form onSubmit={this.handleAboutMe}>
-                    <textarea value={this.state.currentProfile.about_me} onChange={e => this.updateAboutMeField(e)} cols="30" rows="2"></textarea>
+                <form onSubmit={this.handleAboutMe} id='about-me-form' className='about-me-form hidden'>
+                    <textarea value={this.state.currentProfile.about_me} onChange={e => this.updateAboutMeField(e)} placeholder='Tell us about yourself' cols="30" rows="2"></textarea>
                     <button className='fancy-btn'>Submit</button>
                 </form>
             </>
@@ -183,7 +192,16 @@ export default class Profile extends React.Component{
         formData.append('user[id]', id);
         formData.append('user[about_me]', about_me);
         // console.log(...formData);
-        this.props.updateUser(formData);
+        this.props.updateUser(formData).then(() => {
+            document.getElementById('about-me-info').classList.toggle('hidden');
+            document.getElementById('about-me-form').classList.toggle('hidden');
+        });
+    }
+
+    toggleAboutMeForm(e){
+        e.preventDefault();
+        document.getElementById('about-me-info').classList.toggle('hidden');
+        document.getElementById('about-me-form').classList.toggle('hidden');
     }
 
     render(){
@@ -197,33 +215,43 @@ export default class Profile extends React.Component{
             return (
                 <div className='profile-container'>
                     <div className='user-profile-info'>
-                        <img className='profile-picture' src={currentProfile.profile_pic ? currentProfile.profile_pic : `${window.default_profile_pic}`} alt="you found me!" />
-                        {this.ProfilePicForm()}
-                        <button className='fancy-btn'>Edit Profile</button>
-                        About
-                        <p>{currentProfile.about_me ? currentProfile.about_me : `We don\'t know much about them, but we\'re sure ${currentProfile.fname} is great.`}</p>
-                        {this.AboutMeForm()}
-                        <p>Hi, {currentProfile.fname}!</p>
-                        <p>Joined in {currentProfile.created_at} </p>
+                        <img className='profile-picture' src={currentProfile.profile_pic ? currentProfile.profile_pic : `${window.default_profile_pic}`} alt="profile-pic" />
+                        {currentUserId === currentProfile.id ? this.ProfilePicForm() : null}
                         
-                        <p>we in da profile component</p>
                     </div>
-                    <div className='my-listings'>
-                        <h1>My Listings:</h1>
-                        {this.listings()}
+                    <div className='my-info'>
+                        <div className='basic-info'>
+                            <p className='biggest-font bold'>Hi, {currentProfile.fname[0].toUpperCase()+currentProfile.fname.slice(1)}!</p>
+                            <p className='regular-font'>Joined in {currentProfile.created_at} </p>
+                            {currentUserId === currentProfile.id ? 
+                                <><p className='underline' onClick={this.toggleAboutMeForm}>Edit Profile</p>
+                                <p className='medium-font bold'>About</p>
+                                <p id='about-me-info'>{currentProfile.about_me ? currentProfile.about_me : `We don\'t know much about them, but we\'re sure ${currentProfile.fname} is great.`}</p>
+                                {this.AboutMeForm()}</> :
+                                 <><p className='medium-font bold'>About</p>
+                                 <p id='about-me-info'>{currentProfile.about_me ? currentProfile.about_me : `We don\'t know much about them, but we\'re sure ${currentProfile.fname[0].toUpperCase()+currentProfile.fname.slice(1)} is great.`}</p></> }
+                        </div>
+
+                        <div className='my-listings'>
+                        <hr className='biggest-separator'/>
+                            <div className='heading'><h1>Listings</h1></div>
+                            {this.listings()}
+                        </div>
+                        {currentUserId === parseInt(userId) ? 
+                            <>
+                                <div className='my-bookings'>
+                                    <hr className='biggest-separator'/>
+                                    <div className='heading'><h1>Bookings</h1></div>
+                                    {this.bookings()}
+                                </div> 
+                                <div className='my-reviews'>
+                                    <hr className='biggest-separator'/>
+                                    <div className='heading'><h1>Reviews</h1></div>
+                                    {this.reviews()}
+                                </div>
+                            </>
+                        : <></>}
                     </div>
-                    {currentUserId === parseInt(userId) ? 
-                        <>
-                            <div className='my-bookings'>
-                                <h1>My Bookings:</h1>
-                                {this.bookings()}
-                            </div> 
-                            <div className='my-reviews'>
-                                <h1>My Reviews:</h1>
-                                {this.reviews()}
-                            </div>
-                        </>
-                    : <></>}
                 </div>
             )
         } else {

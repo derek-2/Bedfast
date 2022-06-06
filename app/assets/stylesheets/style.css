@@ -75,3 +75,11 @@ textarea:focus {
 .medium-font{
   font-size: 22px;
 }
+
+.regular-font{
+  font-size: 18px;
+}
+
+.bold{
+  font-weight: bolder;
+}

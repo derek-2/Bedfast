@@ -220,13 +220,17 @@
     align-items: center;
     border-radius: 8px;
     cursor: pointer;
-    width: 10vw;
     flex-direction: column;
     color: #4A5568;
     border: 2px solid gray;
     padding: 8px 20px;
     font-size: 20px;
     font-weight: bold;
+    width: 110px;
+}
+
+.ten-vw{
+    width: 10vw;
 }
 
 .error-message{

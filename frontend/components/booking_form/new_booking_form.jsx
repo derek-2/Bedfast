@@ -90,7 +90,7 @@ export default class NewBookingForm extends React.Component{
                             const endDate = new Date(parseInt(check_out.slice(0,4)), parseInt(check_out.slice(5,7))-1, parseInt(check_out.slice(8,10)))
                             arr = arr.concat(this.getDatesInRange(startDate, endDate));
                         })
-                        this.setState({successMessage: 'Booking successfully reserved!',reservedDates: arr })})
+                        this.setState({successMessage: 'Booking successfully reserved!',reservedDates: this.state.reservedDates.concat(arr)})})
             })                
         } else {
             this.setState({errors: ['Must be logged in to reserve a booking!']});

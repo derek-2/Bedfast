@@ -116,7 +116,7 @@ export default class NewListing extends React.Component{
                                 <input className='small-input-field' type="number" min="1" onChange={this.update('price_per_night')} />
                             </label>
                         </div>
-                        <label className='upload-images'>
+                        <label className='upload-images ten-vw'>
                             Upload Photos (5)
                             <input type="file" multiple onChange={e => this.updatePhotos(e)}/>
                         </label>

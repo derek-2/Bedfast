@@ -12,6 +12,7 @@
 .top-right-menu li {
     padding: 10px;
     cursor: pointer;
+    border-radius: 15px;
 }
 .top-right-menu li:hover{
     background-color:#f3f3f3;
@@ -30,7 +31,6 @@
 
 .logout-btn{
     cursor: pointer;
-    border-top: 1px black solid; 
 }
 
 .show{

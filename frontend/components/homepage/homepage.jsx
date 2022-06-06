@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class HomePage extends React.Component{
     
@@ -47,7 +48,7 @@ export default class HomePage extends React.Component{
                     </ul>
                     <div className="questions-container">
                         <p>Questions about hosting?</p>
-                        <button className="question-btn">Ask a supervisor</button>
+                        <a href="mailto:fataldigitz@gmail.com"><button className="question-btn">Ask a supervisor</button></a>
                         <img src={window.questions} alt="questions?" />
                     </div>
                     </div>

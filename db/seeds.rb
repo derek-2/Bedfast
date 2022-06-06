@@ -52,5 +52,5 @@ listing3.photos.attach(io: File.open('app/assets/images/seed/the_aight_house.jpg
 listing3.photos.attach(io: File.open('app/assets/images/seed/the_aight_house.jpg'), filename: 'the_aight_house.jpg')
 listing3.photos.attach(io: File.open('app/assets/images/seed/the_aight_house.jpg'), filename: 'the_aight_house.jpg')
 
-booking1 = Booking.create(guest_id: user1.id, listing_id:listing1.id, check_in_date:Date.new(2022, 5, 18).to_formatted_s(:number).to_i, check_out_date: Date.new(2022, 5, 20).to_formatted_s(:number).to_i, num_guests: 2, total_price: 9000)
-booking2 = Booking.create(guest_id: user2.id, listing_id:listing3.id, check_in_date:Date.new(2099, 4, 20).to_formatted_s(:number).to_i, check_out_date: Date.new(2100, 4, 20).to_formatted_s(:number).to_i, num_guests: 420, total_price: 42069)
+booking1 = Booking.create(guest_id: user1.id, listing_id:listing1.id, check_in_date:Date.new(2022, 5, 18).to_formatted_s(:number).to_i, check_out_date: Date.new(2022, 6,5).to_formatted_s(:number).to_i, num_guests: 2, total_price: 9000)
+booking2 = Booking.create(guest_id: user2.id, listing_id:listing3.id, check_in_date:Date.new(2022, 6, 20).to_formatted_s(:number).to_i, check_out_date: Date.new(2022, 6, 30).to_formatted_s(:number).to_i, num_guests: 420, total_price: 42069)

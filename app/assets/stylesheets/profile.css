@@ -6,12 +6,14 @@
     justify-content: center;
 }
 
-.one-reservation{
-    border: solid red 1px;
+.profile-reservation {
+    padding: 5px;
+    border: solid 1px rgb(221,221,221);
 }
 
 .my-listing-item img {
-    width: 40vw;
+    width: 20vw;
+    height: 100%;
 }
 
 .my-listing-item p {
@@ -21,12 +23,8 @@
 /* BOOKINGS CSS */
 
 .my-bookings{
-    border: 1px black solid;
+    /* border: 1px black solid; */
     margin: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .profile-picture{
@@ -40,6 +38,11 @@
 	text-decoration: none;
 	box-shadow: inset 0 -.125em 0 0 #ddd;
 	transition-duration: .25s;
+    display: inline-flex;
+}
+
+.trim {
+    /* display:inline-block; */
 }
 
 .profile-link:hover{
@@ -52,45 +55,106 @@
 }
 
 .my-reviews{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.my-reviews > div {
-    width: 50vw;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    flex-direction: column;
+    /* border: 1px purple solid; */
 }
 
 .highlight {
     color: red;
 }
 
+.my-booking-item{
+    /* border: 1px solid green; */
+    margin: 10px 0;
+}
+
+.my-booking-item > * {
+    padding: 5px 0;
+}
+
+.my-listing{
+    margin: 10px 0;
+}
+
+.my-listing-item{
+    /* border: 1px solid blue; */
+    width: 40vw;
+    display: flex;
+}
+
+.my-listing-item > div:nth-child(2){
+    margin: 0 1vw;
+}
+
+.my-listing > div:last-child{
+    margin-top: 5px;
+}
+
+.my-listing > div:last-child > div > *{
+    margin: 3px 0;
+}
+
+.my-listing-item > div * {
+    margin: 5px 0;
+}
+
+.my-info > div {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin: 3vh 0;
+}
+
+.profile-review{
+    margin: 10px 0;
+}
+
+.profile-review > * {
+    padding: 5px 0;
+}
+
+.user-profile-info{
+    flex: 1;
+    align-items: center;
+    padding-left: 20vw;
+    /* padding-right: 2vw; */
+}
+
+.user-profile-info > img {
+    margin-bottom: 10px;
+}
+
+.basic-info > p {
+    padding: 5px 0;
+}
+
+.my-info{
+    flex:3;
+    align-items: flex-start;
+}
+
 .profile-container > div {
     display: flex;
-    align-items: center;
-    justify-content: center;
+
+    /* justify-content: center; */
     flex-direction: column;
 }
 
-.profile-container > div > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.basic-info{
+
 }
 
-.my-booking-item{
-    border: 1px solid green;
-}
-.my-listings{
-    border: 1px black solid;
-    margin: 5px;
-}
-.my-listing-item{
-    border: 1px solid blue;
-    width: 50vw;
+.underline{
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
 }

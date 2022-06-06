@@ -11,7 +11,7 @@ const BookingItem = props => {
         const guest = users[bookings[bookingId].guest_id];
         const bookingDetails = bookings[bookingId];
         return (
-            <div className={`one-reservation listing-${listing.id}-reservations hidden`}>
+            <div className={`profile-reservation listing-${listing.id}-reservations hidden`}>
                 <p>Guest: {guest.fname} {guest.lname}</p>
                 <p>From: {bookingDetails.check_in_date} to {bookingDetails.check_out_date}</p>
             </div>

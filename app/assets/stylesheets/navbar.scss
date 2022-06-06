@@ -36,9 +36,9 @@
 
 #right-nav img {
   border-radius: 50%;
-  padding-left: 5px;
+  height: 30px;
+  width: 30px;
 }
-
 
 #airbnblogo{
   width: 3vw;
@@ -49,4 +49,8 @@
   background-color: rgb(245, 245, 245) !important;
   color: black !important;
   border-bottom: 1px solid rgb(221,221,221);
+}
+
+#right-nav > :first-child{
+  padding-right: 5px;
 }
