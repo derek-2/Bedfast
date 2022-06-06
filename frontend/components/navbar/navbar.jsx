@@ -56,7 +56,7 @@ export default class NavBar extends React.Component {
   render(){
     const message = this.props.currentUser ? `Hello, ${this.props.currentUser.fname}` : 'Welcome to Bedfast';
     const {currentUser} = this.props;
-
+    debugger
     return (
       <div id="top-nav">
         <Link to={'/'}><img id="airbnblogo" src={window.logo} alt="logo" /></Link>
@@ -68,7 +68,7 @@ export default class NavBar extends React.Component {
             <div className="menu-icon-item"></div>
             <div className="menu-icon-item"></div>
           </div>
-          <img className="menu-button" src={currentUser ? currentUser.profile_pic : window.default_profile_pic} alt="profile-pic" />
+          <img className="menu-button" src={currentUser && currentUser.profile_pic ? currentUser.profile_pic : window.default_profile_pic} alt="profile-pic" />
           <MenuContainer />
         </div>
       </div>

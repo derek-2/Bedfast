@@ -35,9 +35,7 @@ export default class SignUpModal extends React.Component{
   demoLogin(e) {
     e.preventDefault();
     this.props.login({
-      email: 'Demo',
-      fname: 'Demo',
-      lname: 'Demo',
+      email: 'demo@gmail.com',
       password: 'password'
     })
     document.getElementById('signup-modal').classList.toggle('hidden');

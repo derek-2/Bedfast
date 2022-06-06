@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %> %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:MAPS_API_KEY]}" %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -58,7 +57,7 @@
         fname: '<%= current_user.fname %>',
         lname: '<%= current_user.lname %>',
         created_at: '<%= current_user.created_at.year %>',
-        profile_pic: '<%= url_for(current_user.photo) %>'
+        profile_pic: '<%= current_user.photo.attached? ? url_for(current_user.photo) : nil %>'
       }
     </script>
     <% else %>

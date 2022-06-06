@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
     validates :title, :host_id, :address, :city, :state, :zipcode, :latitude, :longitude, :max_num_guests, :num_beds, :num_baths, :description, :price_per_night, presence: true
     validates :address, uniqueness: true
-    validate :validate_photos
+    # validate :validate_photos
 
     belongs_to :host,
         primary_key: :id,
@@ -21,10 +21,6 @@ class Listing < ApplicationRecord
         foreign_key: :listing_id,
         class_name: :Review,
         dependent: :destroy
-
-    # scope :overlapping, ->(period_start, period_end) do
-        
-    # end
     
     private
     def validate_photos
