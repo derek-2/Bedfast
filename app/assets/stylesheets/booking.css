@@ -3,7 +3,7 @@
 .new-booking-form{
     height: 100%;
     width: 30vw;
-    box-shadow: rgba(100, 100, 111, .8) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, .8);
     border: solid rgb(221,221,221) 1px;
     border-radius: 15px;
     padding: 20px;
