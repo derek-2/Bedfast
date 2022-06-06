@@ -77,7 +77,7 @@ export default class NewBookingForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log(this.props.currentUser)
+        // console.log(this.props.currentUser)
         if (this.props.currentUser){
             this.setState({guest_id: this.props.currentUser.id}, () => {
                 this.props.createBooking(this.state)
@@ -119,7 +119,7 @@ export default class NewBookingForm extends React.Component{
     
     render(){
         const {price, errors} = this.props; // this is passed down from listing show page
-        console.log(this.state.reservedDates);
+        // console.log(this.state.reservedDates);
         const start = new Date(this.state.check_in_date);
         const end = new Date(this.state.check_out_date);
         const num_days = (end - start) / (1000 * 60 * 60 * 24)

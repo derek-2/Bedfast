@@ -26,7 +26,6 @@ export default class EditListingForm extends React.Component{
     }
 
     prevPhotos(){
-        // debugger
         const {props} = this;
         if (props.listing && props.listing.photoUrls){
             return (
@@ -45,7 +44,7 @@ export default class EditListingForm extends React.Component{
         // console.log('Attempting to create a new listing...');
         e.preventDefault();
         const formData = new FormData();
-        // debugger
+
         formData.append('listing[id]', this.state.id);
         formData.append('listing[title]', this.state.title);
         formData.append('listing[description]', this.state.description);
@@ -64,7 +63,7 @@ export default class EditListingForm extends React.Component{
         // for (let i = 0; i < this.state.photoUrls.length; i++) {
         //     formData.append("listing[photos][]", this.state.photoUrls[i]);
         // }
-        console.log(this.state)
+        // console.log(this.state)
         this.props.submitForm(formData).then(() => this.props.history.push(`/listings/${this.state.id}`))
 
     }
@@ -78,7 +77,7 @@ export default class EditListingForm extends React.Component{
             const {title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night} = this.state;
             const {errors} = this.props;
             const allErrors = errors.length>0 ? errors.map((err,idx) => <><p className='error-message' key={idx}>{err}</p></>) : null;
-            console.log(this.state)
+            // console.log(this.state)
             return (
                 <div id="listing-form-container" onSubmit={this.handleSubmit}>
                         <form className='listing-form'>

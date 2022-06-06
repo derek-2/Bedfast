@@ -60,17 +60,14 @@ export default class NewListing extends React.Component{
     }
 
     removePhoto(idx){
-        // debugger;
          this.setState({
             photos: this.state.photos.slice(0,idx).concat(this.state.photos.slice(idx+1)),
             previewPhotos: this.state.previewPhotos.slice(0,idx).concat(this.state.previewPhotos.slice(idx+1))
         })
-        console.log(idx);
-        // debugger;
     }
     
     render(){
-        console.log(this.state);
+        // console.log(this.state);
         const preview = this.state ?
             this.state.previewPhotos.map((preview,idx) => 
             <div className='individual-preview-photo' key={idx}>

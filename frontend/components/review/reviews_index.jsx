@@ -26,7 +26,7 @@ export default class ReviewsIndex extends React.Component{
     handleDelete(num){
         return e => {
             e.preventDefault();
-            console.log(num);
+            // console.log(num);
             this.props.deleteReview(num);
         }
     }
@@ -37,12 +37,12 @@ export default class ReviewsIndex extends React.Component{
         let renderReviews = [];
         const months = [ "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December" ];
-        // debugger
+
         if (Object.values(this.props.users).length > 0){
             renderReviews = allReviews.map(review => {
                 return (
-                    <>
-                        <div className='review-container' id={`review-${review.id}`} key={review.id}>
+                    <div key={review.id}>
+                        <div className='review-container' id={`review-${review.id}`}>
                             <div>
                                 <Link to={`/profile/${review.guest_id}`}><img src={users[review.guest_id].profile_pic ? users[review.guest_id].profile_pic : window.default_profile_pic} className='profile-pic' alt='user-profile'/></Link>
                                 <div className='review-index-info'>
@@ -56,7 +56,7 @@ export default class ReviewsIndex extends React.Component{
                              <></>}
                         </div>
                         {this.renderEditReviewForm(review.id)}
-                    </>
+                    </div>
                 )
             })
         }
@@ -80,7 +80,6 @@ export default class ReviewsIndex extends React.Component{
         const avgValue = Math.round(10*value/allReviews.length)/10;
 
         if (avgCleanliness || avgCleanliness === 0){
-            debugger
             return (<>
                 <hr className='separator biggest-separator' />
                 <div className='review-index-container'>

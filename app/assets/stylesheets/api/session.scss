@@ -1,84 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 .session-modal {
-    display: flex;
-    font-family: arial;
-    outline: solid 1px black;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    position: fixed;
-    left: 42%;
-    top: 5%;
-    background-color: white;
-    border-radius: 15px;
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-    z-index: 5;
-  }
+  display: flex;
+  font-family: arial;
+  outline: solid 1px black;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  position: fixed;
+  left: 42%;
+  top: 70px;
+  background-color: white;
+  border-radius: 15px;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 5;
+  width: 25vw;
+}
 
 label {
-    display: flex;
+  display: flex;
 }
 
 .session-btn {
-        display: inline-block;
-        outline: none;
-        cursor: pointer;
-        font-size: 16px;
-        line-height: 20px;
-        font-weight: 600;
-        border-radius: 8px;
-        padding: 14px 24px;
-        border: none;
-        transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-        background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
-        color: #fff;
-        margin: 4px 2px;
-  }
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+  color: #fff;
+  margin: 4px 2px;
+  justify-content: center;
+  align-items: center;
+}
 
 .session-container{
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
   }
   
-  .session-modal-container{
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.2);
-    z-index: 4;
+.session-modal-container{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 4;
 }
 
 .session-modal-header h2{
-    font-weight: bolder;
+  font-weight: bolder;
+}
+
+.session-form {
+  display: flex; flex-direction: column;
 }
 
 .session-formType{
-    font-size: 16px;
-    font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .session-formWelcome{
-    font-size: 22px;
-    font-weight: bold;
-    margin: 20px 0 20px 0;
-    display: relative;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px 0 20px 0;
+  display: relative;
 }
 
 .session-formType-div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .close-session{
-    display: none;
-    right: 0;
-    top: 0;
+  display: none;
+  right: 0;
+  top: 0;
 }
 
 
@@ -96,7 +103,7 @@ label {
 
 .inputText {
   font-size: 14px;
-  width: 200px;
+  width: 100%;
   height: 35px;
   font-size: 11px;
   opacity: 1;
@@ -106,9 +113,7 @@ label {
 
 .floating-label {
   position: absolute;
-//   pointer-events: none;
   left: 10px;
   top: 10px;
-//   transition: 0.2s ease all;
   transform: scale(0.9, 0.9);
 }

@@ -3,7 +3,7 @@ import NavBar from './navbar';
 import { logout } from '../../actions/session_actions';
 
 const mapState = state => {
-  console.log(state.entities.users[state.session.currentUserId])
+  // console.log(state.entities.users[state.session.currentUserId])
   return ({
     currentUser: state.entities.users[state.session.currentUserId]
   })

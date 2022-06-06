@@ -14,7 +14,7 @@ export default class SearchBar extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log(this.state);
+        // console.log(this.state);
         const {searchParams, guests} = this.state;
         if (searchParams.trim()){
             this.props.history.push(`/listings/search/${searchParams}/${guests}`);
@@ -35,7 +35,7 @@ export default class SearchBar extends React.Component{
     render(){
         return (
             <>
-                <form className="flex-form">
+                <form className="flex-form" onSubmit={this.handleSubmit}>
                     <input type="search" placeholder="Search destinations" value={this.state.searchParams} onChange={this.update('searchParams')} />
                     <select name="guests" id="guests" onChange={this.update('guests')} value={this.state.guests}>
                         <option value="1">1 guest</option>

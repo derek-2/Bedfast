@@ -75,6 +75,27 @@
     margin: 10px 0;
 }
 
+.my-listings > .heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-listing {
+    background-color: rgb(221,221,221);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    transition-duration: .5s;
+}
+
+.new-listing:hover{
+    color:white;
+    background-color: black;
+    transform: scale(1.1);
+    transition-duration: .5s;
+}
+
 .my-listing-item{
     /* border: 1px solid blue; */
     width: 40vw;
@@ -123,7 +144,7 @@
 }
 
 .user-profile-info{
-    flex: 1;
+    flex: 2;
     align-items: center;
     padding-left: 20vw;
     /* padding-right: 2vw; */
@@ -138,7 +159,7 @@
 }
 
 .my-info{
-    flex:3;
+    flex:8;
     align-items: flex-start;
 }
 
@@ -157,4 +178,8 @@
     text-decoration: underline;
     font-weight: bold;
     cursor: pointer;
+}
+
+#first-button {
+    margin-right: 5px;
 }

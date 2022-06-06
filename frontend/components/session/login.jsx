@@ -44,7 +44,7 @@ export default class LoginModal extends React.Component{
     return (
       <div id="login-modal" className="session-container hidden">
         <div className='session-modal'>
-          <form onSubmit={this.handleSubmit}>
+          <form className='session-form' onSubmit={this.handleSubmit}>
             <div className="session-modal-header">
               <div className="session-formType-div">
                 <p className="session-formType">Login</p>
@@ -63,7 +63,6 @@ export default class LoginModal extends React.Component{
             {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
             <input className='session-btn' type="submit" value={this.props.formType} />
             <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
-            <span className="close-session">&times;</span>
           </form>
         </div>
       </div>

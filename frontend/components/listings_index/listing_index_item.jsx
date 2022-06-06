@@ -16,15 +16,15 @@ export default class ListingIndexItem extends React.Component{
 
     render(){
         const {id, title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night, photoUrls } = this.props.listing;
-        console.log(this.state)
+        // console.log(this.state)
         const allReviews = this.state.myReviews;
         let total = 0;
-        // debugger
+
         allReviews.forEach(review => total+=review.overall_rating);
         const avgRating = Math.floor(total*10/allReviews.length)/10;
         const numRatings = allReviews.length;
         return(
-            <>
+            <div>
             <hr className='bigger-separator'/>
             <Link to={`/listings/${id}`}>
                 <div className='listing-index-item' id={`listing-${id}`}>
@@ -45,7 +45,7 @@ export default class ListingIndexItem extends React.Component{
                     </div>
                 </div>
             </Link>
-            </>
+            </div>
     )
     }
 }

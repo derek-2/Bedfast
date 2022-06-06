@@ -50,7 +50,7 @@ export default class SignUpModal extends React.Component{
     return (
       <div id="signup-modal" className="session-container hidden">
         <div className='session-modal'>
-          <form onSubmit={this.handleSubmit}>
+          <form className='session-form' onSubmit={this.handleSubmit}>
           <div className="session-modal-header">
               <div className="session-formType-div">
                 <h2 className="session-formType">Sign up</h2>
@@ -78,8 +78,7 @@ export default class SignUpModal extends React.Component{
             <br />
             {(this.props.errors.length !== 0) ? this.props.errors.map((error,idx) => <p key={idx}>{error}</p>) : <></>}
             <input className='session-btn' type="submit" value={this.props.formType} />
-            <div className='session-btn' onClick={this.demoLogin}>Demo Login</div>
-            <span className="close-session">&times;</span>
+            <button className='session-btn' onClick={this.demoLogin}>Demo Login</button>
           </form>
         </div>
       </div>

@@ -61,7 +61,7 @@ export default class ReviewForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log({review:this.state});
+        // console.log({review:this.state});
         this.props.submitForm({review:this.state}).then(() =>{
             if (this.props.formType === 'Create') this.clearFields();
         });
@@ -109,9 +109,9 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.cleanliness){
-                arr.push(<FaStar color='yellow 'className='cleanliness-stars' id={`star-${i-1}`}/>);
+                arr.push(<FaStar key={`cleanliness${i}`} color='yellow ' className='cleanliness-stars' id={`star-${i-1}`}/>);
             } else {
-                arr.push(<FaStar className='cleanliness-stars' id={`star-${i-1}`}/>)
+                arr.push(<FaStar key={`cleanliness${i}`} className='cleanliness-stars' id={`star-${i-1}`}/>)
             }
         }
         return <>
@@ -125,9 +125,9 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.accuracy){
-                arr.push(<FaStar color='yellow 'className='accuracy-stars' id={`star-${i-1}`}/>);
+                arr.push(<FaStar key={`accuracy${i}`} color='yellow 'className='accuracy-stars' id={`star-${i-1}`}/>);
             } else {
-                arr.push(<FaStar className='accuracy-stars' id={`star-${i-1}`}/>)
+                arr.push(<FaStar key={`accuracy${i}`} className='accuracy-stars' id={`star-${i-1}`}/>)
             }
         }
         return <>
@@ -140,9 +140,9 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.communication){
-                arr.push(<FaStar color='yellow 'className='communication-stars' id={`star-${i-1}`}/>);
+                arr.push(<FaStar key={`communication${i}`} color='yellow 'className='communication-stars' id={`star-${i-1}`}/>);
             } else {
-                arr.push(<FaStar className='communication-stars' id={`star-${i-1}`}/>)
+                arr.push(<FaStar key={`communication${i}`} className='communication-stars' id={`star-${i-1}`}/>)
             }
         }
         return <>
@@ -155,9 +155,9 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.location){
-                arr.push(<FaStar color='yellow 'className='location-stars' id={`star-${i-1}`}/>);
+                arr.push(<FaStar key={`location${i}`} color='yellow 'className='location-stars' id={`star-${i-1}`}/>);
             } else {
-                arr.push(<FaStar className='location-stars' id={`star-${i-1}`}/>)
+                arr.push(<FaStar key={`location${i}`} className='location-stars' id={`star-${i-1}`}/>)
             }
         }
         return <>
@@ -170,9 +170,9 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.check_in){
-                arr.push(<FaStar color='yellow 'className='check-in-stars' id={`star-${i-1}`}/>);
+                arr.push(<FaStar key={`checkin${i}`} color='yellow 'className='check-in-stars' id={`star-${i-1}`}/>);
             } else {
-                arr.push(<FaStar className='check-in-stars' id={`star-${i-1}`}/>)
+                arr.push(<FaStar key={`checkin${i}`} className='check-in-stars' id={`star-${i-1}`}/>)
             }
         }
         return <>
@@ -185,9 +185,9 @@ export default class ReviewForm extends React.Component{
         const arr = [];
         for (let i = 1; i <= 5; i++){
             if (i <= this.state.value){
-                arr.push(<FaStar color='yellow 'className='value-stars' id={`star-${i-1}`}/>);
+                arr.push(<FaStar key={`value${i}`} color='yellow 'className='value-stars' id={`star-${i-1}`}/>);
             } else {
-                arr.push(<FaStar className='value-stars' id={`star-${i-1}`}/>)
+                arr.push(<FaStar key={`value${i}`} className='value-stars' id={`star-${i-1}`}/>)
             }
         }
         return <>
@@ -198,7 +198,7 @@ export default class ReviewForm extends React.Component{
     }
 
     render(){
-        const errors = this.props.errors.map(err => <p className='error-message'>{err}</p>);
+        const errors = this.props.errors.map((err,idx) => <p key={idx} className='error-message'>{err}</p>);
         return (
             <>
                 <hr className='separator biggest-separator tehe' />

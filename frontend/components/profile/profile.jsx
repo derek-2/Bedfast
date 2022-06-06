@@ -104,8 +104,8 @@ export default class Profile extends React.Component{
         const {myListings} = this.state;
         // debugger
         return Object.values(myListings).map((listing, idx) => (
-            <div className='my-listing'>
-                <div className={`my-listing-${idx} my-listing-item`} key={listing.id}>
+            <div className='my-listing' key={listing.id}>
+                <div className={`my-listing-${idx} my-listing-item`}>
                     <Link to={`/listings/${listing.id}`}>
                         <img src={listing.photoUrls[0]} alt={listing.description} />
                     </Link>
@@ -117,7 +117,7 @@ export default class Profile extends React.Component{
                         <p>{listing.reviews.length} {listing.reviews.length !== 1 ?'reviews' : 'review'}</p>
                         {currentUserId === listing.host_id ? <p className='profile-link' onClick={() => this.toggleReservations(listing.id)}>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p> : <p>{listing.bookings.length} {listing.bookings.length !== 1 ?'reservations' : 'reservation'}</p>}
                         <div>
-                            {currentUserId === listing.host_id ? <><Link to={`/listings/${listing.id}/edit`} ><button className='fancy-btn pointer'>Edit Listing</button></Link>
+                            {currentUserId === listing.host_id ? <><Link to={`/listings/${listing.id}/edit`} id='first-button'><button className='fancy-btn pointer'>Edit Listing</button></Link>
                             <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteListing(listing.id)}>Delete Listing</button></> : <></>}
                         </div>
                     </div>
@@ -208,8 +208,8 @@ export default class Profile extends React.Component{
         const {userId, users, currentUserId} = this.props;
         const currentProfile = users[userId];
         // console.log(this.state);
-        console.log(this.props.bookings)
-        console.log(this.state)
+        // console.log(this.props.bookings)
+        // console.log(this.state)
         // debugger
         if (users[userId]){
             return (
@@ -234,7 +234,7 @@ export default class Profile extends React.Component{
 
                         <div className='my-listings'>
                         <hr className='biggest-separator'/>
-                            <div className='heading'><h1>Listings</h1></div>
+                            <div className='heading'><h1>Listings</h1> {currentUserId === currentProfile.id ? <Link className="new-listing" to='/listings/new'>Create Listing</Link> : <></>}</div>
                             {this.listings()}
                         </div>
                         {currentUserId === parseInt(userId) ? 

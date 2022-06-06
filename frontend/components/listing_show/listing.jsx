@@ -50,8 +50,8 @@ export default class Listing extends React.Component{
     }
 
     render(){
-        console.log(this.props.listing)
-        console.log(this.props.reviews)
+        // console.log(this.props.listing)
+        // console.log(this.props.reviews)
         const {users} = this.props;
         if (this.props.listing && Object.values(this.props.listing).length > 0){ 
             const {host_name, address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
@@ -72,6 +72,7 @@ export default class Listing extends React.Component{
                 </div>
                 </>
             );
+            debugger
             return (
                 <div className='container'>
                     <h1 className='biggest-font'><b>{title}</b></h1>
@@ -81,7 +82,7 @@ export default class Listing extends React.Component{
                         <div className='listing-info'>
                             <div>
                                 <p>About <Link className='profile-link' to={`/profile/${host_id}`}>{host_name}</Link>'s place </p>
-                                <Link to={`/profile/${host_id}`}><img src={users[host_id].profile_pic ? users[host_id].profile_pic : window.default_profile_pic} className='profile-pic' alt='user-profile'/></Link>
+                                <Link to={`/profile/${host_id}`}><img src={users[host_id] &&users[host_id].profile_pic ? users[host_id].profile_pic : window.default_profile_pic} className='profile-pic' alt='user-profile'/></Link>
                             </div>
                             <p>{max_num_guests} guests · {num_beds} beds · {num_baths} baths</p>
                             {description}
