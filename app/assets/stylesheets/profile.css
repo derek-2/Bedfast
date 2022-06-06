@@ -59,7 +59,8 @@
 }
 
 .highlight {
-    color: red;
+    cursor: not-allowed;
+    background-color:rgb(255, 120, 120) !important;
 }
 
 .my-booking-item{

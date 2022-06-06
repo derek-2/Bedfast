@@ -156,6 +156,7 @@ export default class NewBookingForm extends React.Component{
                                 <input type="number" value={this.state.num_guests} min='0' onChange={this.update('num_guests')} />
                             </label>
                         </div>
+                        <p><b>Availability</b></p>
                         <Calendar 
                             tileClassName={({ date}) => {
         // const reservedDates = [new Date(2022,5,4),new Date(2022,5,3),new Date(2022,5,2),new Date(2022,5,1) ]                     

@@ -22,6 +22,10 @@
     padding: 5% 0;
 }
 
+.new-booking-inputs > p{
+    margin-top: 5px;
+}
+
 .booking-input input[type="date"]{
     border: none;
     padding:0;
@@ -137,4 +141,33 @@ b{
 
 .reserve-btn:hover{
     background: rgb(255, 36, 87);
+}
+
+.react-calendar{
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px 5px;
+}
+
+.react-calendar__navigation > button{
+    background-color: white;
+    border: 1px solid rgb(221,221,221);
+}
+
+.react-calendar__viewContainer button {
+    color: black;
+    background-color: rgb(109, 255, 129);
+    border: 1px solid rgb(221,221,221);
+    border-radius: 15px;
+}
+
+.react-calendar__navigation{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.react-calendar__month-view__weekdays__weekday{
+    margin-bottom: 5px;
 }

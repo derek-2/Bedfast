@@ -72,7 +72,7 @@ export default class Listing extends React.Component{
                 </div>
                 </>
             );
-            debugger
+            // debugger
             return (
                 <div className='container'>
                     <h1 className='biggest-font'><b>{title}</b></h1>
