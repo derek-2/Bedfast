@@ -41,10 +41,6 @@
     display: inline-flex;
 }
 
-.trim {
-    /* display:inline-block; */
-}
-
 .profile-link:hover{
     color: #ccc;
     cursor: pointer;
@@ -52,10 +48,6 @@
 
 .pointer:hover{
     cursor: pointer;
-}
-
-.my-reviews{
-    /* border: 1px purple solid; */
 }
 
 .highlight {
@@ -169,10 +161,6 @@
 
     /* justify-content: center; */
     flex-direction: column;
-}
-
-.basic-info{
-
 }
 
 .underline{
