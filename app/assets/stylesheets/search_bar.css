@@ -5,7 +5,7 @@
 }
 
 .flex-form:hover{
-    box-shadow:  0 6px 5px rgb(221,221,221, .5);
+    box-shadow:  0 6px 5px rgba(221,221,221, .5);
 }
 
 .search-bar-container{
