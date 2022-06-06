@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-around;
     font-size: 14px;
-    // padding: 15px 15px 0 0;
     margin: 0 10vw;
     border-top: 1px solid #b7b7b7;
 }
@@ -10,16 +9,13 @@
 .footer-label{
     font-size: 20px;
     font-weight: 900;
-    // font-weight: bolder;
 }
 
 .real-footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    // border-top: .5px solid gray;
     padding: 15px 0;
-    // border-top: 1px solid black;
 }
 
 .main-footer{

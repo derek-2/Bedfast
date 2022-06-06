@@ -20,11 +20,6 @@
     flex-direction: column;
 }
 
-// .gm-ui-hover-effect > span{
-    // color: white;
-    // border: solid yellow 1px;
-// }
-
 .gm-style-iw-d {
     overflow: hidden !important;
 }
@@ -41,11 +36,6 @@
     padding: 5px;
     font-family: 'Montserrat', sans-serif;
 }
-
-// .map-images{
-//     // height: auto;
-//     width: 200px;
-// }
 
 .hoverable{
     background-color: yellow;
