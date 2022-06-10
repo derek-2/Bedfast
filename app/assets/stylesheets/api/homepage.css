@@ -19,6 +19,15 @@
     display: flex;
     flex-direction: column;
     width: 19vw;
+    height: 50vh;
+}
+
+.individual-inspiration-container > :first-child{
+    flex: 50%;
+}
+
+.individual-inspiration-container > :last-child{
+    flex: 50%;
 }
 
 .inspiration-container li:last-child{

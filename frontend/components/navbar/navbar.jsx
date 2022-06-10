@@ -56,7 +56,7 @@ export default class NavBar extends React.Component {
   render(){
     const message = this.props.currentUser ? `Hello, ${this.props.currentUser.fname}` : 'Welcome to Bedfast';
     const {currentUser} = this.props;
-    debugger
+
     return (
       <div id="top-nav">
         <Link to={'/'}><img id="airbnblogo" src={window.logo} alt="logo" /></Link>

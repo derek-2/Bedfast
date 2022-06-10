@@ -25,7 +25,7 @@ const App = (props) => {
         <Switch>
             <Route exact path='/' component={HomePageContainer}></Route>
             <ProtectedRoute exact path='/listings/new' component={NewListingContainer}></ProtectedRoute>
-            <Route exact path="/listings/search/:city/:guests" component={ListingsIndexContainer}></Route>
+            <Route exact path="/listings/search/:location/:guests" component={ListingsIndexContainer}></Route>
             <Route exact path='/listings/search/:guests' component={ListingsIndexContainer}></Route>
             <ProtectedRoute exact path='/listings/:listingId/edit' component={EditListingContainer}></ProtectedRoute>
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>

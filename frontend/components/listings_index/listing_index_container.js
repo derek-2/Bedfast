@@ -6,7 +6,7 @@ import {fetchReviewsByListing} from '../../actions/review_actions';
 const mapState = (state, ownProps) => {
     return{
         listings: state.entities.listings,
-        searchParam: ownProps.match.params.city,
+        searchParam: ownProps.match.params.location,
         reviews: state.entities.reviews
     }
 }

@@ -76,7 +76,7 @@ export default class Listing extends React.Component{
             return (
                 <div className='container'>
                     <h1 className='biggest-font'><b>{title}</b></h1>
-                    <p className='medium-font'><b>{this.overallRating()} {city},{state}</b></p>
+                    <p className='medium-font'><b>{this.overallRating()} {city}, {state}</b></p>
                     {allPhotos}
                     <div className='listing-show-container'>
                         <div className='listing-info'>
@@ -131,7 +131,7 @@ export default class Listing extends React.Component{
 
                         <p className='medium-font'>Where you'll be</p>
                         <hr className='listing-show-separator' />
-                        <Map type='listing map' listings={[this.props.listing]}/>
+                        <Map match={this.props.match} type='listing map' listings={[this.props.listing]}/>
                         <div>
                         </div>
                         <div>

@@ -22,20 +22,24 @@ export default class MarkerManager{
                 })
 
                 this.markers[listing.id].addListener('mouseover', () => {
-                    document.getElementById(`listing-${listing.id}`).classList.toggle('highlight-listing')
-                })
-                this.markers[listing.id].addListener('mouseout', () => {
-                    document.getElementById(`listing-${listing.id}`).classList.toggle('highlight-listing')
-                })
+                    if (document.getElementById(`listing-${listing.id}`)){
+                        document.getElementById(`listing-${listing.id}`).classList.toggle('highlight-listing')
+                        }
+                    })
+                    this.markers[listing.id].addListener('mouseout', () => {
+                        if (document.getElementById(`listing-${listing.id}`)){
+                        document.getElementById(`listing-${listing.id}`).classList.toggle('highlight-listing')
+                        }
+                    })
 
                 // ---
-                const iwOuter = $('.gm-style-iw');
-                const iwBackground = iwOuter.prev();
-                iwBackground.children(':nth-child(2)').css({'display' : 'none'});
-                iwBackground.children(':nth-child(4)').css({'display' : 'none'});
-                // reference: https://stackoverflow.com/questions/21542870/remove-right-and-bottom-margin-on-infowindows
+                    const iwOuter = $('.gm-style-iw');
+                    const iwBackground = iwOuter.prev();
+                    iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+                    iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+                    // reference: https://stackoverflow.com/questions/21542870/remove-right-and-bottom-margin-on-infowindows
 
-                // this.markers[listing.id].addListener('click', () => console.log(`clicked marker ${listing.id}`))
+                    // this.markers[listing.id].addListener('click', () => console.log(`clicked marker ${listing.id}`))
             }
         });
     }
