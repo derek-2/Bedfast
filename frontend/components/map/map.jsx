@@ -8,13 +8,13 @@ export default class Map extends React.Component{
       debugger
       if (this.props.match.params.location){
         switch(this.props.match.params.location.toUpperCase()){
-          case ('MIA'):
+          case ('FLORIDA'):
             center = {lat: 25.797349, lng:-80.244752};
             break;
-          case ('ATX'):
+          case ('TEXAS'):
             center = {lat: 30.267132, lng: -97.743651};
             break;
-          case ('LA'):
+          case ('CALIFORNIA'):
             center = {lat: 34.051491, lng: -118.244509};
             break;
           default:
@@ -50,13 +50,13 @@ export default class Map extends React.Component{
             let center = { lat: 40.688641, lng: -73.960258};
             if (this.props.match.params.location){  
               switch(this.props.match.params.location.toUpperCase()){
-                case ('MIA'):
+                case ('FLORIDA'):
                   center = {lat: 25.797349, lng:-80.244752};
                   break;
-                case ('ATX'):
+                case ('TEXAS'):
                   center = {lat: 30.267132, lng: -97.743651};
                   break;
-                case ('LA'):
+                case ('CALIFORNIA'):
                   center = {lat: 34.051491, lng: -118.244509};
                   break;
                 default:
