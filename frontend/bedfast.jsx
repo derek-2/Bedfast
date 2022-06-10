@@ -3,60 +3,43 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 import Root from './components/root';
 
-import { login, logout, signUp} from './actions/session_actions';
-import { createListing, editListing, fetchListing, fetchListings, deleteListing, fetchListingsByUser } from './actions/listing_actions';
-import {fetchUsers, fetchUser} from './actions/user_actions';
-import * as BookingActions from './actions/booking_actions';
-import * as ReviewActions from './actions/review_actions';
-import { getPos } from './util/listings_api_util';
+// import { login, logout, signUp} from './actions/session_actions';
+// import { createListing, editListing, fetchListing, fetchListings, deleteListing, fetchListingsByUser } from './actions/listing_actions';
+// import {fetchUsers, fetchUser} from './actions/user_actions';
+// import * as BookingActions from './actions/booking_actions';
+// import * as ReviewActions from './actions/review_actions';
+// import { getPos } from './util/listings_api_util';
 
 document.addEventListener('DOMContentLoaded', ()=> {
   const root = document.getElementById('root');
 
-  // window.demoUser = {email: 'Demo', fname: 'Demo', lname: 'Demo', password: 'password'};
-  // window.user = {fname: 'derek', lname: 'lee', password:'password', email: 'dereklee@gmail.com'};
-  // window.user2 = {fname: 'eric', lname: 'eric', password:'password', email: 'ericeric@gmail.com'};
-  // window.user3 = {fname: 'heather', lname: 'connie', password:'password', email: 'heatherconnie@gmail.com'};
-  // window.user4 = { fname: 'jacinda', lname: 'mozelle', password: 'password', email: 'jacindamozelle@gmail.com'};
-  // window.user5 = { fname: 'morian', lname: 'hayley', password:'password', email: 'dorianhayley@gmail.com'};
+  // window.login = login;
+  // window.logout = logout;
+  // window.signUp = signUp;
 
-  // window.listing1 = {
-  //   title: 'cool house 147' , description: 'very cool', host_id:1, address: '123 bum st', city: 'NY', state: 'NY', zipcode: '11111', latitude: '1.00000', longitude:'6.999999999', max_num_guests: 2, num_beds: 2, num_baths: 1, price_per_night: 99
-  // }
-  // window.listing2 = {
-  //   title: 'GREAT HOUSE 229', description: 'GREAT', host_id:3, address: '1243 N Sterling St', city: 'UNION CITY', state: 'IN', zipcode: '47390', latitude: '1.00000', longitude:'6.999999999', max_num_guests: 5, num_beds: 4, num_baths: 3, price_per_night: 149
-  // }
-  // window.listing3 = {
-  //   title: 'THE AIGHT HOUSE', description: 'IT\'S AIGHT I GUESS', host_id:2, address: '421 Monmouth St', city: 'TRENTON', state: 'NJ', zipcode: '08609', latitude: '1.00000', longitude:'6.999999999', max_num_guests: 1, num_beds: 1, num_baths: 1, price_per_night: 77
-  // }
+  // window.createListing = createListing;
+  // window.editListing = editListing;
+  // window.fetchListing = fetchListing;
+  // window.fetchListings = fetchListings;
+  // window.deleteListing = deleteListing;
+  // window.fetchListingsByUser = fetchListingsByUser;
 
-  window.login = login;
-  window.logout = logout;
-  window.signUp = signUp;
+  // window.createBooking = BookingActions.createBooking;
+  // window.updateBooking = BookingActions.updateBooking;
+  // window.fetchBooking = BookingActions.fetchBooking;
+  // window.fetchBookings = BookingActions.fetchBookings;
+  // window.deleteBooking = BookingActions.deleteBooking;
+  // window.fetchBookingsByUser = BookingActions.fetchBookingsByUser;
 
-  window.createListing = createListing;
-  window.editListing = editListing;
-  window.fetchListing = fetchListing;
-  window.fetchListings = fetchListings;
-  window.deleteListing = deleteListing;
-  window.fetchListingsByUser = fetchListingsByUser;
+  // window.fetchUsers = fetchUsers;
+  // window.fetchUser = fetchUser;
 
-  window.createBooking = BookingActions.createBooking;
-  window.updateBooking = BookingActions.updateBooking;
-  window.fetchBooking = BookingActions.fetchBooking;
-  window.fetchBookings = BookingActions.fetchBookings;
-  window.deleteBooking = BookingActions.deleteBooking;
-  window.fetchBookingsByUser = BookingActions.fetchBookingsByUser;
-
-  window.fetchUsers = fetchUsers;
-  window.fetchUser = fetchUser;
-
-  window.fetchReviewsByUser = ReviewActions.fetchReviewsByUser;
-  window.fetchReviewsByListing = ReviewActions.fetchReviewsByListing;
-  window.fetchReview = ReviewActions.fetchReview;
-  window.createReview = ReviewActions.createReview;
-  window.updateReview = ReviewActions.updateReview;
-  window.deleteReview = ReviewActions.deleteReview;
+  // window.fetchReviewsByUser = ReviewActions.fetchReviewsByUser;
+  // window.fetchReviewsByListing = ReviewActions.fetchReviewsByListing;
+  // window.fetchReview = ReviewActions.fetchReview;
+  // window.createReview = ReviewActions.createReview;
+  // window.updateReview = ReviewActions.updateReview;
+  // window.deleteReview = ReviewActions.deleteReview;
 
   // window.getPos = getPos;
 

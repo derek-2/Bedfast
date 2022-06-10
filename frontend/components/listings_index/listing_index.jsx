@@ -28,7 +28,7 @@ export default class ListingsIndex extends React.Component{
     render(){
         // console.log(this.props.listings);
         let message;
-        console.log(this.props.match.params.location);
+        // console.log(this.props.match.params.location);
         const listingsLen = Object.values(this.props.listings).length;
         if (this.props.match.params.location && (listingsLen > 1 || listingsLen === 0)){
             message = `${listingsLen} stays in ${this.props.match.params.location}`;

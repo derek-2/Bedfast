@@ -5,7 +5,7 @@ import {mapStyle} from '../../util/map_style';
 export default class Map extends React.Component{
     componentDidMount() {
       let center = { lat: 40.688641, lng: -73.960258};
-      debugger
+      
       if (this.props.match.params.location){
         switch(this.props.match.params.location.toUpperCase()){
           case ('FLORIDA'):

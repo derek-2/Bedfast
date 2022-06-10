@@ -51,7 +51,7 @@ export default class NewListing extends React.Component{
         formData.append('listing[num_beds]', this.state.num_beds);
         formData.append('listing[num_baths]', this.state.num_baths);
         formData.append('listing[price_per_night]', this.state.price_per_night);
-        debugger
+
         for (let i = 0; i < this.state.photos.length; i++) {
             formData.append("listing[photos][]", this.state.photos[i]);
         }
@@ -90,7 +90,7 @@ export default class NewListing extends React.Component{
     }
     
     render(){
-        console.log(this.state);
+        // console.log(this.state);
         const preview = this.state ?
             this.state.previewPhotos.map((preview,idx) => 
             <div className='individual-preview-photo' key={idx}>
