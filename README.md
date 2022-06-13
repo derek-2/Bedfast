@@ -43,6 +43,7 @@ if (this.props.type === 'listing map'){
       this.generateMap({lat: 40.688641, lng: -73.960258})
     }
 ```
+![listing](https://user-images.githubusercontent.com/59910096/173415020-05a9b496-66e6-4ed4-b7b6-939be0e9cd1d.gif)
 - Listing photos can be added and deleted when creating a listing. The photos array is sliced when users click on a photo to remove it.
 ```jsx
 updatePhotos(e){
@@ -64,6 +65,7 @@ removePhoto(idx){
         })
     }
 ```
+![delete-photos](https://user-images.githubusercontent.com/59910096/173414715-fd13fa5f-31fc-403a-a2a0-e37396b30159.gif)
 
 ## Bookings
 - Users who are logged in can reserve a booking for a specific listing. Bookings that are available are marked green while booking times taken are colored red. All the bookings for a specific listing is fetched and all bookings have a start date and end date. To properly color the booking dates, we need to get all the dates in between the start and end dates. There is also custom model validation to check if the booking date overlaps with any existing booking.
@@ -89,6 +91,7 @@ getDatesInRange(startDate, endDate) {
         end
     end
 ```
+![booking form calendar](https://user-images.githubusercontent.com/59910096/173415105-ae1770e2-b53a-4b10-9fe9-83d17f7c9d02.PNG)
 
 ## Reviews
 - Users logged in can leave a review for a listing and can give up to 5 stars for each category, in which the overall rating will be calculated. On the listings page, the average rating of all reviews will be rendered if that listing has at least one review. 
@@ -104,6 +107,7 @@ getDatesInRange(startDate, endDate) {
     <p>{avgCleanliness}</p>
 </div>
 ```
+![image](https://user-images.githubusercontent.com/59910096/173415643-7e66b4b9-3dd4-446b-9f3d-e75d32b7d07f.png)
 
 ## Search
 - All users can search for listings. The user can input a search parameter for location and max number of guests, which fetches all listings that have that search term in their address, city, or state fields and allows that number of guests.
@@ -126,11 +130,12 @@ def index
     render :index
 end
 ```
+![image](https://user-images.githubusercontent.com/59910096/173415740-89f1d058-bbaf-43d7-8025-309a2e11bcb3.png)
+
 
 ## Profile
 - Users can access their own profile page through the navbar. On their own profile page, they can:
     - see their listings, bookings for each of their listings, bookings they reserved, and reviews they've created
     - edit their profile picture
 - Users can also access other profile pages through listings and reviews. When viewing another user profile page, it only shows their listings
-
-<img width="1434" alt="Screen Shot 2022-05-06 at 10 27 26 AM" src="https://user-images.githubusercontent.com/59910096/167153218-e9b71b4b-3a1b-4bd5-99e3-9bd92f043571.png">
+![profile](https://user-images.githubusercontent.com/59910096/173416200-82487365-dae2-4cf6-9187-534e91340528.gif)
