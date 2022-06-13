@@ -16,48 +16,44 @@ export default class NewListing extends React.Component{
     }
 
     handleSubmit(e){
-        // console.log('Attempting to create a new listing...');
         e.preventDefault();
-        const formData = new FormData();
+            
+            const {address, city, state, zipcode} = this.state;
+            this.props.getPos(`${address} ${city} ${state} ${zipcode}`).then(res => {
+                if (res.status === 'OK'){
+                    const formData = new FormData();
+                    let position = {};
+
+                    position.latitude = res.results[0].geometry.location.lat;
+                    position.longitude = res.results[0].geometry.location.lng;
+
+                    formData.append('listing[title]', this.state.title);
+                    formData.append('listing[description]', this.state.description);
+                    formData.append('listing[address]', this.state.address);
+                    formData.append('listing[host_id]', this.props.currentUser.id);
+                    formData.append('listing[city]', this.state.city);
+                    formData.append('listing[state]', this.state.state);
+                    formData.append('listing[zipcode]', this.state.zipcode);
+                    formData.append('listing[latitude]', position.latitude);
+                    formData.append('listing[longitude]', position.longitude);
+                    formData.append('listing[max_num_guests]', this.state.max_num_guests);
+                    formData.append('listing[num_beds]', this.state.num_beds);
+                    formData.append('listing[num_baths]', this.state.num_baths);
+                    formData.append('listing[price_per_night]', this.state.price_per_night);
+            
+                    for (let i = 0; i < this.state.photos.length; i++) {
+                        formData.append("listing[photos][]", this.state.photos[i]);
+                    }
+            
+                    this.props.submitForm(formData)
+                        .then(res => this.props.history.push(`/listings/${res.listing.id}`));
+
+            } else {
+                this.setState({errors: ['address not found']})
+            }
+        })
+
         
-        let position = {};
-        switch(this.state.city.toUpperCase()){
-          case ('MIA'):
-            position.latitude = (Math.random()*(25.846818-25.732979))+25.732979;
-            position.longitude = (Math.random()*(-80.208311+80.335925))-80.335925;
-            break;
-          case ('ATX'):
-            position.latitude = (Math.random()*(30.326598-30.176468))+30.176468;
-            position.longitude = (Math.random()*(-97.617053+97.849745))-97.849745;
-            break;
-          case ('LA'):
-            position.latitude = (Math.random()*(34.091191-33.969270))+33.969270;
-            position.longitude = (Math.random()*(-118.133952+118.346130))-118.346130;
-            break;
-          default:
-            position = {latitude: this.props.listing.latitude, longitude: this.props.listing.longitude};
-        }
-
-        formData.append('listing[title]', this.state.title);
-        formData.append('listing[description]', this.state.description);
-        formData.append('listing[address]', this.state.address);
-        formData.append('listing[host_id]', this.props.currentUser.id);
-        formData.append('listing[city]', this.state.city);
-        formData.append('listing[state]', this.state.state);
-        formData.append('listing[zipcode]', this.state.zipcode);
-        formData.append('listing[latitude]', position.latitude);
-        formData.append('listing[longitude]', position.longitude);
-        formData.append('listing[max_num_guests]', this.state.max_num_guests);
-        formData.append('listing[num_beds]', this.state.num_beds);
-        formData.append('listing[num_baths]', this.state.num_baths);
-        formData.append('listing[price_per_night]', this.state.price_per_night);
-
-        for (let i = 0; i < this.state.photos.length; i++) {
-            formData.append("listing[photos][]", this.state.photos[i]);
-        }
-
-        this.props.submitForm(formData)
-            .then(res => this.props.history.push(`/listings/search/${res.listing.state}/0`));
     }
 
     update(field){
@@ -65,14 +61,12 @@ export default class NewListing extends React.Component{
     }
 
     updatePhotos(e){
-        // console.log(e.target.files.length);
         let arr = [];
         arr=arr.concat(Object.values(e.target.files).map(photo => URL.createObjectURL(photo)))
 
         this.setState(
             {
             photos: this.state.photos.concat(Object.values(e.target.files)),
-            // photos: Object.values(e.target.files)[0],
             previewPhotos: this.state.previewPhotos.concat(arr)
             }
         )
@@ -84,13 +78,8 @@ export default class NewListing extends React.Component{
             previewPhotos: this.state.previewPhotos.slice(0,idx).concat(this.state.previewPhotos.slice(idx+1))
         })
     }
-
-    handleScroll(e){
-
-    }
     
     render(){
-        // console.log(this.state);
         const preview = this.state ?
             this.state.previewPhotos.map((preview,idx) => 
             <div className='individual-preview-photo' key={idx}>
@@ -98,7 +87,7 @@ export default class NewListing extends React.Component{
             </div>) :
             <></>
         const {errors} = this.props;
-        const allErrors = errors.length>0 ? errors.map((err,idx) => <><p className='error-message' key={idx}>{err}</p></>) : null;
+        const allErrors = errors.length>0 ? (errors.concat(this.state.errors)).map((err,idx) => <><p className='error-message' key={idx}>{err}</p></>) : null;
         
         const options = (
             <>
@@ -173,7 +162,6 @@ export default class NewListing extends React.Component{
                             <input type="text" value={city} className='col' placeholder='e.g. NY' onChange={this.update('city')} />
                         </label>
                         <label>State
-                            {/* <input type="text" className='col' placeholder='e.g. NY' onChange={this.update('state')} /> */}
                             <select name='state' value={state} onChange={this.update('state')}>
                                 {options}
                             </select>

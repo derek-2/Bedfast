@@ -40,28 +40,11 @@ export default class ReviewForm extends React.Component{
             check_in[i].addEventListener('click', this.updateScore('check-in', i))
             value[i].addEventListener('click', this.updateScore('value', i))
 
-            // cleanliness[i].addEventListener('mouseover', this.highlight('cleanliness-stars',i))
-            // accuracy[i].addEventListener('mouseover', this.highlight('accuracy-stars',i))
-            // communication[i].addEventListener('mouseover', this.highlight('communication-stars',i))
-            // location[i].addEventListener('mouseover', this.highlight('location-stars',i))
-            // check_in[i].addEventListener('mouseover', this.highlight('check-in-stars',i))
-            // value[i].addEventListener('mouseover', this.highlight('value-stars',i))
         }
     }
 
-    // highlight(field, num){
-    //     return () => {
-    //         const allStars = document.getElementsByClassName(field);
-            // for (let i = 0; i < num; i++){
-            //     // allStars[i].setAttribute('color', 'yellow');
-            //     allStars[i].classList.toggle('highlight')
-            // }
-    //     }
-    // }
-
     handleSubmit(e){
         e.preventDefault();
-        // console.log({review:this.state});
         this.props.submitForm({review:this.state}).then(() =>{
             if (this.props.formType === 'Create') this.clearFields();
         });

@@ -55,8 +55,3 @@ export const fetchBookingsByUser = userId => dispatch => {
         .then(bookings => dispatch(receiveBookings(bookings)),
         err => dispatch(receiveBookingErrors(err.responseJSON)))
 }
-
-// export const fetchBookingsForListing = listingId => dispatch => {
-//     return BookingUtil.fetchBookingsForListing(listingId)
-//         .then(bookings => dispatch )
-// }

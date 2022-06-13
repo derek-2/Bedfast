@@ -3,23 +3,6 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../searchbar/search_bar';
 import MenuContainer from '../menu/menu_container';
 
-
-// const NavBar = (props) => {
-//   return (
-//     <div>
-//       <div className="topnav">
-//         <Link to={'/'}>Bedfast</Link>
-//         <div className="topnav-right">
-//           {props.currentUser ? <button onClick={props.logout}>Logout</button> : <></>}
-//           <Link to={'/login'}>Login</Link> :
-//           <Link to={'/signup'}>Sign Up</Link>
-//           <a href="/">Search</a>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
 export default class NavBar extends React.Component {
   constructor(props){
     super(props);
@@ -46,7 +29,6 @@ export default class NavBar extends React.Component {
     const menu = document.getElementById('top-right-menu');
     menu.classList.remove('show');
     this.props.logout();
-    // this.props.history.push('/');
   }
 
   toggleMenu(){
@@ -73,5 +55,4 @@ export default class NavBar extends React.Component {
         </div>
       </div>
     )}
-      /// will ahve to move login/signup buttons to modal component
 }

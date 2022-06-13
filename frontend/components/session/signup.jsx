@@ -24,12 +24,6 @@ export default class SignUpModal extends React.Component{
         document.getElementById('signup-modal').classList.toggle('hidden');
         document.getElementById('session-modal-container').classList.toggle('hidden');
       })
-    // this.props.submitForm(this.state).then(() => {
-    //   const menu = document.getElementById('top-right-menu');
-    //   menu.classList.remove('show');
-    // });
-    // this.props.history.push('/');
-    //commented this out b/c with authroutes, it shoul;d auto redirect
   }
 
   demoLogin(e) {
@@ -40,8 +34,6 @@ export default class SignUpModal extends React.Component{
     })
     document.getElementById('signup-modal').classList.toggle('hidden');
     document.getElementById('session-modal-container').classList.toggle('hidden');
-
-    // this.props.history.push('/');
   }
 
   render() {

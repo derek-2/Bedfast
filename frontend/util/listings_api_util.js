@@ -29,8 +29,6 @@ export const fetchListings = (searchParams, guests) => {
     return $.ajax({
         method: 'GET',
         url: `/api/listings/?searchParams=${searchParams}&guests=${guests}`,
-        // url: '/api/listings',
-        // data: {searchParams}
     })
 }
 
@@ -45,5 +43,11 @@ export const deleteListing = listingId => {
     return $.ajax({
         method: 'DELETE',
         url: `/api/listings/${listingId}`
+    })
+}
+
+export const getPos = location => {
+    return $.ajax({
+        
     })
 }

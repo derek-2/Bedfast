@@ -14,7 +14,6 @@ export default class SearchBar extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        // console.log(this.state);
         const {searchParams, guests} = this.state;
         if (searchParams.trim()){
             this.props.history.push(`/listings/search/${searchParams}/${guests}`);

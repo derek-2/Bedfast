@@ -26,7 +26,6 @@ export default class ReviewsIndex extends React.Component{
     handleDelete(num){
         return e => {
             e.preventDefault();
-            // console.log(num);
             this.props.deleteReview(num);
         }
     }
@@ -85,32 +84,31 @@ export default class ReviewsIndex extends React.Component{
                 <div className='review-index-container'>
                 <h2 className='medium-font'><b><FaStar className="special-star" /> {Math.floor(this.props.avg_rating*100)/100} ({allReviews.length} reviews)</b></h2>
                 <div className='review-avg-container'>
-                    {/* `width=${avgCleanliness/5*100}%` */}
                     <div className='review-half'>
                         <div className='review-avg'>
                             <p>Cleanliness</p>
-                            <div className='testing-container'>
-                                <div className='testing'></div>
-                                <div className='testing testing1'></div>
-                                <div style={{width:`${avgCleanliness/5*100}%`}} className='testing testing2'></div>
+                            <div className='line-container'>
+                                <div className='line'></div>
+                                <div className='line line1'></div>
+                                <div style={{width:`${avgCleanliness/5*100}%`}} className='line line2'></div>
                             </div>
                             <p>{avgCleanliness}</p>
                         </div>
                         <div className='review-avg'>
                             <p>Communication</p>
-                            <div className='testing-container'>
-                                <div className='testing'></div>
-                                <div className='testing testing1'></div>
-                                <div style={{width:`${avgCommunication/5*100}%`}} className='testing testing2'></div>
+                            <div className='line-container'>
+                                <div className='line'></div>
+                                <div className='line line1'></div>
+                                <div style={{width:`${avgCommunication/5*100}%`}} className='line line2'></div>
                             </div>
                             <p>{avgCommunication}</p>
                         </div>
                         <div className='review-avg'>
                             <p>Check in</p>
-                            <div className='testing-container'>
-                                <div className='testing'></div>
-                                <div className='testing testing1'></div>
-                                <div style={{width:`${avgCheckIn/5*100}%`}} className='testing testing2'></div>
+                            <div className='line-container'>
+                                <div className='line'></div>
+                                <div className='line line1'></div>
+                                <div style={{width:`${avgCheckIn/5*100}%`}} className='line line2'></div>
                             </div>
                             <p>{avgCheckIn}</p>
                         </div>
@@ -118,29 +116,28 @@ export default class ReviewsIndex extends React.Component{
                     <div className='review-half'>
                         <div className='review-avg'>
                             <p>Accuracy </p>
-                            <div className='testing-container'>
-                                <div className='testing'></div>
-                                <div className='testing testing1'></div>
-                                <div style={{width:`${avgAccuracy/5*100}%`}} className='testing testing2'></div>
+                            <div className='line-container'>
+                                <div className='line'></div>
+                                <div className='line line1'></div>
+                                <div style={{width:`${avgAccuracy/5*100}%`}} className='line line2'></div>
                             </div>
                             <p>{avgAccuracy}</p>
                         </div>
                         <div className='review-avg'>
                             <p>Location</p>
-                            <div className='testing-container'>
-                                <div className='testing'></div>
-                                <div className='testing testing1'></div>
-                                <div style={{width:`${avgLocation/5*100}%`}} className='testing testing2'></div>
+                            <div className='line-container'>
+                                <div className='line'></div>
+                                <div className='line line1'></div>
+                                <div style={{width:`${avgLocation/5*100}%`}} className='line line2'></div>
                             </div>
                             <p>{avgLocation}</p>
                         </div>
                         <div className='review-avg'>
                             <p>Value</p>
-                            <div className='testing-container'>
-                                {/* <div className='testing'></div> */}
-                                <div className='testing'></div>
-                                <div className='testing testing1'></div>
-                                <div style={{width:`${avgValue/5*100}%`}} className='testing testing2'></div>
+                            <div className='line-container'>
+                                <div className='line'></div>
+                                <div className='line line1'></div>
+                                <div style={{width:`${avgValue/5*100}%`}} className='line line2'></div>
                             </div>
                             <p>{avgValue}</p>
                         </div>

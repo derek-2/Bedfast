@@ -42,33 +42,7 @@ export default class Profile extends React.Component{
                 myListings: this.props.listings,
                 myBookings: this.props.bookings,
                 myReviews: this.props.reviews}))
-
-        // fetchListingsByUser(currentUserId)
-        //     .then(() => fetchUsers())
-        //     .then(() => fetchBookings().then(() => this.setState({allBookings:this.props.bookings})))
-        //     .then(() => fetchListings().then(() => this.setState({allListings: this.props.listings})))
-        //     .then(() => fetchBookingsByUser(currentUserId))
-        //     .then(() => this.setState({myListings: this.props.listings}))
-        //     .then(() => this.setState({myBookings: this.props.bookings}))
     }
-
-    // componentDidUpdate(prevProps, prevState){
-        // const {listings, bookings, reviews, currentUserId} = this.props;
-
-        // const myListings = Object.values(listings).filter(listing => listing.host_id === currentUserId);
-        // const myBookings = Object.values(bookings).filter(booking => booking.guest_id === currentUserId);
-        // const myReviews = Object.values(reviews).filter(review => review.guest_id === currentUserId);
-        // if (Object.values(prevState.myListings).length !== myListings.length && prevState.myListings.length !== 0){
-        //     debugger
-        //     this.setState({myListings: this.props.listings});
-        // } else if (Object.values(prevState.myBookings).length !== myBookings.length && prevState.myBookings.length !== 0){
-        //     debugger
-        //     this.setState({myBookings: this.props.bookings});
-        // } else if (Object.values(prevState.myReviews).length !== myReviews.length && prevState.myReviews.length !== 0){
-        //     debugger
-        //     this.setState({myReviews: this.props.reviews})
-        // }
-    // }
 
     toggleReservations(listingId){
         Array.from(document.getElementsByClassName(`listing-${listingId}-reservations`)).forEach(el => el.classList.toggle('hidden'));
@@ -83,15 +57,12 @@ export default class Profile extends React.Component{
     }
 
     bookings(){
-        // currently it is checking the props from container, probably should change it to check this.state.mybookings --> same with listings
         const {myBookings} = this.state;
         const listings = this.state.allListings;
-        // debugger
+
         return Object.values(myBookings).map((booking,idx) => (
             <div className={`my-booking-${idx} my-booking-item`} key={booking.id}>
                 <Link className='profile-link' to={`/listings/${booking.listing_id}`}>{listings[booking.listing_id].title}</Link>
-                {/* <p>guest id: {booking.guest_id}</p> */}
-                {/* <p>booking: {booking.id}</p> */}
                 <p>From {booking.check_in_date} to {booking.check_out_date}</p>
                 <button className='fancy-btn cancel-btn pointer' onClick={() => this.deleteBooking(booking.id)}>Delete Booking</button>
             </div>
@@ -102,7 +73,7 @@ export default class Profile extends React.Component{
         const {users, currentUserId} = this.props;
         const bookings = this.state.allBookings;
         const {myListings} = this.state;
-        // debugger
+
         return Object.values(myListings).map((listing, idx) => (
             <div className='my-listing' key={listing.id}>
                 <div className={`my-listing-${idx} my-listing-item`}>
@@ -181,7 +152,6 @@ export default class Profile extends React.Component{
         const {id} = this.state.currentProfile;
         formData.append('user[id]', id);
         formData.append('user[photo]', e.target.files[0]);
-        // console.log(...formData);
         this.props.updateUser(formData);
     }
 
@@ -191,7 +161,6 @@ export default class Profile extends React.Component{
         const {id, about_me} = this.state.currentProfile;
         formData.append('user[id]', id);
         formData.append('user[about_me]', about_me);
-        // console.log(...formData);
         this.props.updateUser(formData).then(() => {
             document.getElementById('about-me-info').classList.toggle('hidden');
             document.getElementById('about-me-form').classList.toggle('hidden');
@@ -207,10 +176,7 @@ export default class Profile extends React.Component{
     render(){
         const {userId, users, currentUserId} = this.props;
         const currentProfile = users[userId];
-        // console.log(this.state);
-        // console.log(this.props.bookings)
-        // console.log(this.state)
-        // debugger
+
         if (users[userId]){
             return (
                 <div className='profile-container'>

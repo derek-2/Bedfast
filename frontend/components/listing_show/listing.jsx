@@ -50,8 +50,7 @@ export default class Listing extends React.Component{
     }
 
     render(){
-        // console.log(this.props.listing)
-        // console.log(this.props.reviews)
+
         const {users} = this.props;
         if (this.props.listing && Object.values(this.props.listing).length > 0){ 
             const {host_name, address, city, description, host_id, id, max_num_guests, num_baths, num_beds, price_per_night, state, title, zipcode, photoUrls} = this.props.listing;
@@ -72,7 +71,7 @@ export default class Listing extends React.Component{
                 </div>
                 </>
             );
-            // debugger
+
             return (
                 <div className='container'>
                     <h1 className='biggest-font'><b>{title}</b></h1>
@@ -121,8 +120,6 @@ export default class Listing extends React.Component{
                                 </div>
                             </div>
 
-
-                            {/* <p>&lt;Booking Form&gt;</p> */}
                         </div><NewBookingFormContainer listingId={id} price={price_per_night}/></div>
 
                         <ReviewsIndex reviews={this.props.reviews} users={this.props.users} currentUserId={this.props.currentUserId} deleteReview={this.props.deleteReview} avg_rating={this.total_rating/Object.values(this.props.reviews).length} />

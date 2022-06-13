@@ -42,7 +42,7 @@
     padding-top: 10px;
 }
 
-.testing-container{
+.line-container{
     flex: 5;
     height: 15px;
     position: relative;
@@ -60,7 +60,7 @@
     height: 50px;
 }
 
-.testing{
+.line{
     background-color: rgb(221, 221, 221);
     height: 10px;
     top: 0;
@@ -71,11 +71,11 @@
     border-top-left-radius: 5px; */
 }
 
-.testing1{
+.line1{
     width: 100%;
     position: absolute;
 }
-.testing2{
+.line2{
     position: absolute;
     /* width: 40%; */
     background-color: rgb(34, 34, 34);

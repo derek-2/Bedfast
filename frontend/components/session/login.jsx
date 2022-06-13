@@ -34,8 +34,6 @@ export default class LoginModal extends React.Component{
     })
     document.getElementById('login-modal').classList.toggle('hidden');
     document.getElementById('session-modal-container').classList.toggle('hidden');
-
-    // this.props.history.push('/');
   }
 
   render() {

@@ -31,10 +31,6 @@ const App = (props) => {
             <Route exact path='/listings/:listingId' component={ListingContainer}></Route>
             <Route exact path='/profile/:userId' component={ProfileContainer}></Route>
         </Switch>
-
-        {/* <Route exact path='/listings/show/:listingId' component={<ListingShowContainer />}></Route> */}
-            {/* <ListingShowContainer /> */}
-            {/* show page for a single listing */}
         
         <Footer />
         <div onClick={hideModal} id="session-modal-container" className="session-modal-container hidden"></div>

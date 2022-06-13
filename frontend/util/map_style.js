@@ -79,15 +79,6 @@ export const mapStyle = [
       ]
     },
     {
-      "featureType": "road.local",
-      "elementType": "labels",
-      "stylers": [
-        {
-          "visibility": "off"
-        }
-      ]
-    },
-    {
       "featureType": "transit",
       "stylers": [
         {

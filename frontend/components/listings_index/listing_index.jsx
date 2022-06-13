@@ -19,16 +19,13 @@ export default class ListingsIndex extends React.Component{
         
     componentDidUpdate(prevProps){
         if ((this.props.match.params.location !== prevProps.match.params.location) || (this.props.match.params.guests !== prevProps.match.params.guests)){
-            // console.log('hit update index');
             this.props.fetchListings(this.props.match.params.location, this.props.match.params.guests, this.props.clearListings())
             
         }
     }
 
     render(){
-        // console.log(this.props.listings);
         let message;
-        // console.log(this.props.match.params.location);
         const listingsLen = Object.values(this.props.listings).length;
         if (this.props.match.params.location && (listingsLen > 1 || listingsLen === 0)){
             message = `${listingsLen} stays in ${this.props.match.params.location}`;
@@ -53,7 +50,7 @@ export default class ListingsIndex extends React.Component{
                         {Object.values(this.props.listings).map(listing =>{ 
                         return <ListingIndexItem key={listing.id} listing={listing} fetchReviewsByListing={this.props.fetchReviewsByListing} reviews={this.props.reviews}/>} )}
                     </div>
-                    <Map match={this.props.match} listings={this.props.listings} />
+                    <Map match={this.props.match} type='listings index map' listings={this.props.listings} />
                 </div>
             )
         }
