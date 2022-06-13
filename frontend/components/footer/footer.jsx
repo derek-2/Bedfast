@@ -9,9 +9,9 @@ const Footer = () => {
                     <div></div>
                     <div></div>
                     <li className="footer-label footer-item">Links</li>
-                    <li className="footer-item"><a href="https://github.com/derek-2" className='profile-link'>Github</a></li>
-                    <li className="footer-item"><a href="https://www.linkedin.com/in/derek-lee-a43632152/" className='profile-link'>Linkedin</a></li>
-                    <li className="footer-item"><a href="https://angel.co/u/derek-lee-35" className='profile-link'>AngelList</a></li>
+                    <li className="footer-item"><a href="https://github.com/derek-2" className='profile-link' target='_blank'>Github</a></li>
+                    <li className="footer-item"><a href="https://www.linkedin.com/in/derek-lee-a43632152/" className='profile-link' target='_blank'>Linkedin</a></li>
+                    <li className="footer-item"><a href="https://angel.co/u/derek-lee-35" className='profile-link' target='_blank'>AngelList</a></li>
                 </ul>
             </div>
             <div className="real-footer">

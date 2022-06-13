@@ -12,7 +12,6 @@ export default class Map extends React.Component{
   componentDidMount() {
     if (this.props.type === 'listing map'){
       const {latitude, longitude} = this.props.listings[0];
-      console.log(latitude, longitude)
       this.generateMap({lat: latitude, lng: longitude});
     }
     else if (this.props.match.params.location){
