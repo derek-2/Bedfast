@@ -17,7 +17,7 @@ export default class HomePage extends React.Component{
                 <div className="homepage-stuff">
                     <p className="homepage-text">Inspiration for your next trip</p>
                     <ul className="inspiration-container">
-                        <Link to='/listings/search/NY/1'>
+                        <Link to='/listings/search/new york/1'>
                         <li className="individual-inspiration-container inspiration1">
                             <img className="inspiration-image" src={window.inspiration1} alt="inspiration1" /> 
                             <div className="inspiration-text">
@@ -26,7 +26,7 @@ export default class HomePage extends React.Component{
                             </div>
                         </li>
                         </Link>
-                        <Link to='/listings/search/LA/1'>
+                        <Link to='/listings/search/los angeles/1'>
                         <li className="individual-inspiration-container inspiration2">
                             <img className="inspiration-image" src={window.inspiration2} alt="inspiration2" />
                             <div className="inspiration-text">
@@ -35,7 +35,7 @@ export default class HomePage extends React.Component{
                             </div>
                         </li>
                         </Link>
-                        <Link to='/listings/search/ATX/1'>
+                        <Link to='/listings/search/austin/1'>
                         <li className="individual-inspiration-container inspiration3">
                             <img className="inspiration-image" src={window.inspiration3} alt="inspiration3" />
                             <div className="inspiration-text">
@@ -44,7 +44,7 @@ export default class HomePage extends React.Component{
                             </div>
                         </li>
                         </Link>
-                        <Link to='/listings/search/MIA/1'>
+                        <Link to='/listings/search/miami/1'>
                         <li className="individual-inspiration-container inspiration4">
                             <img className="inspiration-image" src={window.inspiration4} alt="inspiration4" />
                             <div className="inspiration-text">

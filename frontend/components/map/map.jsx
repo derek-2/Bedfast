@@ -59,7 +59,7 @@ export default class Map extends React.Component{
   generateMap(posObj){
     const mapOptions = {
       center: posObj,
-      zoom: 10,
+      zoom: 11,
       disableDefaultUI: true,
       zoomControl: true,
       styles: mapStyle,
