@@ -33,3 +33,4 @@ bundle.js.map
 npm-debug.log
 # Ignore application configuration
 /config/application.yml
+.env

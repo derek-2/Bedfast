@@ -39,6 +39,7 @@ export default class Map extends React.Component{
       if ((this.props.match.params.location !== prevProps.match.params.location) || (this.props.match.params.guests !== prevProps.match.params.guests) || (this.props.listings !== prevProps.listings) ){
         if (this.props.match.params.location){
           getPos(this.props.match.params.location).then(res => {
+            debugger;
             console.log(res)
             if (res.status === 'OK'){
               let center = {};
