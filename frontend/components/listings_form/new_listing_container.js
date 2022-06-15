@@ -1,6 +1,5 @@
 import {connect} from 'react-redux';
 import { createListing, fetchListings } from '../../actions/listing_actions';
-import { getPos } from '../../util/listings_api_util';
 import NewListingForm from './new_listing_form';
 
 const mapState = state => {
@@ -34,7 +33,6 @@ const mapState = state => {
 const mapDispatch = dispatch => ({
     submitForm: (listing) => dispatch(createListing(listing)),
     fetchAllListings: () => dispatch(fetchListings()),
-    getPos: location => getPos(location)
 })
 
 export default connect(mapState,mapDispatch)(NewListingForm);

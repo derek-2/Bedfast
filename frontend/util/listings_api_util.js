@@ -45,9 +45,3 @@ export const deleteListing = listingId => {
         url: `/api/listings/${listingId}`
     })
 }
-
-export const getPos = location => {
-    return $.ajax({
-        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyDOPbQDVa4fLipPbnkHrYmgC0XdCJgOiLc`
-    })
-}

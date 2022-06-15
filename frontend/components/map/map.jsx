@@ -1,7 +1,6 @@
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
 import {mapStyle} from '../../util/map_style';
-import { getPos } from '../../util/listings_api_util';
 
 export default class Map extends React.Component{
   constructor(props){
@@ -15,12 +14,12 @@ export default class Map extends React.Component{
       this.generateMap({lat: latitude, lng: longitude});
     }
     else if (this.props.match.params.location){
-      getPos(this.props.match.params.location).then(res => {
-        if (res.status === 'OK'){
-          let center = {};
-          center.lat = res.results[0].geometry.location.lat
-          center.lng = res.results[0].geometry.location.lng
-          this.generateMap(center);
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({address: this.props.match.params.location}, (results, status) => {
+        if (status === google.maps.GeocoderStatus.OK){
+          const lat = results[0].geometry.location.lat();
+          const lng = results[0].geometry.location.lng();
+          this.generateMap({lat, lng})
         } else {
           this.generateMap({lat: 40.688641, lng: -73.960258})
         }
@@ -38,18 +37,16 @@ export default class Map extends React.Component{
     else if (prevProps.match){ //check if we are navigating from the same url
       if ((this.props.match.params.location !== prevProps.match.params.location) || (this.props.match.params.guests !== prevProps.match.params.guests) || (this.props.listings !== prevProps.listings) ){
         if (this.props.match.params.location){
-          getPos(this.props.match.params.location).then(res => {
-            debugger;
-            console.log(res)
-            if (res.status === 'OK'){
-              let center = {};
-              center.lat = res.results[0].geometry.location.lat
-              center.lng = res.results[0].geometry.location.lng
-              this.generateMap(center);
+          const geocoder = new google.maps.Geocoder();
+          geocoder.geocode({address: this.props.match.params.location}, (results, status) => {
+            if (status === google.maps.GeocoderStatus.OK){
+              const lat = results[0].geometry.location.lat();
+              const lng = results[0].geometry.location.lng();
+              this.generateMap({lat, lng})
             } else {
               this.generateMap({lat: 40.688641, lng: -73.960258})
-      }
-    })
+            }
+          })
       } else {
         this.generateMap({lat: 40.688641, lng: -73.960258})
       }

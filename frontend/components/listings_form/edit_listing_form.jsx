@@ -30,36 +30,32 @@ export default class EditListingForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         const {address, city, state, zipcode} = this.state;
-            this.props.getPos(`${address} ${city} ${state} ${zipcode}`).then(res => {
-                if (res.status === 'OK'){
-                    const formData = new FormData();
-                    let position = {};
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({address: `${address} ${city} ${state} ${zipcode}`}, (results, status) => {
+            if (status === google.maps.GeocoderStatus.OK){
+                const formData = new FormData();
 
-                    position.latitude = res.results[0].geometry.location.lat;
-                    position.longitude = res.results[0].geometry.location.lng;
-                    formData.append('listing[id]', this.state.id);
-                    formData.append('listing[title]', this.state.title);
-                    formData.append('listing[description]', this.state.description);
-                    formData.append('listing[address]', this.state.address);
-                    formData.append('listing[host_id]', this.props.currentUser.id);
-                    formData.append('listing[city]', this.state.city);
-                    formData.append('listing[state]', this.state.state);
-                    formData.append('listing[zipcode]', this.state.zipcode);
-                    formData.append('listing[latitude]', position.latitude);
-                    formData.append('listing[longitude]', position.longitude);
-                    formData.append('listing[max_num_guests]', this.state.max_num_guests);
-                    formData.append('listing[num_beds]', this.state.num_beds);
-                    formData.append('listing[num_baths]', this.state.num_baths);
-                    formData.append('listing[price_per_night]', this.state.price_per_night);
+                formData.append('listing[id]', this.state.id);
+                formData.append('listing[title]', this.state.title);
+                formData.append('listing[description]', this.state.description);
+                formData.append('listing[address]', this.state.address);
+                formData.append('listing[host_id]', this.props.currentUser.id);
+                formData.append('listing[city]', this.state.city);
+                formData.append('listing[state]', this.state.state);
+                formData.append('listing[zipcode]', this.state.zipcode);
+                formData.append('listing[latitude]', results[0].geometry.location.lat());
+                formData.append('listing[longitude]', results[0].geometry.location.lng());
+                formData.append('listing[max_num_guests]', this.state.max_num_guests);
+                formData.append('listing[num_beds]', this.state.num_beds);
+                formData.append('listing[num_baths]', this.state.num_baths);
+                formData.append('listing[price_per_night]', this.state.price_per_night);
 
-                    this.props.submitForm(formData)
-                        .then(res => this.props.history.push(`/listings/${this.state.id}`));
-
+                this.props.submitForm(formData)
+                    .then(res => this.props.history.push(`/listings/${this.state.id}`));
             } else {
                 this.setState({errors: ['address not found']})
             }
         })
-
     }
 
     update(field){
@@ -125,48 +121,48 @@ export default class EditListingForm extends React.Component{
         if (this.state){
             const {title, description, address, city, state, zipcode, max_num_guests, num_beds, num_baths, price_per_night} = this.state;
             const {errors} = this.props;
-            const allErrors = errors.length>0 ? errors.map((err,idx) => <><p className='error-message' key={idx}>{err}</p></>) : null;
+            const allErrors = errors.length>0 ? errors.map((err,idx) => <p className='error-message' key={idx}>{err}</p>) : null;
             return (
                 <div id="listing-form-container" onSubmit={this.handleSubmit}>
-                        <form className='listing-form'>
-                            <label>Title
-                                <input type="text" value={title} placeholder='Name your listing' onChange={this.update('title')} />
+                    <form className='listing-form'>
+                        <label>Title
+                            <input type="text" value={title} placeholder='Name your listing' onChange={this.update('title')} />
+                        </label>
+                        <label>Description
+                            <textarea rows='3' value={description} placeholder='Give a short description of what you offer' onChange={this.update('description')} ></textarea>
+                        </label>
+                        <label>Address
+                            <input type="text" value={address} placeholder='e.g. 123 Blue Street' onChange={this.update('address')} />
+                        </label>
+                        <label>City
+                            <input type="text" value={city} placeholder='e.g. NY' onChange={this.update('city')} />
+                        </label>
+                        <label>State
+                            <select name='state' value={state} onChange={this.update('state')}>
+                            {options}
+                        </select>
+                        </label>
+                        <label>Zipcode
+                            <input type="text" value={zipcode} placeholder='e.g. 12345' onChange={this.update('zipcode')} />
+                        </label>
+                        <div className='listing-number-container'>
+                            <label className='some-labels'>Capacity
+                                <input value={max_num_guests} className='small-input-field' type="number" onChange={this.update('max_num_guests')} />
                             </label>
-                            <label>Description
-                                <textarea rows='3' value={description} placeholder='Give a short description of what you offer' onChange={this.update('description')} ></textarea>
+                            <label className='some-labels'> Beds
+                                <input value={num_beds} className='small-input-field' type="number" min="1" onChange={this.update('num_beds')} />
                             </label>
-                            <label>Address
-                                <input type="text" value={address} placeholder='e.g. 123 Blue Street' onChange={this.update('address')} />
+                            <label className='some-labels'>Baths
+                                <input value={num_baths} className='small-input-field' type="number" min="1" onChange={this.update('num_baths')} />
                             </label>
-                            <label>City
-                                <input type="text" value={city} placeholder='e.g. NY' onChange={this.update('city')} />
+                            <label className='some-labels'>Price per night
+                                <input value={price_per_night} className='small-input-field' type="number" min="1" onChange={this.update('price_per_night')} />
                             </label>
-                            <label>State
-                                <select name='state' value={state} onChange={this.update('state')}>
-                                {options}
-                            </select>
-                            </label>
-                            <label>Zipcode
-                                <input type="text" value={zipcode} placeholder='e.g. 12345' onChange={this.update('zipcode')} />
-                            </label>
-                            <div className='listing-number-container'>
-                                <label className='some-labels'>Capacity
-                                    <input value={max_num_guests} className='small-input-field' type="number" onChange={this.update('max_num_guests')} />
-                                </label>
-                                <label className='some-labels'> Beds
-                                    <input value={num_beds} className='small-input-field' type="number" min="1" onChange={this.update('num_beds')} />
-                                </label>
-                                <label className='some-labels'>Baths
-                                    <input value={num_baths} className='small-input-field' type="number" min="1" onChange={this.update('num_baths')} />
-                                </label>
-                                <label className='some-labels'>Price per night
-                                    <input value={price_per_night} className='small-input-field' type="number" min="1" onChange={this.update('price_per_night')} />
-                                </label>
-                            </div>
-                            {allErrors}
-                            <input type="submit" value={`${this.props.formType} Listing`} />
-                        </form>
-                    </div>
+                        </div>
+                        {allErrors}
+                        <input type="submit" value={`${this.props.formType} Listing`} />
+                    </form>
+                </div>
             )}
         else {
             return null;

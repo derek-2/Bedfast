@@ -18,42 +18,39 @@ export default class NewListing extends React.Component{
     handleSubmit(e){
         e.preventDefault();
             
-            const {address, city, state, zipcode} = this.state;
-            this.props.getPos(`${address} ${city} ${state} ${zipcode}`).then(res => {
-                if (res.status === 'OK'){
-                    const formData = new FormData();
-                    let position = {};
+        const {address, city, state, zipcode} = this.state;
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({address: `${address} ${city} ${state} ${zipcode}`}, (results, status) => {
+            if (status === google.maps.GeocoderStatus.OK){
+                const formData = new FormData();
 
-                    position.latitude = res.results[0].geometry.location.lat;
-                    position.longitude = res.results[0].geometry.location.lng;
+                formData.append('listing[id]', this.state.id);
+                formData.append('listing[title]', this.state.title);
+                formData.append('listing[description]', this.state.description);
+                formData.append('listing[address]', this.state.address);
+                formData.append('listing[host_id]', this.props.currentUser.id);
+                formData.append('listing[city]', this.state.city);
+                formData.append('listing[state]', this.state.state);
+                formData.append('listing[zipcode]', this.state.zipcode);
+                formData.append('listing[latitude]', results[0].geometry.location.lat());
+                formData.append('listing[longitude]', results[0].geometry.location.lng());
+                formData.append('listing[max_num_guests]', this.state.max_num_guests);
+                formData.append('listing[num_beds]', this.state.num_beds);
+                formData.append('listing[num_baths]', this.state.num_baths);
+                formData.append('listing[price_per_night]', this.state.price_per_night);
 
-                    formData.append('listing[title]', this.state.title);
-                    formData.append('listing[description]', this.state.description);
-                    formData.append('listing[address]', this.state.address);
-                    formData.append('listing[host_id]', this.props.currentUser.id);
-                    formData.append('listing[city]', this.state.city);
-                    formData.append('listing[state]', this.state.state);
-                    formData.append('listing[zipcode]', this.state.zipcode);
-                    formData.append('listing[latitude]', position.latitude);
-                    formData.append('listing[longitude]', position.longitude);
-                    formData.append('listing[max_num_guests]', this.state.max_num_guests);
-                    formData.append('listing[num_beds]', this.state.num_beds);
-                    formData.append('listing[num_baths]', this.state.num_baths);
-                    formData.append('listing[price_per_night]', this.state.price_per_night);
-            
-                    for (let i = 0; i < this.state.photos.length; i++) {
-                        formData.append("listing[photos][]", this.state.photos[i]);
-                    }
-            
-                    this.props.submitForm(formData)
-                        .then(res => this.props.history.push(`/listings/${res.listing.id}`));
+                for (let i = 0; i < this.state.photos.length; i++) {
+                    formData.append("listing[photos][]", this.state.photos[i]);
+                }
 
+                this.props.submitForm(formData)
+                    .then(res => {
+                        this.props.history.push(`/listings/${res.listing.id}`)
+                    });
             } else {
                 this.setState({errors: ['address not found']})
             }
         })
-
-        
     }
 
     update(field){
@@ -87,7 +84,7 @@ export default class NewListing extends React.Component{
             </div>) :
             <></>
         const {errors} = this.props;
-        const allErrors = errors.length>0 ? (errors.concat(this.state.errors)).map((err,idx) => <><p className='error-message' key={idx}>{err}</p></>) : null;
+        const allErrors = errors.length>0 ? (errors.concat(this.state.errors)).map((err,idx) => <p className='error-message' key={idx}>{err}</p>) : null;
         
         const options = (
             <>

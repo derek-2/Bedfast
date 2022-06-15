@@ -8,7 +8,6 @@ import Root from './components/root';
 // import {fetchUsers, fetchUser} from './actions/user_actions';
 // import * as BookingActions from './actions/booking_actions';
 // import * as ReviewActions from './actions/review_actions';
-import { getPos } from './util/listings_api_util';
 
 document.addEventListener('DOMContentLoaded', ()=> {
   const root = document.getElementById('root');
@@ -41,7 +40,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   // window.updateReview = ReviewActions.updateReview;
   // window.deleteReview = ReviewActions.deleteReview;
 
-  window.getPos = getPos;
 
   let preloadedState;
   if (window.currentUser) {
