@@ -3,7 +3,7 @@
 Check out the [Live Site](https://bedfast.herokuapp.com/)!
 
 ## Introduction
-Bedfast is a clone of AirBnB. AirBnB is an online platform for listing and renting homes. A user can create and login to their accounts, and have basic CRUD (create read update and delete) features for listings, bookings, and reviews.
+Bedfast is a clone of AirBnB, an online platform for listing and renting homes. A user can create and login to their accounts, and have basic CRUD (create read update and delete) features for listings, bookings, and reviews.
 
 Technologies used:
 - Languages: Javascript, Ruby, HTML, and CSS
