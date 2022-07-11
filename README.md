@@ -138,4 +138,5 @@ end
     - see their listings, bookings for each of their listings, bookings they reserved, and reviews they've created
     - edit their profile picture
 - Users can also access other profile pages through listings and reviews. When viewing another user profile page, it only shows their listings
+
 ![profile](https://user-images.githubusercontent.com/59910096/173416200-82487365-dae2-4cf6-9187-534e91340528.gif)
