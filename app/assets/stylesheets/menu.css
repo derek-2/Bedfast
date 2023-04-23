@@ -7,6 +7,8 @@
     border: 1px solid black;
     color: black;
     width: 100px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 0 transparent;
 }
 
 .top-right-menu li {
@@ -15,7 +17,7 @@
     border-radius: inherit;
 }
 .top-right-menu li:hover{
-    background-color:#f3f3f3;
+    box-shadow: 0 0 10px black;
 }
 
 .menu-button{
