@@ -1,6 +1,16 @@
 # Welcome to Bedfast
 
-Check out the [Live Site](https://bedfast.herokuapp.com/)!
+~Check out the [Live Site](https://bedfast.herokuapp.com/)!~
+
+Bedfast is no longer hosted on Heroku. This is built using Ruby 2.5.1 and Rails 5.2.3.
+
+To run the project locally:
+1. `cd Bedfast`
+2. `npm install`
+3. `bundle install`
+4. In `app/views/layouts/application.html.erb`, you need to get a free map api key from google https://developers.google.com/maps/documentation/javascript and replace `#{Rails.application.credentials.google[:MAPS_API_KEY]}` with the api key
+5. Run PostgreSQL
+6. open 2 terminals and in the root directory, run `rails s` and `npm run webpack`
 
 ## Introduction
 Bedfast is a clone of AirBnB, an online platform for listing and renting homes. A user can create and login to their accounts, and have basic CRUD (create read update and delete) features for listings, bookings, and reviews.
